@@ -1,5 +1,6 @@
 const API_ENDPOINT = 'http://localhost:3000'
 const SIGNIN_URL = `${API_ENDPOINT}/signin`
+//const SIGNUP_URL = `${API_ENDPOINT}/users`
 const VALIDATE_URL = `${API_ENDPOINT}/validate`
 const USERS_URL = `${API_ENDPOINT}/users`
 const EXHIBITIONS_URL=`${API_ENDPOINT}/exhibitions`
@@ -70,6 +71,23 @@ const signin = userDetails => {
     .catch(handleError) 
 }
 
+const signup = userDetails => {
+    return fetch(USERS_URL, {
+        method: 'POST',
+        headers: jsonHeaders(),
+        body: JSON.stringify({user: userDetails})
+    })
+
+    .then(handleServerResponse)
+    .then(userDetails=> {
+        if (userDetails.token) {
+            localStorage.setItem('token', userDetails.token)
+        }
+        return userDetails.user
+    })
+    .catch(handleError)
+}
+
 const validateUser = () => {
     return fetch(VALIDATE_URL, {
         method: 'POST',
@@ -106,6 +124,7 @@ const logout = () => {
 
 export default {
     signin,
+    signup,
     validateUser,
     logout,
     getUser,
