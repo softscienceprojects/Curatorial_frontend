@@ -1,27 +1,18 @@
 import React from 'react'
 //import API from '../adapters/API'
+import { Link } from 'react-router-dom'
+import UserDashboard from "./UserDashboard"
+import UserEditForm from "./UserEditForm"
 
-class Users extends React.Component {
-    // state= {
-    //     user: null
-    // }
-    
-    // componentDidMount() {
-    //     API.validateUser().then(user=> {
-    //       if (user.errors) {
-    //         console.error(user.errors)
-    //         this.props.history.push('/signin')
-    //       } else {
-    //         this.setState({user})
-    //       }
-    //     })
-    // }
+export default class Users extends React.Component {
+
  
     render() {
         return(
-            <div>USERS</div>
+            <div>
+                <nav><Link to="/users/:id/edit">edit your account</Link></nav>
+            </div>
         )
     }
 }
 
-export default Users
