@@ -3,10 +3,11 @@ import React from 'react';
 //<img src={logo} className="App-logo" alt="logo" />
 import './App.css';
 import './fonts/3A6A23_0_0.ttf'
-import { Route } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
 import { routes } from './config/routes'
 import NavBar from './components/NavBar'
 import API from './adapters/API';
+import Users from "./components/Users"
 
 const notFoundMessage = () => <h5>NOT FOUND</h5>
 
@@ -16,8 +17,8 @@ class App extends React.Component {
   }
 
   signin = user => {
-    this.setState({user}, () => this.props.history.push('/users'))
-  }
+    this.setState({user}, () => this.props.history.push(`/users/${user.id}`)
+  )}
 
   logout = () => {
     API.logout()
@@ -35,8 +36,6 @@ class App extends React.Component {
       }
     })
 }
-
-
 
   render() {
      return (
