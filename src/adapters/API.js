@@ -1,5 +1,5 @@
 const API_ENDPOINT = 'http://localhost:3000'
-const LOGIN_URL = `${API_ENDPOINT}/login`
+const SIGNIN_URL = `${API_ENDPOINT}/signin`
 const VALIDATE_URL = `${API_ENDPOINT}/validate`
 const USERS_URL = `${API_ENDPOINT}/users`
 const EXHIBITIONS_URL=`${API_ENDPOINT}/exhibitions`
@@ -54,8 +54,8 @@ const getUser = id => fetch(`${USERS_URL}/${id}`).then(handleServerResponse)
 const getArtworks = () => fetch(ARTWORKS_URL).then(handleServerResponse)
 const getArtwork = id => fetch(`${ARTWORKS_URL}/${id}`).then(handleServerResponse)
 
-const login = userDetails => {
-    fetch(LOGIN_URL, {
+const signin = userDetails => {
+    return fetch(SIGNIN_URL, {
         method: 'POST',
         headers: jsonHeaders(),
         body: JSON.stringify({user: userDetails})
@@ -71,7 +71,7 @@ const login = userDetails => {
 }
 
 const validateUser = () => {
-    fetch(VALIDATE_URL, {
+    return fetch(VALIDATE_URL, {
         method: 'POST',
         headers: authHeader()
     })
@@ -105,7 +105,7 @@ const logout = () => {
 
 
 export default {
-    login,
+    signin,
     validateUser,
     logout,
     getUser,
