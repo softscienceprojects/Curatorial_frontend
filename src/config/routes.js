@@ -13,8 +13,7 @@ export const routes = [
   {
     title: "Sign in",
     path: "/signin",
-    component: SignIn,
-    loggedOut: false
+    component: SignIn
   },
   {
     title: "Sign up",
