@@ -1,4 +1,5 @@
 import React from 'react'
+import UserEditForm from './UserEditForm'
 
 class UserDashboard extends React.Component {
 
@@ -6,6 +7,7 @@ class UserDashboard extends React.Component {
         return(
             <div>
                 User DASHBOARD
+                hello,  
             </div>
         )
     }
