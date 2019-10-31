@@ -1,5 +1,5 @@
 import React from 'react'
-import API from '../adapters/API'
+//import API from '../adapters/API'
 
 class SignUp extends React.Component {
     state = {
@@ -8,9 +8,9 @@ class SignUp extends React.Component {
         password_confirmation: ''
     }
 
-    handleInputChange = (name, value) => {
+    handleChange = (event) => {
         this.setState({
-            [name]: value
+            [event.target.name]: event.target.value
         })
     }
 
@@ -21,11 +21,11 @@ class SignUp extends React.Component {
     render() {
         return(
            <div><h4>Sign UP</h4>
-           <form>
-            <input type="email" placeholder="email" name="email" value={this.state.email} />
-            <input type="password" placeholder="password" name="password" value={this.state.password} />
-            <input type="password" placeholder="confirm your password" name="password_confirmation" value={this.state.password_confirmation} />
-            <input type="submit">join now</input>
+           <form onSubmit={this.handleSubmit}>
+            <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} />
+            <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} />
+            <input type="password" placeholder="confirm your password" name="password_confirmation" value={this.state.password_confirmation} onChange={this.handleChange} />
+            <input type="submit" value="join now" />
            </form>
            </div> 
         )
