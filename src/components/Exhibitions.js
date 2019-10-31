@@ -4,9 +4,10 @@ class Exhibitions extends React.Component {
 
     render() {
         return(
-            <div>EXHIBITIONS</div>
+            <ExhibitionNewForm />
         )
     }
 }
 
 export default Exhibitions
+
