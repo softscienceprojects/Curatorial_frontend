@@ -1,12 +1,18 @@
 const API_ENDPOINT = 'http://localhost:3000'
+
 const SIGNIN_URL = `${API_ENDPOINT}/signin`
 //const SIGNUP_URL = `${API_ENDPOINT}/users`
 const VALIDATE_URL = `${API_ENDPOINT}/validate`
 const USERS_URL = `${API_ENDPOINT}/users`
+
+
 const EXHIBITIONS_URL=`${API_ENDPOINT}/exhibitions`
 const ARTWORKS_URL=`${API_ENDPOINT}/artworks`
+const CONTENTS_URL=`${API_ENDPOINT}/contents`
+const SEARCH_URL=`${API_ENDPOINT}/search?description=`
 
 
+// HELPER METHODS /////////////////////
 const jsonHeaders = (more={}) => ({
     'Content-Type': 'application/json',
     Accept: 'application/json',
@@ -46,15 +52,37 @@ const handleServerResponse = res => {
     }
 }
 
-const getExhibitions = () => fetch(EXHIBITIONS_URL).then(handleServerResponse)
-const getExhibition = id => fetch(`${EXHIBITIONS_URL}/${id}`).then(handleServerResponse)
 
+// USER GOODNESS ////////////////////////////
 const getUsers = () => fetch(USERS_URL).then(handleServerResponse)
 const getUser = id => fetch(`${USERS_URL}/${id}`).then(handleServerResponse)
 
-const getArtworks = () => fetch(ARTWORKS_URL).then(handleServerResponse)
-const getArtwork = id => fetch(`${ARTWORKS_URL}/${id}`).then(handleServerResponse)
+  //FOLLOW OTHER USER, 
+  //UNFOLLOW OTHER USER
+  
 
+const updateUser = (userDetails, id) => {
+    return fetch(`${SIGNIN_URL}/${id}`, {
+        method: 'PATCH',
+        headers: jsonHeaders(),
+        body: JSON.stringify({user: userDetails})
+    })
+    .then(handleServerResponse)
+    .then(userDetails =>  userDetails.user)
+    .catch(handleError) 
+}
+
+const deleteUser = id => {
+    return fetch(`${SIGNIN_URL}/${id}`, {
+        method: 'DELETE'
+    })
+    .then(handleServerResponse)
+    .then(userDetails =>  userDetails.user)
+    .catch(handleError)
+}
+
+
+// & VALIDATION /////////////////////////////
 const signin = userDetails => {
     return fetch(SIGNIN_URL, {
         method: 'POST',
@@ -77,7 +105,6 @@ const signup = userDetails => {
         headers: jsonHeaders(),
         body: JSON.stringify({user: userDetails})
     })
-
     .then(handleServerResponse)
     .then(userDetails=> {
         if (userDetails.token) {
@@ -110,18 +137,50 @@ const logout = () => {
     localStorage.removeItem('token')
 }
 
+
+
+// ARTWORKS ////////////////////
+const getArtworks = () => fetch(ARTWORKS_URL).then(handleServerResponse)
+const getArtwork = id => fetch(`${ARTWORKS_URL}/${id}`).then(handleServerResponse)
+  //MAKE SEARCH REQUEST (GET SEARCH RESULTS)
+
+const search = (searchTerm) => {
+    return fetch(`${SEARCH_URL}${searchTerm}`)
+    .then(res=>res.json())
+}
+
+
+// EXHIBITIONS ////////////////
+const getExhibitions = () => fetch(EXHIBITIONS_URL).then(handleServerResponse)
+const getExhibition = id => fetch(`${EXHIBITIONS_URL}/${id}`).then(handleServerResponse)
+
+const newExhibition = (exhibitionDetails) => {
+    return fetch(EXHIBITIONS_URL, {
+        method: "POST",
+        headers: jsonHeaders(),
+        body: JSON.stringify({exhibition: exhibitionDetails})
+    }).then(handleServerResponse)
+}
+
+const editExhibition = (exhibitionDetails, id) => {
+    return fetch(`${EXHIBITIONS_URL}/${id}`, {
+        method: "PATCH",
+        headers: jsonHeaders(),
+        body: JSON.stringify({exhibition: exhibitionDetails})
+    }).then(handleServerResponse)
+}
+
+
 // WRITE POST EXHIBITION
 // OTHER ACTIONS TO TAKE?  
   //LIKE EXHIBITION, 
-  //UPDATE EHIBITION, 
-  //DELETE EXHIBITION
-  //FOLLOW OTHER USER, 
-  //UNFOLLOW OTHER USER
-  //UPDATE USER 
-  //DELETE USER
-  //MAKE SEARCH REQUEST (GET SEARCH RESULTS), 
 
 
+
+
+
+
+// EXPORT ////////////////////
 export default {
     signin,
     signup,
@@ -129,8 +188,13 @@ export default {
     logout,
     getUser,
     getUsers,
+    updateUser,
+    deleteUser,
     getExhibition,
     getExhibitions,
+    newExhibition,
+    editExhibition,
+    search,
     getArtwork,
     getArtworks
 }
