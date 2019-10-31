@@ -1,8 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { routes } from '../config/routes'
 
-function NavBar() {
+const NavBar = ({routes, user}) => {
     return (
-        <nav>Hello this is nav</nav>
+        <nav>
+            {routes.map(route=> (<Link key={route.path} to={route.path}>{route.title}</Link>))}
+            {user && <h1>{user.first_name}</h1>}
+        </nav>
     )
 }
 
