@@ -3,7 +3,8 @@ import API from '../adapters/API'
 
 class Search extends React.Component {
     state={
-        description: ''
+        searchTerm: '',
+        results: []
     }
 
     handleChange = event => {
@@ -14,15 +15,15 @@ class Search extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        API.search(this.state.description.toLowerCase())
-        .then(res=>console.log(res))
+        API.search(this.state.searchTerm.toLowerCase())
+        .then( results => this.setState({results: results["content"]["artworks"]}) )
     }
 
     render() {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="description" placeholder="search for anything" value={this.state.description} onChange={this.handleChange} />
+                    <input type="text" name="searchTerm" placeholder="search for anything" value={this.state.searchTerm} onChange={this.handleChange} />
                     <input type="submit" value="search" />
                 </form>
             </div>
