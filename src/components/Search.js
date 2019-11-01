@@ -1,5 +1,6 @@
 import React from 'react'
 import API from '../adapters/API'
+import SearchResults from './SearchResults'
 
 class Search extends React.Component {
     state={
@@ -32,6 +33,9 @@ class Search extends React.Component {
                     <input type="text" name="searchTerm" placeholder="search for anything" value={this.state.searchTerm} onChange={this.handleChange} />
                     <input type="submit" value="search" />
                 </form>
+
+            <SearchResults results={this.state.results} />
+                
             </div>
         )
     }
