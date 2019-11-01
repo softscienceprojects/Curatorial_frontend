@@ -1,7 +1,7 @@
 import React from 'react'
 import API from '../adapters/API'
 import ArtworkCard from './ArtworkCard'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 
 class Artworks extends React.Component {
     state={
