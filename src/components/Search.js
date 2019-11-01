@@ -13,10 +13,16 @@ class Search extends React.Component {
         })
     }
 
+    noResults = (error) => {
+        console.error(error)
+    }
+
     handleSubmit = event => {
         event.preventDefault();
+        
         API.search(this.state.searchTerm.toLowerCase())
         .then( results => this.setState({results: results["content"]["artworks"]}) )
+        .catch(error=> this.noResults(error))
     }
 
     render() {
