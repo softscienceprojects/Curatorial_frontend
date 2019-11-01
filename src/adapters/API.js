@@ -177,9 +177,6 @@ const editExhibition = (exhibitionDetails, id) => {
 
 
 
-
-
-
 // EXPORT ////////////////////
 export default {
     signin,
