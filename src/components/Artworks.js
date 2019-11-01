@@ -4,7 +4,7 @@ class Artworks extends React.Component {
 
     render() {
         return(
-            <div>Artworks</div>
+            <div>Artworks : Explore Page</div>
         )
     }
 }
