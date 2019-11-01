@@ -137,7 +137,6 @@ const logout = () => {
 const getArtworks = () => fetch(ARTWORKS_URL).then(handleServerResponse);
 const getArtwork = id =>
   fetch(`${ARTWORKS_URL}/${id}`).then(handleServerResponse)
-  .then(res=> console.log(res));
 //MAKE SEARCH REQUEST (GET SEARCH RESULTS)
 
 const search = searchTerm => {
