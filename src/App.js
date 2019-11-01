@@ -10,6 +10,7 @@ import API from "./adapters/API";
 
 import Home from "./components/Home";
 import Exhibitions from "./components/Exhibitions";
+import ExhibitionShow from "./components/ExhibitionShow";
 import Artworks from "./components/Artworks";
 import ArtworkShow from "./components/ArtworkShow"
 import Search from "./components/Search";
@@ -67,6 +68,11 @@ class App extends React.Component {
           exact
           path={paths.EXHIBITIONS}
           component={routerProps => <Exhibitions {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={`${paths.EXHIBITIONS}/:id`}
+          component={routerProps => <ExhibitionShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
         <Route
           exact
