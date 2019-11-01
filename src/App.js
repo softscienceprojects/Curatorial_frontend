@@ -18,6 +18,7 @@ import Search from "./components/Search";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Users from "./components/Users";
+import UserDashboard from "./components/UserDashboard";
 
 import Footer from "./components/Footer"
 
@@ -103,6 +104,11 @@ class App extends React.Component {
           exact
           path={paths.USERS}
           component={routerProps => <Users {...routerProps} user={this.state.user} logout={this.logout} />}
+        />
+       <Route
+          exact
+          path={`${paths.USERS}/:id`}
+          component={routerProps => <UserDashboard {...routerProps} user={this.state.user} logout={this.logout} />}
         />
         <Route
           exact
