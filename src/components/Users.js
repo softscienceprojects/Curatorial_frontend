@@ -1,17 +1,35 @@
 import React from 'react'
 //import API from '../adapters/API'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Switch, Route, useParams, useRouteMatch } from 'react-router-dom'
 import UserDashboard from "./UserDashboard"
 import UserEditForm from "./UserEditForm"
+import ExhibitionNewForm from './ExhibitionNewForm'
 
 export default class Users extends React.Component {
 
- 
+
     render() {
         return(
+            <Router>
             <div>
-                <nav><Link to="/users/:id/edit">edit your account</Link></nav>
+                <nav>
+                <Link to="users/edit">edit your account</Link>
+                <Link to="/exhibitions/new">Make a new exhibition</Link>
+                </nav>
+                <UserDashboard user={this.props.user}/>
+                <p></p>
             </div>
+
+            <Switch>
+
+                <Route path="/edit">
+                    <UserEditForm />
+                </Route>
+                <Route path="/exhibitions/new">
+                   <ExhibitionNewForm user={this.props.user} />
+                </Route>
+            </Switch>
+            </Router>
         )
     }
 }
