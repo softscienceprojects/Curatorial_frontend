@@ -147,6 +147,11 @@ const getArtwork = id => fetch(`${ARTWORKS_URL}/${id}`).then(handleServerRespons
 const search = (searchTerm) => {
     return fetch(`${SEARCH_URL}${searchTerm}`)
     .then(res=>res.json())
+    
+}
+
+const addArtToExhibition = (artwork_id, exhibition_id) => {
+   // return fetch(`${BASE_URL}/artwork_exhibitions`)
 }
 
 
