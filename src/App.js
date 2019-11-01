@@ -1,69 +1,121 @@
-import React from 'react';
+import React from "react";
 //import logo from './logo.svg';
 //<img src={logo} className="App-logo" alt="logo" />
-import './App.css';
-import './fonts/3A6A23_0_0.ttf'
-import { Router, Route, Switch } from 'react-router-dom'
-import { routes } from './config/routes'
-import NavBar from './components/NavBar'
-import API from './adapters/API';
-import Users from "./components/Users"
+import "./App.css";
+import "./fonts/3A6A23_0_0.ttf";
+import { Route, Switch } from "react-router-dom";
+import paths from "./config/paths";
+import NavBar from "./components/NavBar";
+import API from "./adapters/API";
 
-const notFoundMessage = () => <h5>NOT FOUND</h5>
+import Home from "./components/Home";
+import Exhibitions from "./components/Exhibitions";
+import Artworks from "./components/Artworks";
+import ArtworkShow from "./components/ArtworkShow"
+import Search from "./components/Search";
+
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
+import Users from "./components/Users";
+
+//const notFoundMessage = () => <h5>NOT FOUND</h5>
 
 class App extends React.Component {
-  state= {
-    user: null
-  }
+  state = {
+    user: null,
+    validating: true
+  };
 
   signin = user => {
-    this.setState({user}, () => this.props.history.push(`/users/${user.id}`)
-  )}
+    this.setState({ user }, () => this.props.history.push(`/users/${user.id}`));
+  };
 
   logout = () => {
-    API.logout()
-    this.setState({user: null})
-    this.props.history.push('/signin')
-  }
+    API.logout();
+    this.setState({ user: null });
+    this.props.history.push(paths.ROOT);
+  };
 
   componentDidMount() {
-    API.validateUser().then(user=> {
+    API.validateUser().then(user => {
+      this.setState({ validating: false });
       if (user.errors) {
-        console.error(user.errors)
-        this.props.history.push('/signin')
+        console.error(user.errors);
+        //this.props.history.push("/signin");
       } else {
-        this.setState({user})
+        this.setState({ user });
       }
-    })
-}
+    });
+  }       
 
   render() {
-     return (
+    if (this.state.validating) return <div className="loader">Curatorial</div>;
+    return (
       <div className="App">
-      <NavBar routes={routes} user={this.state.user} />
-        {routes.map(route => (
+           <NavBar user={this.state.user} />
+
+
+      <Switch>
+      <Route
+          exact
+          path={paths.ROOT}
+          component={routerProps => <Home {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={paths.EXHIBITIONS}
+          component={routerProps => <Exhibitions {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={paths.EXPLORE}
+          component={routerProps => <Artworks {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+        />
           <Route
-            key={route.path}
-            exact
-            path={route.path}
-            component={routerProps =>
-              route.component ? (
-                <route.component
-                  {...routerProps}
-                  signin={this.signin}
-                  logout={this.logout}
-                  user={this.state.user}
-                />
-              ) : (
-                notFoundMessage()
-              )
-            }
-          />
-        ))}
-    </div>
-      );
+          exact
+          path={`${paths.EXPLORE}/:id`}
+          component={routerProps => <ArtworkShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={paths.SEARCH}
+          component={routerProps => <Search {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={paths.SIGNIN}
+          component={routerProps => <SignIn {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={paths.SIGNUP}
+          component={routerProps => <SignUp {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={paths.USERS}
+          component={routerProps => <Users {...routerProps} user={this.state.user} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={paths.LOGOUT}
+          component={()=> this.logout()}
+        />
+      </Switch>
+      </div>
+    );
   }
- 
 }
+
+
+// path={route.path}
+//             component={routerProps =>
+//               route.component ? (
+//                 <route.component
+//                   {...routerProps}
+//                   signin={this.signin}
+//                   logout={this.logout}
+//                   user={this.state.user}
+//                 />
 
 export default App;
