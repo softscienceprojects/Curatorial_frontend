@@ -22,6 +22,10 @@ class ArtworkShow extends React.Component {
                 <p>{this.state.artwork.medium}</p>
                 <p>{this.state.artwork.description}</p>
                 <p>{this.state.artwork.collection} - {this.state.artwork.location}</p>
+            
+                Included in these shows:
+                <p>{this.state.artwork.exhibitions[0].title}</p>
+            
             </div>
 
         )
