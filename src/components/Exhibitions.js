@@ -17,16 +17,15 @@ class Exhibitions extends React.Component {
 
     render() {
         return(
-        <Router>
+            <div>Exhibitions
+        {/* <Router>
             <Switch>
-                <Route path="/">
-                    <ExhibitionShow />
+                <Route exact path="/:id" render={()=><ExhibitionShow /> }>
+                    
                 </Route>
-                <PrivateRoute path="/new">
-                    <ExhibitionNewForm />
-                </PrivateRoute>
             </Switch> 
-       </Router>
+       </Router> */}
+       </div>
         )
     }
 }
