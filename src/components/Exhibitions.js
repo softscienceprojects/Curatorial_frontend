@@ -4,7 +4,7 @@ class Exhibitions extends React.Component {
 
     render() {
         return(
-            <ExhibitionNewForm />
+        <div>This is exhibitions</div>
         )
     }
 }
