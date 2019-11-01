@@ -6,6 +6,7 @@ const NavBar = ({routes, user}) => {
     return (
         <nav>
             {routes.map(route=> (<Link key={route.path} to={route.path}>{route.title}</Link>))}
+            NAVBAR: {user ? <p>{user.first_name}</p> : null}
         </nav>
     )
 }
