@@ -52,6 +52,7 @@ class App extends React.Component {
                   {...routerProps}
                   signin={this.signin}
                   logout={this.logout}
+                  user={this.state.user}
                 />
               ) : (
                 notFoundMessage()
