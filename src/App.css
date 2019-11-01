@@ -1,9 +1,15 @@
 @font-face {
-  font-family: 'Quadrat';
-  src: local('Quadrat'), url(./fonts/3A6A23_0_0.ttf), format('ttf');
-  src: local('MyFont'), url(./fonts/3A6A23_0_0.woff) format('woff');
+  font-family: "Quadrat";
+  src: local("Quadrat"), url(./fonts/3A6A23_0_0.ttf), format("ttf");
+  src: local("MyFont"), url(./fonts/3A6A23_0_0.woff) format("woff");
 }
 
 h1#logo {
-  font-family: 'Quadrat', serif;
+  font-family: "Quadrat", serif;
+}
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+  background: pink;
 }
