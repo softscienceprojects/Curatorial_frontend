@@ -13,3 +13,10 @@ h1#logo {
   height: 100vh;
   background: pink;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  background-color: #271AC0;
+}

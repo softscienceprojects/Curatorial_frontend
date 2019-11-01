@@ -18,6 +18,8 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Users from "./components/Users";
 
+import Footer from "./components/Footer"
+
 //const notFoundMessage = () => <h5>NOT FOUND</h5>
 
 class App extends React.Component {
@@ -54,7 +56,7 @@ class App extends React.Component {
       <div className="App">
            <NavBar user={this.state.user} />
 
-
+      
       <Switch>
       <Route
           exact
@@ -102,6 +104,8 @@ class App extends React.Component {
           component={()=> this.logout()}
         />
       </Switch>
+
+      <Footer />
       </div>
     );
   }
