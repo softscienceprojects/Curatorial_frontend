@@ -1,9 +1,9 @@
 import React from 'react'
+import API from '../adapters/API'
 
 
 class ExhibitionNewForm extends React.Component {
     state ={
-        user_id: null,
         summary: '',
         description: '',
         public: true,
@@ -15,19 +15,27 @@ class ExhibitionNewForm extends React.Component {
         })
     }
 
-    handleSubmit = event => {
-        event.preventDefault();
-        // API.signin({email: this.state.email, password: this.state.password})
-        // .then(user=> this.props.signin(user))
+    makePublic = (event) => {
+        this.setState({
+            public: event.target.checked
+        })
     }
 
+    handleSubmit = event => {
+        event.preventDefault();
+        API.newExhibition({user_id: this.props.user.id, summary: this.state.summary, description: this.state.description, public: this.state.public})
+        .then(resp=> console.log(resp))
+    }
 
 
     render(){
         return(
             <div>
-                <form>
-                    <input type="text" value="this.state.summary" />
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" name="summary" value={this.state.summary} placeholder="summary" onChange={this.handleChange} />
+                    <input type="textfield" name="description" value={this.state.description} placeholder="description" onChange={this.handleChange} />
+                    <label>Make public?<input type="checkbox" name="summary" checked={this.state.public} onChange={this.makePublic} /></label>
+                    <input type="submit" value="submit" />
                 </form>
             </div>
         )
