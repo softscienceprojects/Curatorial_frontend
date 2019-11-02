@@ -15,7 +15,7 @@ class Artworks extends React.Component {
     render() {
         return(
             <div>Artworks : Explore Page
-                {this.state.artworks.map(artwork=> <ArtworkCard artwork={artwork}  />)}
+                {this.state.artworks.map(artwork=> <ArtworkCard artwork={artwork} key={artwork.id} />)}
             </div>
         )
     }
