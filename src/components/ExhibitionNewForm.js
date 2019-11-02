@@ -23,8 +23,13 @@ class ExhibitionNewForm extends React.Component {
         })
     }
 
-    updateOnClient = response => {
-        this.props.history.push(`/exhibitions/${response.id}`)
+    goToUpdatedExhibition = response => {
+        this.props.history.push(`/exhibitions/${response.id}`, {})
+    }
+
+    updateOnClient = resp => {
+        console.log(resp)
+        this.props.history.push(`${this.props.history.go(-1)}`)
     }
 
     handleSubmit = event => {
@@ -35,7 +40,7 @@ class ExhibitionNewForm extends React.Component {
         } else {
             API.editExhibition({user_id: this.props.user.id, title: this.state.title, summary: this.state.summary, description: this.state.description, public: this.state.public}, this.props.match.params.id)
             //.then(res=>console.log(res))
-            .then(resp=> this.updateOnClient(resp))
+            .then(resp=> this.goToUpdatedExhibition(resp))
         }
     }
 
