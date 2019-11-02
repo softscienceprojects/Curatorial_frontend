@@ -143,9 +143,13 @@ const search = searchTerm => {
   return fetch(`${SEARCH_URL}${searchTerm}`).then(res => res.json());
 };
 
-// const addArtToExhibition = (artwork_id, exhibition_id) => {
-//    // return fetch(`${BASE_URL}/artwork_exhibitions`)
-// }
+const addArtToExhibition = (artwork_id, exhibition_id) => {
+   return fetch(`${API_ENDPOINT}/artwork_exhibitions`, {
+    method: "POST",
+    headers: jsonHeaders(),
+    body:JSON.stringify({})
+  }).then(handleServerResponse)
+}
 
 // EXHIBITIONS ////////////////
 const getExhibitions = () => fetch(EXHIBITIONS_URL).then(handleServerResponse);
