@@ -1,5 +1,6 @@
 import React from 'react'
 import API from '../adapters/API'
+import { Link } from 'react-router-dom'
 
 class ArtworkShow extends React.Component {
     state ={
@@ -9,16 +10,12 @@ class ArtworkShow extends React.Component {
     
     componentDidMount() {
         API.getArtwork(this.props.match.params.id).then(response=> this.setState({artwork: response, validating: false}))
-        console.log("mounted")
-    }
-
-    componentWillUnmount() {
-        console.log("will unmount")
     }
 
 
     render() {
-        if (this.state.validating) return <div className="loader">Curatorial</div>;
+        if (this.state.artwork === null) return <div className="loader">Curatorial</div>;
+        if (this.state.artwork)
         return(
             <div>
                 Image will go here
@@ -29,11 +26,10 @@ class ArtworkShow extends React.Component {
                 <p>{this.state.artwork.collection} - {this.state.artwork.location}</p>
             
                 <h4>Included in these shows:</h4>
-
-                {/* handle no exhibitions otherwise it breaks */}
-                {/* {this.state.artworks.exhibitions !== [] ? <p>{this.state.artwork.exhibitions[0].title}</p> : null} */}
+                {this.state.artwork.exhibitions.length !== 0 ? this.state.artwork.exhibitions.map(exhibition => <p>{exhibition.title}</p>) : <p>This artwork has not yet appeared in any exhibitions</p>}
                 
                 <h4>Add to a show</h4> 
+
 
             </div>
 
