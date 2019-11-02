@@ -14,8 +14,7 @@ export default class Users extends React.Component {
             <Router>
             <div>
                 <nav>
-                <Link to="users/edit">edit your account</Link>
-                <Link to="/exhibitions/new">Make a new exhibition</Link>
+                {/* <Link to="users/edit">edit your account</Link> */}
                 </nav>
                 <UserDashboard user={this.props.user}/>
                 <p></p>
