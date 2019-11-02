@@ -79,8 +79,13 @@ class App extends React.Component {
         />
         <Route
           exact
-          path={`${paths.EXHIBITIONS}/:id`}
-          render={routerProps => <ExhibitionShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          path="/newexhibition"
+          render={routerProps => <ExhibitionNewForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={`${paths.EXHIBITIONS}/:id/edit`}
+          render={routerProps => <ExhibitionNewForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
         <Route
           exact
