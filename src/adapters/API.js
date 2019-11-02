@@ -67,7 +67,7 @@ const getUser = id => fetch(`${USERS_URL}/${id}`).then(handleServerResponse);
 
 const updateUser = (userDetails, id) => {
   return fetch(
-    `${SIGNIN_URL}/${id}`,
+    `${USERS_URL}/${id}`,
     fetchConfig("PATCH", { user: userDetails })
   )
     .then(handleServerResponse)
@@ -76,7 +76,7 @@ const updateUser = (userDetails, id) => {
 };
 
 const deleteUser = id => {
-  return fetch(`${SIGNIN_URL}/${id}`, fetchConfig("DELETE"))
+  return fetch(`${USERS_URL}/${id}`, fetchConfig("DELETE"))
     .then(handleServerResponse)
     .then(userDetails => userDetails.user)
     .catch(handleError);
