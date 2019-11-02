@@ -1,5 +1,6 @@
 import React from "react";
 import API from "../adapters/API"
+import { Link } from "react-router-dom"
  
 
 class AddToShow extends React.Component {
@@ -23,6 +24,8 @@ class AddToShow extends React.Component {
             alert("Please select a show")
         }
     }
+
+  
     
     //artwork included in that array? if included, filter it out
     //artwork.exhibitions.includes? (exh)
@@ -47,6 +50,7 @@ class AddToShow extends React.Component {
                 </select>
                 <input type="submit" value="Add to show" />
             </form>
+                <Link to={location=> ({...location, pathname: "/newexhibition"})}>Or, create new exhibition </Link>
             </>
         )
     }
