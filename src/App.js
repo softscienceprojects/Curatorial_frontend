@@ -21,6 +21,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Users from "./components/Users";
 import UserDashboard from "./components/UserDashboard";
+import UserEditForm from "./components/UserEditForm"
 
 import Footer from "./components/Footer"
 
@@ -121,7 +122,12 @@ class App extends React.Component {
        <Route
           exact
           path={`${paths.USERS}/:id`}
-          component={routerProps => <UserDashboard {...routerProps} user={this.state.user} logout={this.logout} />}
+          render={routerProps => <UserDashboard {...routerProps} user={this.state.user} logout={this.logout} />}
+        />
+        <Route
+          exact
+          path={`${paths.USERS}/:id/edit`}
+          render={routerProps => <UserEditForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
         <Route
           exact

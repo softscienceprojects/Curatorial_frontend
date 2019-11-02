@@ -1,5 +1,5 @@
 import React from 'react'
-
+import API from '../adapters/API'
 
 class UserEditForm extends React.Component {
     state ={
@@ -19,14 +19,38 @@ class UserEditForm extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        // API.signin({email: this.state.email, password: this.state.password})
-        // .then(user=> this.props.signin(user))
+        // API.updateUser({this.state}, this.props.user.id)
+        // .then(resp=> goToUpdatedAccount(resp))
+    }
+
+    goToUpdatedAccount = response => {
+        this.props.history.push(`/users/${response.id}`, {})
+    }
+
+    componentDidMount(){
+        // this.setState({
+        //     {this.props.user}
+        // })
     }
 
     render(){
         return(
             <div>
-                User Edit form
+                <h4>Edit your account</h4>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" name="first_name" value={this.state.first_name} placeholder="first name" onChange={this.handleChange} />
+                    <input type="text" name="last_name" value={this.state.last_name} placeholder="last name" onChange={this.handleChange} />
+                    <input type="text" name="biography" value={this.state.biography} placeholder="biography" onChange={this.handleChange} />
+                    
+                    <input type="email" name="email" value={this.state.email} placeholder="email" onChange={this.handleChange} />
+                    <input type="password" name="password" value={this.state.password} placeholder="password" onChange={this.handleChange} />
+                    <input type="password" name="password_confirmation" value={this.state.password_confirmation} placeholder="password confirmation" onChange={this.handleChange} />
+
+                    <input type="submit" value="submit" />
+                </form>
+
+                <h4>Delete your account</h4>
+                can't currently delete
             </div>
         )
     }
