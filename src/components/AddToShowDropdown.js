@@ -31,7 +31,6 @@ class AddToShow extends React.Component {
     }
 
     render() {
-        console.log(this.getUserExhibitions())
         const exhibitions = this.getUserExhibitions()
         return(
             <>
