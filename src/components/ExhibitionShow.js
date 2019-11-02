@@ -1,5 +1,6 @@
 import React from 'react'
 import API from '../adapters/API'
+import ArtworkCard from "./ArtworkCard"
 
 class ExhibitionShow extends React.Component {
 
@@ -19,6 +20,7 @@ class ExhibitionShow extends React.Component {
             <h4>{this.state.exhibition.summary}</h4>
 
             images here!
+            {this.state.exhibition.artworks.map(artwork => <ArtworkCard artwork={artwork}/>)}
             
             <h2>{this.state.exhibition.title}</h2>
             <h4>Curated by {this.state.exhibition.user.first_name}</h4>
