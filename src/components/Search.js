@@ -5,7 +5,7 @@ import SearchResults from './SearchResults'
 class Search extends React.Component {
     state={
         searchTerm: '',
-        results: []
+        //results: []
     }
 
     handleChange = event => {
@@ -16,6 +16,7 @@ class Search extends React.Component {
 
     noResults = (error) => {
         console.error(error)
+        this.setState({results: []})
     }
 
     handleSubmit = event => {
