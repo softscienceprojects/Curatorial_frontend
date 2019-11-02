@@ -27,7 +27,12 @@ class AddToShow extends React.Component {
     //artwork included in that array? if included, filter it out
     //artwork.exhibitions.includes? (exh)
     getUserExhibitions = () => {
-        return (this.props.user.exhibitions.filter(exh => this.props.artwork.exhibitions.find(artExh => artExh.id !== exh.id)))
+        if (this.props.artwork.exhibitions.length !== 0) {
+            return (this.props.user.exhibitions.filter(exh => this.props.artwork.exhibitions.find(artExh => artExh.id !== exh.id)))
+        }
+        else {
+            return this.props.user.exhibitions
+        }
     }
 
     render() {
