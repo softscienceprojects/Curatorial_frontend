@@ -7,7 +7,7 @@ const ArtworkCard = (props) => {
     return(
     
         <div>
-        <Link to={`explore/${props.artwork.id}`} key={props.artwork.id}>{props.artwork.title}</Link>
+        <Link to={{pathname: `/explore/${props.artwork.id}`}} key={props.artwork.id}>{props.artwork.title}</Link>
         {/* {props.artwork.description.map(description=> <p>description</p>)} */}
         
         
