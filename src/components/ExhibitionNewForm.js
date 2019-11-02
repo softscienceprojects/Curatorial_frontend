@@ -1,6 +1,5 @@
 import React from 'react'
 import API from '../adapters/API'
-import { Redirect } from 'react-router-dom'
 
 
 class ExhibitionNewForm extends React.Component {
@@ -34,7 +33,8 @@ class ExhibitionNewForm extends React.Component {
             API.newExhibition({user_id: this.props.user.id, title: this.state.title, summary: this.state.summary, description: this.state.description, public: this.state.public})
             .then(resp=> this.updateOnClient(resp)) 
         } else {
-            API.editExhibition({exhibition_id: this.props.match.params.id, user_id: this.props.user.id, title: this.state.title, summary: this.state.summary, description: this.state.description, public: this.state.public})
+            API.editExhibition({user_id: this.props.user.id, title: this.state.title, summary: this.state.summary, description: this.state.description, public: this.state.public}, this.props.match.params.id)
+            //.then(res=>console.log(res))
             .then(resp=> this.updateOnClient(resp))
         }
     }
