@@ -60,7 +60,6 @@ class ExhibitionNewForm extends React.Component {
 
     }
 
-
     render(){
         return(
             <div>
@@ -71,6 +70,7 @@ class ExhibitionNewForm extends React.Component {
                     <label>Make public?<input type="checkbox" name="summary" checked={this.state.public} onChange={this.makePublic} /></label>
                     <input type="submit" value="submit" />
                 </form>
+                
             </div>
         )
     }

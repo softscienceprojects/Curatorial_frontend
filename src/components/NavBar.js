@@ -12,7 +12,6 @@ const NavBar = ({ user }) => {
       {user && <Link to="/logout">Log out</Link>}
       {!user && <Link to="/signin">Sign in</Link>}
       {!user && <Link to="/signup">Sign up</Link>}
-      {user ? <p>{user.first_name}</p> : null}
     </nav>
   );
 };

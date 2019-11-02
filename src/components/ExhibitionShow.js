@@ -1,6 +1,7 @@
 import React from 'react'
 import API from '../adapters/API'
 import ArtworkCard from "./ArtworkCard"
+import { Link } from 'react-router-dom'
 
 class ExhibitionShow extends React.Component {
 
@@ -17,6 +18,8 @@ class ExhibitionShow extends React.Component {
         if (this.state.validating) return <div className="loader">Curatorial</div>;
         return(
         <div>
+            { this.props.user.id === this.state.exhibition.user.id ? <Link to={{pathname: `/exhibitions/${this.state.exhibition.id}/edit`}} >Edit this exhibition</Link> : null }
+
             <h4>{this.state.exhibition.summary}</h4>
 
             images here!
@@ -27,6 +30,7 @@ class ExhibitionShow extends React.Component {
             <p>{this.state.exhibition.description}</p>
 
             Like show stuff
+
         
         </div>
         )
