@@ -1,8 +1,5 @@
 import React from 'react'
 import API from '../adapters/API'
-import ExhibitionShow from './ExhibitionShow'
-import ExhibitionNewForm from './ExhibitionNewForm'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 class Exhibitions extends React.Component {
@@ -17,15 +14,7 @@ class Exhibitions extends React.Component {
 
     render() {
         return(
-            <div>Exhibitions
-        {/* <Router>
-            <Switch>
-                <Route exact path="/:id" render={()=><ExhibitionShow /> }>
-                    
-                </Route>
-            </Switch> 
-       </Router> */}
-       </div>
+            <div>Exhibitions</div>
         )
     }
 }
