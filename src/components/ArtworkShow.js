@@ -9,6 +9,11 @@ class ArtworkShow extends React.Component {
     
     componentDidMount() {
         API.getArtwork(this.props.match.params.id).then(response=> this.setState({artwork: response, validating: false}))
+        console.log("mounted")
+    }
+
+    componentWillUnmount() {
+        console.log("will unmount")
     }
 
 
@@ -23,11 +28,13 @@ class ArtworkShow extends React.Component {
                 <p>{this.state.artwork.description}</p>
                 <p>{this.state.artwork.collection} - {this.state.artwork.location}</p>
             
-                Included in these shows:
+                <h4>Included in these shows:</h4>
+
                 {/* handle no exhibitions otherwise it breaks */}
                 {/* {this.state.artworks.exhibitions !== [] ? <p>{this.state.artwork.exhibitions[0].title}</p> : null} */}
                 
-            
+                <h4>Add to a show</h4> 
+
             </div>
 
         )
