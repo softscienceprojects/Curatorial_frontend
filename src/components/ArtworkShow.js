@@ -1,6 +1,7 @@
 import React from 'react'
 import API from '../adapters/API'
 import { Link } from 'react-router-dom'
+import AddToShowDropdown from './AddToShowDropdown'
 
 class ArtworkShow extends React.Component {
     state ={
@@ -28,7 +29,8 @@ class ArtworkShow extends React.Component {
                 <h4>Included in these shows:</h4>
                 {this.state.artwork.exhibitions.length !== 0 ? this.state.artwork.exhibitions.map(exhibition => <p>{exhibition.title}</p>) : <p>This artwork has not yet appeared in any exhibitions</p>}
                 
-                <h4>Add to a show</h4> 
+                {this.props.user ? <AddToShowDropdown user={this.props.user} artwork={this.state.artwork} /> : null}
+                
 
 
             </div>
