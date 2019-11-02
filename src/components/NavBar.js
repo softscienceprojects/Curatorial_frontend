@@ -8,7 +8,7 @@ const NavBar = ({ user }) => {
       <Link to="/">Home</Link>
       <Link to="/explore">Explore</Link>
       <Link to="/search">Search</Link>
-      {user && <Link to="/users">Dashboard</Link>}
+      {user && <Link to={`/users/${user.id}`}>Dashboard</Link>}
       {user && <Link to="/logout">Log out</Link>}
       {!user && <Link to="/signin">Sign in</Link>}
       {!user && <Link to="/signup">Sign up</Link>}
