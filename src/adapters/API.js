@@ -147,7 +147,7 @@ const addArtToExhibition = (artwork_id, exhibition_id) => {
    return fetch(`${API_ENDPOINT}/artwork_exhibitions`, {
     method: "POST",
     headers: jsonHeaders(),
-    body:JSON.stringify({})
+    body:JSON.stringify({artwork_exhibition: {artwork_id: artwork_id, exhibition_id: exhibition_id}})
   }).then(handleServerResponse)
 }
 
@@ -190,6 +190,7 @@ export default {
   getExhibitions,
   newExhibition,
   editExhibition,
+  addArtToExhibition,
   search,
   getArtwork,
   getArtworks
