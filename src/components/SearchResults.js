@@ -7,8 +7,7 @@ class SearchResults extends React.Component {
         if (this.props.results === []) return <div>There's nothing here</div>;
         return(
             <div>
-                {this.props.results.map(artwork=> <ArtworkCard artwork={artwork}/> )}
-                
+                {this.props.results.map(artwork=> <ArtworkCard key={artwork.id} artwork={artwork}/> )}
             </div>
         )
     }
