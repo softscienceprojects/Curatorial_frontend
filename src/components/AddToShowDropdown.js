@@ -7,12 +7,6 @@ class AddToShow extends React.Component {
         exhibition: ''
     }
 
-    getUserExhibitions = () => {
-    const exhibitions = [
-        ...new Set(this.props.user.exhibitions.map(exh => exh.title))
-    ]
-    return exhibitions.sort();
-    }
 
     handleChange = event => {
         this.setState({
@@ -28,7 +22,15 @@ class AddToShow extends React.Component {
         } else {
             alert("Please select a show")
         }
-        
+    }
+
+
+    getUserExhibitions = (props) => {
+        return (this.props.user.exhibitions.map(exh => exh.id !== ))
+    }
+
+    removeIncludedExhibitions = (exh) => {
+        exh.filter()
     }
 
     render() {
