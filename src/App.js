@@ -95,7 +95,7 @@ class App extends React.Component {
           <Route
           exact
           path={`${paths.EXPLORE}/:id`}
-          component={routerProps => <ArtworkShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          render={routerProps => <ArtworkShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
         <Route
           exact
