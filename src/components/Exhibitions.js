@@ -3,7 +3,7 @@ import API from '../adapters/API'
 import ExhibitionShow from './ExhibitionShow'
 import ExhibitionNewForm from './ExhibitionNewForm'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import PrivateRoute from '../config/privateroute'
+
 
 class Exhibitions extends React.Component {
     state = {
