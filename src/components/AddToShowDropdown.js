@@ -23,24 +23,23 @@ class AddToShow extends React.Component {
             alert("Please select a show")
         }
     }
-
-
-    getUserExhibitions = (props) => {
-        return (this.props.user.exhibitions.map(exh => exh.id !== ))
-    }
-
-    removeIncludedExhibitions = (exh) => {
-        exh.filter()
+    
+    //artwork included in that array? if included, filter it out
+    //artwork.exhibitions.includes? (exh)
+    getUserExhibitions = () => {
+        return (this.props.user.exhibitions.filter(exh => !this.props.artwork.exhibitions.includes(exh)))
     }
 
     render() {
+        console.log(this.getUserExhibitions())
+        const exhibitions = this.getUserExhibitions()
         return(
             <>
             <h4>Add to a show</h4>
             <form onSubmit={this.handleSubmit}>
                 <select value={this.state.value} onChange={this.handleChange}>
                 <option value="">Select an Exhibition:</option>
-                {this.props.user.exhibitions.map(exh => <option value={exh.id} key={exh.id}>{exh.title}</option>)}
+                {exhibitions.map(exh => <option value={exh.id} key={exh.id}>{exh.title}</option>)}
                 </select>
                 <input type="submit" value="Add to show" />
             </form>

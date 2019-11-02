@@ -13,7 +13,6 @@ class ArtworkShow extends React.Component {
         API.getArtwork(this.props.match.params.id).then(response=> this.setState({artwork: response, validating: false}))
     }
 
-
     render() {
         if (this.state.artwork === null) return <div className="loader">Curatorial</div>;
         if (this.state.artwork)
