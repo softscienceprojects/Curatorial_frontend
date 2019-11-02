@@ -1,12 +1,13 @@
 import React from 'react'
 //import UserEditForm from './UserEditForm'
-import { Link } from 'react-router-dom'
+
+import ExhibitionCard from './ExhibitionCard';
 
 class UserDashboard extends React.Component {
 
     render(){
         if (this.props.user === null) return null; // loading, not auth'd
-
+        // this.props.history.push("/signin");
         // if this.props.match.params.id === this.props.user.id (this is you)
         return(
             <div>
@@ -21,7 +22,7 @@ class UserDashboard extends React.Component {
                 <h4>liked shows</h4>
 
                 <h4>curated shows</h4>
-                {this.props.user.exhibitions.map(exhibition=> <Link to={`exhibitions/${exhibition.id}`} key={exhibition.id}>{exhibition.title}</Link> )}
+                {this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> )}
                 <h4>feed</h4>
 
                 

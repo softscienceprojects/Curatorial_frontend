@@ -16,12 +16,9 @@ export default class Users extends React.Component {
                 <nav>
                 {/* <Link to="users/edit">edit your account</Link> */}
                 </nav>
-                <UserDashboard user={this.props.user}/>
-                <p></p>
             </div>
 
             <Switch>
-
                 <Route path="/edit">
                     <UserEditForm />
                 </Route>
