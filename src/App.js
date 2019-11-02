@@ -40,6 +40,7 @@ class App extends React.Component {
     API.logout();
     this.setState({ user: null });
     this.props.history.push(paths.ROOT);
+    return null
   };
 
   componentDidMount() {
