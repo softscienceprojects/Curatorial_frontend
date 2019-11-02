@@ -1,17 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 const NavBar = ({ user }) => {
   return (
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="/explore">Explore</Link>
-      <Link to="/search">Search</Link>
-      {user && <Link to={`/users/${user.id}`}>Dashboard</Link>}
-      {user && <Link to="/logout">Log out</Link>}
-      {!user && <Link to="/signin">Sign in</Link>}
-      {!user && <Link to="/signup">Sign up</Link>}
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/explore">Explore</NavLink>
+      <NavLink to="/search">Search</NavLink>
+      {user && <NavLink to={`/users/${user.id}`}>Dashboard</NavLink>}
+      {user && <NavLink to="/logout">Log out</NavLink>}
+      {!user && <NavLink to="/signin">Sign in</NavLink>}
+      {!user && <NavLink to="/signup">Sign up</NavLink>}
     </nav>
   );
 };
