@@ -1,5 +1,6 @@
 import React from 'react'
 import API from '../adapters/API'
+import { deleteToConfirm } from './DeleteOptions'
 
 
 class ExhibitionNewForm extends React.Component {
@@ -9,6 +10,7 @@ class ExhibitionNewForm extends React.Component {
         summary: '',
         description: '',
         public: true,
+        flashMessage: ''
     }
 
     handleChange= (event) => {
@@ -29,6 +31,7 @@ class ExhibitionNewForm extends React.Component {
 
     updateOnClient = resp => {
         console.log(resp)
+        //this pushes back to artwork but doesn't get the newly created exhibition
         this.props.history.push(`${this.props.history.go(-1)}`)
     }
 
@@ -39,7 +42,6 @@ class ExhibitionNewForm extends React.Component {
             .then(resp=> this.updateOnClient(resp)) 
         } else {
             API.editExhibition({user_id: this.props.user.id, title: this.state.title, summary: this.state.summary, description: this.state.description, public: this.state.public}, this.props.match.params.id)
-            //.then(res=>console.log(res))
             .then(resp=> this.goToUpdatedExhibition(resp))
         }
     }
@@ -57,7 +59,6 @@ class ExhibitionNewForm extends React.Component {
                 })
             )
         } 
-
     }
 
     render(){
@@ -70,7 +71,8 @@ class ExhibitionNewForm extends React.Component {
                     <label>Make public?<input type="checkbox" name="summary" checked={this.state.public} onChange={this.makePublic} /></label>
                     <input type="submit" value="submit" />
                 </form>
-                
+
+               {this.props.match.path.match(/(edit)/) ? <button onClick={()=>deleteToConfirm()}>Delete Exhibition</button> : null}
             </div>
         )
     }
