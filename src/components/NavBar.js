@@ -6,7 +6,6 @@ const NavBar = ({ user }) => {
   return (
     <nav>
       <Link to="/">Home</Link>
-      <Link to="/exhibitions">Exhibitions</Link>
       <Link to="/explore">Explore</Link>
       <Link to="/search">Search</Link>
       {user && <Link to="/users">Dashboard</Link>}
