@@ -1,9 +1,15 @@
 import React from 'react'
 //import UserEditForm from './UserEditForm'
+import { Link } from 'react-router-dom'
 
 import ExhibitionCard from './ExhibitionCard';
 
 class UserDashboard extends React.Component {
+
+    componentDidMount() {
+        
+    }
+
 
     render(){
         if (this.props.user === null) return null; // loading, not auth'd
@@ -12,7 +18,8 @@ class UserDashboard extends React.Component {
         return(
             <div>
                 User DASHBOARD
-                <br />user specific navigation
+                <br />
+                {this.props.match.params.id == this.props.user.id ? userDashboardOptions(this.props.user) : null }
 
                <h4> {this.props.user.first_name}</h4>
                 <p>followers/following</p>
@@ -33,3 +40,14 @@ class UserDashboard extends React.Component {
 }
 
 export default UserDashboard
+
+// If it's you who is logged in:
+
+const userDashboardOptions = (props) => {
+    
+    return(
+        <nav>
+            <Link to={{pathname: `/users/${props.id}/edit`}}>Edit your account</Link>
+        </nav>
+    )
+}
