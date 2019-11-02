@@ -1,5 +1,6 @@
 import React from 'react'
 //import UserEditForm from './UserEditForm'
+import { Link } from 'react-router-dom'
 
 class UserDashboard extends React.Component {
 
@@ -20,7 +21,7 @@ class UserDashboard extends React.Component {
                 <h4>liked shows</h4>
 
                 <h4>curated shows</h4>
-                {this.props.user.exhibitions.map(exhibition=> <p>exhibibition.title</p> )}
+                {this.props.user.exhibitions.map(exhibition=> <Link to={`exhibitions/${exhibition.id}`} key={exhibition.id}>{exhibition.title}</Link> )}
                 <h4>feed</h4>
 
                 
