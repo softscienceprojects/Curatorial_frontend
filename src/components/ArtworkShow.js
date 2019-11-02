@@ -1,7 +1,7 @@
 import React from 'react'
 import API from '../adapters/API'
-import { Link } from 'react-router-dom'
 import AddToShowDropdown from './AddToShowDropdown'
+import ExhibitionCard from './ExhibitionCard'
 
 class ArtworkShow extends React.Component {
     state ={
@@ -18,6 +18,8 @@ class ArtworkShow extends React.Component {
         if (this.state.artwork)
         return(
             <div>
+                {this.state.artwork.contents.map(content=> content.description )}
+                <br />
                 Image will go here
                 <h2>{this.state.artwork.title}</h2>
                 <h4>by {this.state.artwork.artist}</h4>
@@ -26,7 +28,7 @@ class ArtworkShow extends React.Component {
                 <p>{this.state.artwork.collection} - {this.state.artwork.location}</p>
             
                 <h4>Included in these shows:</h4>
-                {this.state.artwork.exhibitions.length !== 0 ? this.state.artwork.exhibitions.map(exhibition => <p>{exhibition.title}</p>) : <p>This artwork has not yet appeared in any exhibitions</p>}
+                {this.state.artwork.exhibitions.length !== 0 ? this.state.artwork.exhibitions.map(exhibition => <ExhibitionCard exhibition={exhibition}/>) : <p>This artwork has not yet appeared in any exhibitions</p>}
                 
                 {this.props.user ? <AddToShowDropdown user={this.props.user} artwork={this.state.artwork} /> : null}
                 
