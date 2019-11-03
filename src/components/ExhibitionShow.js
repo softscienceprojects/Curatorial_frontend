@@ -2,6 +2,7 @@ import React from 'react'
 import API from '../adapters/API'
 import ArtworkCard from "./ArtworkCard"
 import { Link } from 'react-router-dom'
+import LikeUnlikeExhibition from './LikeUnlikeExhibition'
 
 class ExhibitionShow extends React.Component {
 
@@ -14,6 +15,7 @@ class ExhibitionShow extends React.Component {
         API.getExhibition(this.props.match.params.id).then(response=> this.setState({exhibition: response, validating: false}))
     }
 
+
     render() {
         if (this.state.validating) return <div className="loader">Curatorial</div>;
         return(
@@ -22,16 +24,17 @@ class ExhibitionShow extends React.Component {
 
             <h4>{this.state.exhibition.summary}</h4>
 
-            {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => <ArtworkCard key={artwork.id} artwork={artwork}/>) : "Currently no artworks"}
+            {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => <ArtworkCard key={artwork.title} artwork={artwork}/>) : "Currently no artworks"}
             
             
             <h2>{this.state.exhibition.title}</h2>
             <h4>Curated by {this.state.exhibition.user.first_name}</h4>
             <p>{this.state.exhibition.description}</p>
 
-            Like show stuff
+            
+            <h4>{this.state.exhibition.exhibition_likes.length} {this.state.exhibition.exhibition_likes.length === 0 || this.state.exhibition.exhibition_likes.length > 1 ? "Curators like this exhibition" : "Curator likes this exhibition"}</h4>
 
-        
+            {this.props.user ? <LikeUnlikeExhibition user={this.props.user} exhibition_id={this.state.exhibition.id}/> : "Loading..."}
         </div>
         )
     }
