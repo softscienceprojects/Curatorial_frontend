@@ -6,7 +6,8 @@ import ExhibitionCard from './ExhibitionCard'
 class ArtworkShow extends React.Component {
     state ={
         artwork: null,
-        validating: true
+        validating: true, 
+        message: ''
     }
     
     componentDidMount() {
@@ -30,8 +31,7 @@ class ArtworkShow extends React.Component {
                 <h4>Included in these shows:</h4>
                 {this.state.artwork.exhibitions.length !== 0 ? this.state.artwork.exhibitions.map(exhibition => <ExhibitionCard exhibition={exhibition}/>) : <p>This artwork has not yet appeared in any exhibitions</p>}
                 
-                {this.props.user ? <AddToShowDropdown user={this.props.user} artwork={this.state.artwork} /> : null}
-                
+                {this.props.user ? <AddToShowDropdown user={this.props.user} key={this.state.artwork.title} artwork={this.state.artwork} /> : null}
 
 
             </div>

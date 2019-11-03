@@ -18,7 +18,7 @@ class AddToShow extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         if (this.state.exhibition !== "") {
-        API.addArtToExhibition(this.state.exhibition, this.props.artwork.id)
+        API.addArtToExhibition(this.props.artwork.id, this.state.exhibition)
         .then(res=>console.log(res))
         } else {
             alert("Please select a show")
