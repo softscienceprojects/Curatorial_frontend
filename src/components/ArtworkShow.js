@@ -2,6 +2,7 @@ import React from 'react'
 import API from '../adapters/API'
 import AddToShowDropdown from './AddToShowDropdown'
 import ExhibitionCard from './ExhibitionCard'
+import { Link } from 'react-router-dom'
 
 class ArtworkShow extends React.Component {
     state ={
@@ -31,7 +32,7 @@ class ArtworkShow extends React.Component {
                 <h4>Included in these shows:</h4>
                 {this.state.artwork.exhibitions.length !== 0 ? this.state.artwork.exhibitions.map(exhibition => <ExhibitionCard exhibition={exhibition}/>) : <p>This artwork has not yet appeared in any exhibitions</p>}
                 
-                {this.props.user ? <AddToShowDropdown user={this.props.user} key={this.state.artwork.title} artwork={this.state.artwork} /> : null}
+                {this.props.user ? <AddToShowDropdown user={this.props.user} key={this.state.artwork.title} artwork={this.state.artwork} /> : <Link to={location=> ({...location, pathname: "/signin"})}>Sign in to save</Link>}
 
 
             </div>
