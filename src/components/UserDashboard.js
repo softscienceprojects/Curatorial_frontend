@@ -19,7 +19,7 @@ class UserDashboard extends React.Component {
             <div>
                 User DASHBOARD
                 <br />
-                {this.props.match.params.id == this.props.user.id ? userDashboardOptions(this.props.user) : null }
+                {JSON.stringify(this.props.match.params.id) === JSON.stringify(this.props.user.id) ? userDashboardOptions(this.props.user) : null }
 
                <h4> {this.props.user.first_name}</h4>
                 <p>followers/following</p>

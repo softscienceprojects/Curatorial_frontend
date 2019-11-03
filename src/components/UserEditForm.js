@@ -19,19 +19,21 @@ class UserEditForm extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        // API.updateUser({this.state}, this.props.user.id)
-        // .then(resp=> goToUpdatedAccount(resp))
+        API.updateUser({
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            password: this.state.password,
+            password_confirmation: this.state.password_confirmation,
+            biography: this.state.biography
+        }, this.props.user.id)
+        .then(resp=> this.goToUpdatedAccount(resp))
     }
 
     goToUpdatedAccount = response => {
-        this.props.history.push(`/users/${response.id}`, {})
+        this.props.history.push(`/users/${response.id}`)
     }
 
-    componentDidMount(){
-        // this.setState({
-        //     {this.props.user}
-        // })
-    }
 
     render(){
         return(
@@ -50,7 +52,7 @@ class UserEditForm extends React.Component {
                 </form>
 
                 <h4>Delete your account</h4>
-                can't currently delete
+                
             </div>
         )
     }
