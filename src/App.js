@@ -24,17 +24,21 @@ import UserDashboard from "./components/UserDashboard";
 import UserEditForm from "./components/UserEditForm"
 
 import Footer from "./components/Footer"
-
-//const notFoundMessage = () => <h5>NOT FOUND</h5>
+import ErrorBoundary from "./components/ErrorBoundary";
 
 class App extends React.Component {
   state = {
     user: null,
-    validating: true
+    validating: true, 
+    hasError: false
   };
 
   signin = user => {
-    this.setState({ user }, () => this.props.history.push(`/users/${user.id}`));
+    try {
+      this.setState({ user }, () => this.props.history.push(`/users/${user.id}`));
+    } catch(error) {
+      this.props.history.push("/signup")
+    }
   };
 
   logout = () => {
@@ -48,7 +52,7 @@ class App extends React.Component {
     API.validateUser().then(user => {
       this.setState({ validating: false });
       if (user.errors) {
-        console.error(user.errors);
+        //console.error(user.errors);
         //this.props.history.push("/signin");
       } else {
         this.setState({ user });
@@ -56,13 +60,16 @@ class App extends React.Component {
     });
   }       
 
+
   render() {
     if (this.state.validating) return <div className="loader">Curatorial</div>;
     return (
       <div className="App">
+        <ErrorBoundary>
            <NavBar user={this.state.user} />
+           {!!this.state.hasError ? "There's an error" : null}
 
-      
+      {!this.state.user ? "Sign in for the best experience" : "go to your homepage"}
       <Switch>
       <Route
           exact
@@ -137,6 +144,7 @@ class App extends React.Component {
       </Switch>
 
       <Footer />
+      </ErrorBoundary>
       </div>
     );
   }
