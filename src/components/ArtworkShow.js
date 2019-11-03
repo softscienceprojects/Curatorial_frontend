@@ -15,6 +15,17 @@ class ArtworkShow extends React.Component {
         API.getArtwork(this.props.match.params.id).then(response=> this.setState({artwork: response, validating: false}))
     }
 
+    addToExhibitionMap = (response) => {
+        console.log(response)
+        //use this when you have added the artwork to the show
+        this.setState({
+            artwork: {
+                ...this.state.artwork,
+                exhibitions: [...this.state.artwork.exhibitions, response.exhibition],
+            }
+        })
+    }
+
     render() {
         if (this.state.artwork === null) return <div className="loader">Curatorial</div>;
         if (this.state.artwork)
@@ -30,9 +41,9 @@ class ArtworkShow extends React.Component {
                 <p>{this.state.artwork.collection} - {this.state.artwork.location}</p>
             
                 <h4>Included in these shows:</h4>
-                {this.state.artwork.exhibitions.length !== 0 ? this.state.artwork.exhibitions.map(exhibition => <ExhibitionCard exhibition={exhibition}/>) : <p>This artwork has not yet appeared in any exhibitions</p>}
+                {this.state.artwork.exhibitions.length !== 0 ? this.state.artwork.exhibitions.map(exhibition => <ExhibitionCard key={exhibition.title} exhibition={exhibition}/>) : <p>This artwork has not yet appeared in any exhibitions</p>}
                 
-                {this.props.user ? <AddToShowDropdown user={this.props.user} key={this.state.artwork.title} artwork={this.state.artwork} /> : <Link to={location=> ({...location, pathname: "/signin"})}>Sign in to save</Link>}
+                {this.props.user ? <AddToShowDropdown user={this.props.user} key={this.state.artwork.title} artwork={this.state.artwork} addToExhibitionMap={this.addToExhibitionMap} /> : <Link to={location=> ({...location, pathname: "/signin"})}>Sign in to save</Link>}
 
 
             </div>
