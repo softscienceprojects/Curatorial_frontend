@@ -181,7 +181,7 @@ const deleteExhibition = (id) => {
 
 
 const likeExhibition = (exhibition_id, user_id) => {
-  return fetch(EXHIBITIONS_URL, {
+  return fetch(`${API_ENDPOINT}/${exhibition_likes}`, {
     method: "POST",
     headers: jsonHeaders(),
     body: JSON.stringify({ exhibition_id: exhibition_id, user_id: user_id})
@@ -189,7 +189,7 @@ const likeExhibition = (exhibition_id, user_id) => {
 }
 
 const unlikeExhibition = id => {
-  return fetch(`${EXHIBITIONS_URL}/${id}`, {
+  return fetch(`${API_ENDPOINT}/${exhibition_likes}/${id}`, {
     method: "DELETE",
   }).then(handleServerResponse);
 }
