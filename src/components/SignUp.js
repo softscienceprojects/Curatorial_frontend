@@ -6,7 +6,8 @@ class SignUp extends React.Component {
     state = {
         email: '',
         password: '',
-        password_confirmation: ''
+        password_confirmation: '',
+        hasError: false
     }
 
     handleChange = (event) => {
@@ -21,6 +22,7 @@ class SignUp extends React.Component {
         .then(user=> this.props.signin(user))
     }
 
+
     render() {
         return(
            <div><h4>Sign UP</h4>
@@ -33,6 +35,7 @@ class SignUp extends React.Component {
 
            <h4>Already have an account?</h4>
             <Link to={location=> ({...location, pathname: "/signin"})} >Sign in instead</Link>
+            {!!this.state.hasError ? "There's an error" : null}
            </div> 
         )
     }
