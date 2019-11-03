@@ -22,7 +22,7 @@ class ExhibitionShow extends React.Component {
 
             <h4>{this.state.exhibition.summary}</h4>
 
-            {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => <ArtworkCard artwork={artwork}/>) : "Currently no artworks"}
+            {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => <ArtworkCard key={artwork.id} artwork={artwork}/>) : "Currently no artworks"}
             
             
             <h2>{this.state.exhibition.title}</h2>
