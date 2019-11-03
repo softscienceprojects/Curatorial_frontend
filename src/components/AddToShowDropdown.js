@@ -1,17 +1,19 @@
 import React from "react";
 import API from "../adapters/API"
 import { Link } from "react-router-dom"
- 
+import ExhibitionNewForm from "./ExhibitionNewForm";
+import { isEqual } from 'lodash'
 
 class AddToShow extends React.Component {
     state = {
-        exhibition: ''
+        exhibition: '',
     }
 
 
     handleChange = event => {
         this.setState({
-            exhibition: event.target.value
+            exhibition: event.target.value,
+            selection: event.target.name
         })
     }
 
@@ -19,23 +21,29 @@ class AddToShow extends React.Component {
         event.preventDefault();
         if (this.state.exhibition !== "") {
         API.addArtToExhibition(this.props.artwork.id, this.state.exhibition)
-        .then(res=>console.log(res))
+        .then((resp)=> this.props.addToExhibitionMap(resp))
         } else {
             alert("Please select a show")
         }
     }
 
-  
-    
+
     //artwork included in that array? if included, filter it out
     //artwork.exhibitions.includes? (exh)
     getUserExhibitions = () => {
         if (this.props.artwork.exhibitions.length !== 0) {
-            return (this.props.user.exhibitions.filter(exh => this.props.artwork.exhibitions.find(artExh => artExh.id !== exh.id)))
+           // return (this.props.user.exhibitions.filter(exh => this.props.artwork.exhibitions.map(ex => JSON.stringify(ex) === JSON.stringify(exh)))
+            // return (this.props.user.exhibitions.filter(exh => this.props.artwork.exhibitions.find(artExh => artExh.id !== exh.id)))
+           return (this.props.user.exhibitions)
+
         }
         else {
             return this.props.user.exhibitions
         }
+    }
+
+    updateUserExhibitions = () => {
+
     }
 
     render() {
@@ -50,7 +58,10 @@ class AddToShow extends React.Component {
                 </select>
                 <input type="submit" value="Add to show" />
             </form>
-                <Link to={location=> ({...location, pathname: "/newexhibition"})}>Or, create new exhibition </Link>
+                {/* <Link to={location=> ({...location, pathname: "/newexhibition"})}>Or, create new exhibition </Link> */}
+
+                <h4>Or, add to a show</h4>
+                {/* <ExhibitionNewForm addToExhibitionMap={this.props.addToExhibitionMap} /> */}
             </>
         )
     }

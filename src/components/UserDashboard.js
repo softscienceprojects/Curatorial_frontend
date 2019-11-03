@@ -3,11 +3,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import ExhibitionCard from './ExhibitionCard';
+import UserEditForm from './UserEditForm';
 
 class UserDashboard extends React.Component {
 
+    state = {
+
+    }
+
     componentDidMount() {
-        
+        if (this.props.user) {
+            console.log(this.props.user)
+        }
     }
 
 
@@ -20,6 +27,8 @@ class UserDashboard extends React.Component {
                 User DASHBOARD
                 <br />
                 {JSON.stringify(this.props.match.params.id) === JSON.stringify(this.props.user.id) ? userDashboardOptions(this.props.user) : null }
+
+                <UserEditForm user={this.props.user} />
 
                <h4> {this.props.user.first_name}</h4>
                 <p>followers/following</p>
@@ -36,7 +45,6 @@ class UserDashboard extends React.Component {
             </div>
         )
     }
-
 }
 
 export default UserDashboard

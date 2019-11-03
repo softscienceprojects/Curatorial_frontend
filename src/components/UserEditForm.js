@@ -3,12 +3,7 @@ import API from '../adapters/API'
 
 class UserEditForm extends React.Component {
     state ={
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
-        biography: ''
+   
     }
 
     handleChange= (event) => {
@@ -19,14 +14,8 @@ class UserEditForm extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        API.updateUser({
-            first_name: this.state.first_name,
-            last_name: this.state.last_name,
-            email: this.state.email,
-            password: this.state.password,
-            password_confirmation: this.state.password_confirmation,
-            biography: this.state.biography
-        }, this.props.user.id)
+        API.updateUser(
+            {user: this.state}, this.props.user.id)
         .then(resp=> this.goToUpdatedAccount(resp))
     }
 
@@ -43,15 +32,14 @@ class UserEditForm extends React.Component {
                     <input type="text" name="first_name" value={this.state.first_name} placeholder="first name" onChange={this.handleChange} />
                     <input type="text" name="last_name" value={this.state.last_name} placeholder="last name" onChange={this.handleChange} />
                     <input type="text" name="biography" value={this.state.biography} placeholder="biography" onChange={this.handleChange} />
-                    
+{/*                     
                     <input type="email" name="email" value={this.state.email} placeholder="email" onChange={this.handleChange} />
                     <input type="password" name="password" value={this.state.password} placeholder="password" onChange={this.handleChange} />
-                    <input type="password" name="password_confirmation" value={this.state.password_confirmation} placeholder="password confirmation" onChange={this.handleChange} />
+                    <input type="password" name="password_confirmation" value={this.state.password_confirmation} placeholder="password confirmation" onChange={this.handleChange} /> */}
 
                     <input type="submit" value="submit" />
                 </form>
 
-                <h4>Delete your account</h4>
                 
             </div>
         )

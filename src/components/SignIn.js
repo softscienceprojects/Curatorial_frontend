@@ -20,6 +20,8 @@ class SignIn extends React.Component {
         .then(user=> this.props.signin(user))
     }
 
+  
+
     render() {
         return(
             <div><h1>SignIn Form</h1>
