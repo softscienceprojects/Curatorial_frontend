@@ -1,5 +1,6 @@
 import React from 'react'
 import API from '../adapters/API'
+import { Link } from 'react-router-dom'
 
 class SignIn extends React.Component {
     state={
@@ -27,6 +28,8 @@ class SignIn extends React.Component {
                 <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} />
                 <input type="submit" value="Sign In" />
             </form>
+            <h4>No account?</h4>
+            <Link to={location=> ({...location, pathname: "/signup"})} >Sign up now</Link>
             </div>
         )
     }
