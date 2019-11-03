@@ -10,6 +10,7 @@ const ARTWORKS_URL = `${API_ENDPOINT}/artworks`;
 //const CONTENTS_URL=`${API_ENDPOINT}/contents`
 const SEARCH_URL = `${API_ENDPOINT}/search?description=`;
 
+
 // HELPER METHODS /////////////////////
 const jsonHeaders = (more = {}) => ({
   "Content-Type": "application/json",
@@ -31,6 +32,7 @@ const fetchConfig = (method = "GET", body) => {
 };
 
 const handleError = () => {
+  debugger;
   console.error("you've reached the handle error message");
 };
 
@@ -45,6 +47,8 @@ const handleServerResponse = res => {
     });
   } else if (res.status === 503) {
     return { code: 503 };
+  } else if (res.status === 406) {
+    return { code: 406, error: "Not acceptable" };
   } else if (res.status === 500) {
     return { code: 500, error: "Something went wrong" };
   } else {
@@ -66,13 +70,11 @@ const getUser = id => fetch(`${USERS_URL}/${id}`).then(handleServerResponse);
 //UNFOLLOW OTHER USER
 
 const updateUser = (userDetails, id) => {
-  return fetch(
-    `${USERS_URL}/${id}`,
-    fetchConfig("PATCH", { user: userDetails })
-  )
-    .then(handleServerResponse)
-    .then(userDetails => userDetails.user)
-    .catch(handleError);
+  return fetch(`${USERS_URL}/${id}`, {
+    method: "PATCH",
+    headers: jsonHeaders(),
+    body: JSON.stringify(userDetails)
+  }).then(handleServerResponse);
 };
 
 const deleteUser = id => {
