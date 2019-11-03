@@ -1,6 +1,6 @@
 import React from 'react'
 import API from '../adapters/API'
-import { deleteToConfirm } from './DeleteOptions'
+// import { deleteToConfirm } from './DeleteOptions'
 
 
 class ExhibitionNewForm extends React.Component {
@@ -46,6 +46,12 @@ class ExhibitionNewForm extends React.Component {
         }
     }
 
+    deleteToConfirm = () => {
+        API.deleteExhibition(this.state.exhibition_id)
+        .then(response=> this.props.history.push(`/users/${response.id}`))
+
+    }
+
     componentDidMount() {
         if (this.props.match.path.match(/(edit)/)) {
             API.getExhibition(this.props.match.params.id)
@@ -72,7 +78,7 @@ class ExhibitionNewForm extends React.Component {
                     <input type="submit" value="submit" />
                 </form>
 
-               {this.props.match.path.match(/(edit)/) ? <button onClick={()=>deleteToConfirm()}>Delete Exhibition</button> : null}
+               {this.props.match.path.match(/(edit)/) ? <button onClick={()=>this.deleteToConfirm()}>Delete Exhibition</button> : null}
             </div>
         )
     }
