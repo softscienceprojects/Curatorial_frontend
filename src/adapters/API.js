@@ -172,6 +172,28 @@ const editExhibition = (exhibitionDetails, id) => {
   }).then(handleServerResponse);
 };
 
+
+const deleteExhibition = (id) => {
+  return fetch(`${EXHIBITIONS_URL}/${id}`, {
+    method: "DELETE",
+  }).then(handleServerResponse);
+};
+
+
+const likeExhibition = (exhibition_id, user_id) => {
+  return fetch(EXHIBITIONS_URL, {
+    method: "POST",
+    headers: jsonHeaders(),
+    body: JSON.stringify({ exhibition_id: exhibition_id, user_id: user_id})
+  }).then(handleServerResponse);
+}
+
+const unlikeExhibition = id => {
+  return fetch(`${EXHIBITIONS_URL}/${id}`, {
+    method: "DELETE",
+  }).then(handleServerResponse);
+}
+
 // WRITE POST EXHIBITION
 // OTHER ACTIONS TO TAKE?
 //LIKE EXHIBITION,
@@ -190,6 +212,9 @@ export default {
   getExhibitions,
   newExhibition,
   editExhibition,
+  deleteExhibition,
+  likeExhibition,
+  unlikeExhibition,
   addArtToExhibition,
   search,
   getArtwork,
