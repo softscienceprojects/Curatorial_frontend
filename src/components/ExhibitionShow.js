@@ -16,7 +16,15 @@ class ExhibitionShow extends React.Component {
         API.getExhibition(this.props.match.params.id).then(response=> this.setState({exhibition: response, validating: false}))
     }
 
-  
+    removeArtworkFromExhibition = artExhId => {
+        API.removeArtFromExhibition(artExhId)
+        .then(response => this.setState({
+            exhibition: {
+            ...this.state.exhibition,
+            artworks: this.state.exhibition.artworks.filter(artwork => artwork.id !== response.artwork.id)}
+        }))
+      }
+
 
     render() {
         if (this.state.validating) return <LoadingComponent />;
@@ -29,7 +37,14 @@ class ExhibitionShow extends React.Component {
 
             <h4>{this.state.exhibition.summary}</h4>
 
-            {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => <><ArtworkCard key={artwork.title} artwork={artwork} /><RemoveArtworkButton user={this.props.user} artwork={artwork.id} exhibition={this.state.exhibition}/></> ) : "Currently no artworks"}
+            {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => 
+            <><ArtworkCard key={artwork.title} artwork={artwork} />
+            <RemoveArtworkButton user={this.props.user} 
+            key={artwork.id} 
+            artwork={artwork}
+            exhibition={this.state.exhibition}
+            removeArtworkFromExhibition={this.removeArtworkFromExhibition}
+            /></> ) : "Currently no artworks"}
             
             
             <h2>{this.state.exhibition.title}</h2>
@@ -54,9 +69,10 @@ class ExhibitionShow extends React.Component {
 export default ExhibitionShow
 
 const RemoveArtworkButton = (props) => {
+    let artwork_exhibition_id = props.artwork.artwork_exhibitions.find(art => art.exhibition_id === props.exhibition.id)
     if (props.user && props.user.id === props.exhibition.user.id) {
        return(
-        <button >Remove button</button>
+        <button onClick={()=>props.removeArtworkFromExhibition(artwork_exhibition_id.id)}>Remove Artwork</button>
      ) 
     } else {
         return null
