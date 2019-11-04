@@ -4,18 +4,34 @@
   src: local("MyFont"), url(./fonts/3A6A23_0_0.woff) format("woff");
 }
 
+.App {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
 h1#logo {
   font-family: "Quadrat", serif;
+}
+
+span.tag {
+  border: 1px solid blue;
+}
+
+img.responsive {
+  min-width: 95%;
+  max-width: 95%;
+  /* for media queries... */
+  /* max-width: 50rem; */
 }
 
 .loader {
   width: 100vw;
   height: 100vh;
-  background: pink;
+  background: #ddd;
 }
 
 footer {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   color: #fff;
   background-color: #271AC0;

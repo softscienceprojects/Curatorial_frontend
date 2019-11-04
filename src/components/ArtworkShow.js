@@ -25,14 +25,16 @@ class ArtworkShow extends React.Component {
         })
     }
 
+
     render() {
         if (this.state.artwork === null) return <div className="loader">Curatorial</div>;
         if (this.state.artwork)
         return(
             <div>
-                {this.state.artwork.contents.map(content=> content.description )}
+                <p>{this.state.artwork.contents.map(content=> <span className="tag">{content.description} </span> )}</p>
                 <br />
-                Image will go here
+                {/* Image will go here */}
+                <img src={this.state.artwork.image_url} alt={this.state.artwork.title} className="responsive" />
                 <h2>{this.state.artwork.title}</h2>
                 <h4>by {this.state.artwork.artist}</h4>
                 <p>{this.state.artwork.medium}</p>
