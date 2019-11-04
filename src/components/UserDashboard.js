@@ -1,9 +1,8 @@
 import React from 'react'
-//import UserEditForm from './UserEditForm'
 import { Link } from 'react-router-dom'
-
+//import UserEditForm from './UserEditForm'
 import ExhibitionCard from './ExhibitionCard';
-import UserEditForm from './UserEditForm';
+
 
 class UserDashboard extends React.Component {
     state = {
@@ -41,8 +40,8 @@ class UserDashboard extends React.Component {
                 <p>{this.props.user.biography}</p>
 
                 {/* Exhibition likes currently doesn't have link to exhibition from user */}
-                {/* <h4>liked shows</h4>
-                {this.props.user.exhibition_likes.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> )} */}
+                <h4>liked shows</h4>
+                {this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> )}
 
                 <h4>curated shows</h4>
                 {this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> )}
