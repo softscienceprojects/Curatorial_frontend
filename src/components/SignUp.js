@@ -27,9 +27,9 @@ class SignUp extends React.Component {
         return(
            <div><h4>Sign UP</h4>
            <form onSubmit={this.submitForm}>
-            <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} />
-            <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} />
-            <input type="password" placeholder="confirm your password" name="password_confirmation" value={this.state.password_confirmation} onChange={this.handleChange} />
+            <label>Email: <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} /></label>
+            <label>Password: <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} /></label>
+            <label>Password confirmation: <input type="password" placeholder="confirm your password" name="password_confirmation" value={this.state.password_confirmation} onChange={this.handleChange} /></label>
             <input type="submit" value="join now" />
            </form>
 
