@@ -7,21 +7,31 @@ class LikeUnlikeExhibition extends React.Component {
     state = {
         exhibition_id: '',
         user_id: '',
+        liked_id: '',
         liked: ''
     }
 
     FindUserLike = (exhibition_likes, exhibitionId) => {
         let found = exhibition_likes.find(exh => exh.exhibition_id === exhibitionId)
-        if (!!found) return found.id
-        else return false
+        if (!!found) {
+            this.setState({
+                liked: true,
+                liked_id: found.id
+            })
+        }
+        else { 
+            this.setState({
+            liked: false
+            })
+        }
     }
     
     postLike = (exhibitionId, userId) => {
         API.likeExhibition(exhibitionId, userId)
-        .then(r=>this.setState({
-            liked: r.id
-        }))
         .then(r=> this.props.addALike(r))
+        .then(r=>this.setState({
+            liked: true
+        }))
     }
     
     postUnlike = (id) => {
@@ -31,11 +41,10 @@ class LikeUnlikeExhibition extends React.Component {
     }
 
     componentDidMount() {
-        let lookup = this.FindUserLike(this.props.user.exhibition_likes, this.props.exhibition_id)
+        this.FindUserLike(this.props.user.exhibition_likes, this.props.exhibition_id)
         this.setState({
             exhibition_id: this.props.exhibition_id,
             user_id: this.props.user.id,
-            liked: lookup
         })
     }
 
@@ -44,7 +53,7 @@ class LikeUnlikeExhibition extends React.Component {
         <>
         Like or unlike this exhibition
         {!!this.state.liked 
-        ? <button onClick={() => this.postUnlike(this.state.liked)}>Unlike this exhibition</button> 
+        ? <button onClick={() => this.postUnlike(this.state.liked_id)}>Unlike this exhibition</button> 
         : <button onClick={()=> this.postLike({exhibition_id: this.state.exhibition_id, user_id: this.state.user_id})}>Like this exhibition</button> }
         </>
     )
