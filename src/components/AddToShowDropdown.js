@@ -30,8 +30,6 @@ class AddToShow extends React.Component {
     //artwork.exhibitions.includes? (exh)
     getUserExhibitions = () => {
         if (this.props.artwork.exhibitions.length !== 0) {
-           // return (this.props.user.exhibitions.filter(exh => this.props.artwork.exhibitions.map(ex => JSON.stringify(ex) === JSON.stringify(exh)))
-            // return (this.props.user.exhibitions.filter(exh => this.props.artwork.exhibitions.find(artExh => artExh.id !== exh.id)))
            return this.props.user.exhibitions.filter(exh=> this.getArtworkCurrentExhibitions(exh))
         }
         else {
@@ -56,8 +54,6 @@ class AddToShow extends React.Component {
                 </select>
                 <input type="submit" value="Add to show" />
             </form>
-                {/* <Link to={location=> ({...location, pathname: "/newexhibition"})}>Or, create new exhibition </Link> */}
-
                 <h4><Link to={location=> ({...location, pathname: "/newexhibition"})} addToExhibitionMap={this.props.addToExhibitionMap}>Or, create new exhibition </Link></h4>
             </>
         )
