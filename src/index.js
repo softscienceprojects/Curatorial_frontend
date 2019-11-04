@@ -5,12 +5,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Router, Route } from 'react-router-dom'
 import { createBrowserHistory } from "history"
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const curatorialHistory = createBrowserHistory();
 
 ReactDOM.render(
     <Router history={curatorialHistory} >
+     <ErrorBoundary>
         <Route path="/" component={routerProps=> <App {...routerProps} />} />
+    </ErrorBoundary>
     </Router>, 
 document.getElementById('root'));
 
