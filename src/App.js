@@ -23,8 +23,8 @@ import Users from "./components/Users";
 import UserDashboard from "./components/UserDashboard";
 import UserEditForm from "./components/UserEditForm"
 
-import Footer from "./components/Footer"
-import ErrorBoundary from "./components/ErrorBoundary";
+//import Footer from "./components/Footer"
+//import ErrorBoundary from "./components/ErrorBoundary";
 
 class App extends React.Component {
   state = {
@@ -74,10 +74,9 @@ class App extends React.Component {
     if (this.state.validating) return <div className="loader">Curatorial</div>;
     return (
       <div className="App">
-        <ErrorBoundary>
+   
            <NavBar user={this.state.user} />
            {!!this.state.hasError ? "There's an error" : null}
-        </ErrorBoundary>
         
       <Switch>
       <Route
