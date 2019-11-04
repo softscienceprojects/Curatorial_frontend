@@ -77,8 +77,8 @@ class App extends React.Component {
         <ErrorBoundary>
            <NavBar user={this.state.user} />
            {!!this.state.hasError ? "There's an error" : null}
-
-      {!this.state.user ? "Sign in for the best experience" : "go to your homepage"}
+        </ErrorBoundary>
+        
       <Switch>
       <Route
           exact
@@ -153,7 +153,7 @@ class App extends React.Component {
       </Switch>
 
       <Footer />
-      </ErrorBoundary>
+     
       </div>
     );
   }
