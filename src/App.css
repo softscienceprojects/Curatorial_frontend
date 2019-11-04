@@ -9,6 +9,10 @@
   flex-wrap: wrap;
 }
 
+nav {
+  position: sticky;
+}
+
 h1#logo {
   font-family: "Quadrat", serif;
 }
