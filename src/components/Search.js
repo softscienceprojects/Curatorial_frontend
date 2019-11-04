@@ -23,7 +23,9 @@ class Search extends React.Component {
         event.preventDefault();
         
         API.search(this.state.searchTerm.toLowerCase())
-        .then( results => this.setState({results: results["content"]["artworks"]}) )
+        .then( results => this.setState({
+            searchTerm: "", 
+            results: results["content"]["artworks"]}) )
         .catch(error=> this.noResults(error))
     }
 
