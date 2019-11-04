@@ -6,6 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import { Router, Route } from 'react-router-dom'
 import { createBrowserHistory } from "history"
 import ErrorBoundary from "./components/ErrorBoundary";
+import paths from "./config/paths";
+import Search from "./components/Search";
+
 
 const curatorialHistory = createBrowserHistory();
 
@@ -13,6 +16,11 @@ ReactDOM.render(
     <Router history={curatorialHistory} >
      <ErrorBoundary>
         <Route path="/" component={routerProps=> <App {...routerProps} />} />
+        <Route
+          exact
+          path={paths.SEARCH}
+          component={routerProps => <Search {...routerProps} />}
+        />
     </ErrorBoundary>
     </Router>, 
 document.getElementById('root'));
