@@ -1,8 +1,7 @@
 import React from "react";
 import API from "../adapters/API"
 import { Link } from "react-router-dom"
-import ExhibitionNewForm from "./ExhibitionNewForm";
-import { isEqual } from 'lodash'
+//import ExhibitionNewForm from "./ExhibitionNewForm";
 
 class AddToShow extends React.Component {
     state = {
@@ -13,7 +12,6 @@ class AddToShow extends React.Component {
     handleChange = event => {
         this.setState({
             exhibition: event.target.value,
-            selection: event.target.name
         })
     }
 
@@ -42,9 +40,6 @@ class AddToShow extends React.Component {
         }
     }
 
-    updateUserExhibitions = () => {
-
-    }
 
     render() {
         const exhibitions = this.getUserExhibitions()
@@ -60,8 +55,7 @@ class AddToShow extends React.Component {
             </form>
                 {/* <Link to={location=> ({...location, pathname: "/newexhibition"})}>Or, create new exhibition </Link> */}
 
-                <h4>Or, add to a show</h4>
-                {/* <ExhibitionNewForm addToExhibitionMap={this.props.addToExhibitionMap} /> */}
+                <h4><Link to={location=> ({...location, pathname: "/newexhibition"})} addToExhibitionMap={this.props.addToExhibitionMap}>Or, create new exhibition </Link></h4>
             </>
         )
     }

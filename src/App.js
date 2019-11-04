@@ -60,6 +60,15 @@ class App extends React.Component {
     });
   }       
 
+  userCreatedNewExhibition = (response) => {
+    this.setState({
+      user: {
+        ...this.state.user,
+        exhibitions: [...this.state.user.exhibitions, response],
+    }
+    })
+  }
+
 
   render() {
     if (this.state.validating) return <div className="loader">Curatorial</div>;
@@ -89,7 +98,7 @@ class App extends React.Component {
         <Route
           exact
           path="/newexhibition"
-          render={routerProps => <ExhibitionNewForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          render={routerProps => <ExhibitionNewForm {...routerProps} userCreatedNewExhibition={this.userCreatedNewExhibition} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
         <Route
           exact

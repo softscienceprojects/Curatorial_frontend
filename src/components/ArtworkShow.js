@@ -16,7 +16,6 @@ class ArtworkShow extends React.Component {
     }
 
     addToExhibitionMap = (response) => {
-        console.log(response)
         //use this when you have added the artwork to the show
         this.setState({
             artwork: {

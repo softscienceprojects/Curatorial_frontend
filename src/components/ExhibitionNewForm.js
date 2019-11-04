@@ -30,8 +30,8 @@ class ExhibitionNewForm extends React.Component {
     }
 
     updateOnClient = resp => {
-        console.log(resp)
         //this pushes back to artwork but doesn't get the newly created exhibition
+        this.props.userCreatedNewExhibition(resp)
         this.props.history.push(`${this.props.history.go(-1)}`)
     }
 
