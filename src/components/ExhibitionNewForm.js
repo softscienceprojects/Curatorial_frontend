@@ -48,8 +48,13 @@ class ExhibitionNewForm extends React.Component {
 
     deleteToConfirm = () => {
         API.deleteExhibition(this.state.exhibition_id)
-        .then(response=> this.props.history.push(`/users/${response.id}`))
+        // .then(response=> this.props.history.push(`/users/${response.id}`))
+        .then(response=> this.deleteOnClient(response))
+    }
 
+    deleteOnClient = response => {
+        this.props.removeExhibitionsFromUser(response)
+        this.props.history.push(`/users/${response.id}`)
     }
 
     componentDidMount() {
