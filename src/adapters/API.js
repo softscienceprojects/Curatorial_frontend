@@ -153,6 +153,11 @@ const addArtToExhibition = (artwork_id, exhibition_id) => {
   }).then(handleServerResponse)
 }
 
+const removeArtFromExhibition = (join_id) => {
+  return fetch(`${API_ENDPOINT}/artwork_exhibitions/${join_id}`,{
+  method: "DELETE"}).then(handleServerResponse)
+}
+
 // EXHIBITIONS ////////////////
 const getExhibitions = () => fetch(EXHIBITIONS_URL).then(handleServerResponse);
 const getExhibition = id =>
@@ -218,6 +223,7 @@ export default {
   likeExhibition,
   unlikeExhibition,
   addArtToExhibition,
+  removeArtFromExhibition,
   search,
   getArtwork,
   getArtworks
