@@ -15,7 +15,7 @@ import ExhibitionNewForm from "./components/ExhibitionNewForm"
 
 import Artworks from "./components/Artworks";
 import ArtworkShow from "./components/ArtworkShow"
-import Search from "./components/Search";
+//import Search from "./components/Search";
 import LoadingComponent from "./components/LoadingComponent"
 
 import SignIn from "./components/SignIn";
