@@ -33,7 +33,7 @@ class ArtworkShow extends React.Component {
         if (this.state.artwork)
         return(
             <div>
-                <p>{this.state.artwork.contents.map(content=> <span className="tag">{content.description} </span> )}</p>
+                <p>{this.state.artwork.contents.map(content=> <span className="tag" key={content.description}>{content.description} </span> )}</p>
                 <br />
                 {/* Image will go here */}
                 {/* <img src={this.state.artwork.image_url} alt={this.state.artwork.title} className="responsive" /> */}
