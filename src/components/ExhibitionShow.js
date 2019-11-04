@@ -15,6 +15,24 @@ class ExhibitionShow extends React.Component {
         API.getExhibition(this.props.match.params.id).then(response=> this.setState({exhibition: response, validating: false}))
     }
 
+    addALike = (response) => {
+        this.setState({
+            exhibition: {
+                ...this.state.exhibition,
+                exhibition_likes: [...this.state.exhibition.exhibition_likes, response]
+            }
+        })
+    }
+
+    removeALike = (response) => {
+       let toRemove = this.state.exhibition.exhibition_likes.find(like=> like.id === response.id)
+       this.setState({
+            exhibition: {
+                ...this.state.exhibition,
+                exhibition_likes: this.state.exhibition.exhibition_likes.filter(like => like !== toRemove)
+            }
+        })
+    }
 
     render() {
         if (this.state.validating) return <div className="loader">Curatorial</div>;
@@ -34,7 +52,8 @@ class ExhibitionShow extends React.Component {
             
             <h4>{this.state.exhibition.exhibition_likes.length} {this.state.exhibition.exhibition_likes.length === 0 || this.state.exhibition.exhibition_likes.length > 1 ? "Curators like this exhibition" : "Curator likes this exhibition"}</h4>
 
-            {this.props.user ? <LikeUnlikeExhibition user={this.props.user} exhibition_id={this.state.exhibition.id}/> : "Loading..."}
+            {this.props.user ? <LikeUnlikeExhibition user={this.props.user} 
+            exhibition_id={this.state.exhibition.id} exhibition={this.state.exhibition} addALike={this.addALike} removeALike={this.removeALike} /> : "Loading..."}
         </div>
         )
     }

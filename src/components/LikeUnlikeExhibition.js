@@ -21,10 +21,12 @@ class LikeUnlikeExhibition extends React.Component {
         .then(r=>this.setState({
             liked: r.id
         }))
+        .then(r=> this.props.addALike(r))
     }
     
     postUnlike = (id) => {
         API.unlikeExhibition(id)
+        .then(res=> this.props.removeALike(res))
         .then(()=> this.setState({liked: false}))
     }
 
