@@ -6,14 +6,17 @@ import ExhibitionCard from './ExhibitionCard';
 import UserEditForm from './UserEditForm';
 
 class UserDashboard extends React.Component {
-
     state = {
-
+        user: null
     }
 
     componentDidMount() {
         if (this.props.user) {
-            console.log(this.props.user)
+            this.setState({
+                user: this.props.user
+            })
+        } else {
+            this.props.history.push("/signin")
         }
     }
 
@@ -31,11 +34,13 @@ class UserDashboard extends React.Component {
                 <UserEditForm user={this.props.user} />
 
                <h4> {this.props.user.first_name}</h4>
-                <p>followers/following</p>
+                {/* <p>followers/following</p> */}
 
                 <p>{this.props.user.biography}</p>
 
                 <h4>liked shows</h4>
+                {this.props.user.exhibition_likes.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> )}
+
 
                 <h4>curated shows</h4>
                 {this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> )}

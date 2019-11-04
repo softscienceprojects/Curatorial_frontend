@@ -25,19 +25,28 @@ class LikeUnlikeExhibition extends React.Component {
             })
         }
     }
+
+    multiFunction = response => {
+        this.props.addALike(response)
+        this.setState({
+            liked_id: response.id,
+            liked: true
+        })
+    }
     
     postLike = (exhibitionId, userId) => {
         API.likeExhibition(exhibitionId, userId)
-        .then(r=> this.props.addALike(r))
-        .then(r=>this.setState({
-            liked: true
-        }))
+        .then(r=> this.multiFunction(r))
     }
     
     postUnlike = (id) => {
         API.unlikeExhibition(id)
         .then(res=> this.props.removeALike(res))
-        .then(()=> this.setState({liked: false}))
+        .then(()=> this.setState({
+            liked_id: "",
+            liked: false
+            })
+        )
     }
 
     componentDidMount() {
@@ -51,7 +60,6 @@ class LikeUnlikeExhibition extends React.Component {
     render() {
         return(
         <>
-        Like or unlike this exhibition
         {!!this.state.liked 
         ? <button onClick={() => this.postUnlike(this.state.liked_id)}>Unlike this exhibition</button> 
         : <button onClick={()=> this.postLike({exhibition_id: this.state.exhibition_id, user_id: this.state.user_id})}>Like this exhibition</button> }
