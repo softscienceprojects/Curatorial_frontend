@@ -32,12 +32,15 @@ class AddToShow extends React.Component {
         if (this.props.artwork.exhibitions.length !== 0) {
            // return (this.props.user.exhibitions.filter(exh => this.props.artwork.exhibitions.map(ex => JSON.stringify(ex) === JSON.stringify(exh)))
             // return (this.props.user.exhibitions.filter(exh => this.props.artwork.exhibitions.find(artExh => artExh.id !== exh.id)))
-           return (this.props.user.exhibitions)
-
+           return this.props.user.exhibitions.filter(exh=> this.getArtworkCurrentExhibitions(exh))
         }
         else {
             return this.props.user.exhibitions
         }
+    }
+
+    getArtworkCurrentExhibitions = (userExhbition) => {
+        return this.props.artwork.exhibitions.find(exh => exh.id !== userExhbition.id)
     }
 
 
