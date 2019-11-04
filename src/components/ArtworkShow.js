@@ -3,6 +3,7 @@ import API from '../adapters/API'
 import AddToShowDropdown from './AddToShowDropdown'
 import ExhibitionCard from './ExhibitionCard'
 import { Link } from 'react-router-dom'
+import LoadingComponent from './LoadingComponent'
 
 class ArtworkShow extends React.Component {
     state ={
@@ -27,14 +28,15 @@ class ArtworkShow extends React.Component {
 
 
     render() {
-        if (this.state.artwork === null) return <div className="loader">Curatorial</div>;
+        if (this.state.artwork === null) return <LoadingComponent />;
+        // if (this.state.artwork === null) return <div className="loader">Curatorial</div>;
         if (this.state.artwork)
         return(
             <div>
                 <p>{this.state.artwork.contents.map(content=> <span className="tag">{content.description} </span> )}</p>
                 <br />
                 {/* Image will go here */}
-                <img src={this.state.artwork.image_url} alt={this.state.artwork.title} className="responsive" />
+                {/* <img src={this.state.artwork.image_url} alt={this.state.artwork.title} className="responsive" /> */}
                 <h2>{this.state.artwork.title}</h2>
                 <h4>by {this.state.artwork.artist}</h4>
                 <p>{this.state.artwork.medium}</p>
