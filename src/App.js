@@ -79,6 +79,25 @@ class App extends React.Component {
     })
 }
 
+  userAddExhibitionLike = response => {
+    this.setState({
+    user: {
+      ...this.state.user,
+      exhibition_likes: [...this.state.user.exhibition_likes, response],
+  }
+  })
+  }
+
+  userRemoveExhibitionLike = response => {
+    this.setState({
+      user: {
+        ...this.state.user,
+        exhibition_likes: this.state.user.exhibition_likes.filter(exhibition => exhibition.id !== response.id)
+      }
+    })
+  }
+
+
 
   render() {
     // if (this.state.validating) return <div className="loader">Curatorial</div>;
@@ -104,7 +123,7 @@ class App extends React.Component {
         <Route
           exact
           path={`${paths.EXHIBITIONS}/:id`}
-          component={routerProps => <ExhibitionShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          component={routerProps => <ExhibitionShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} userAddExhibitionLike={this.userAddExhibitionLike} userRemoveExhibitionLike={this.userRemoveExhibitionLike} removeArtworkFromExhibition={this.removeArtworkFromExhibition} />}
         />
         <Route
           exact
