@@ -20,6 +20,9 @@ class AddToShow extends React.Component {
         if (this.state.exhibition !== "") {
         API.addArtToExhibition(this.props.artwork.id, this.state.exhibition)
         .then((resp)=> this.props.addToExhibitionMap(resp))
+        .then(this.setState({
+            exhibition: ''
+        }))
         } else {
             alert("Please select a show")
         }
