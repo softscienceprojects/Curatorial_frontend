@@ -16,6 +16,7 @@ import ExhibitionNewForm from "./components/ExhibitionNewForm"
 import Artworks from "./components/Artworks";
 import ArtworkShow from "./components/ArtworkShow"
 import Search from "./components/Search";
+import LoadingComponent from "./components/LoadingComponent"
 
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
@@ -69,13 +70,24 @@ class App extends React.Component {
     })
   }
 
+  removeExhibitionsFromUser = response => {
+    this.setState({
+      user: {
+        ...this.state.user,
+        exhibitions: this.state.user.exhibitions.filter(exhibition => exhibition.id !== response.id)
+      }
+    })
+}
+
 
   render() {
-    if (this.state.validating) return <div className="loader">Curatorial</div>;
+    // if (this.state.validating) return <div className="loader">Curatorial</div>;
+    if (this.state.validating) return <LoadingComponent />;
+
     return (
       <div className="App">
    
-           <NavBar user={this.state.user} />
+           <NavBar user={this.state.user} signin={this.signin} logout={this.logout} />
            {!!this.state.hasError ? "There's an error" : null}
         
       <Switch>
@@ -102,7 +114,7 @@ class App extends React.Component {
         <Route
           exact
           path={`${paths.EXHIBITIONS}/:id/edit`}
-          render={routerProps => <ExhibitionNewForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          render={routerProps => <ExhibitionNewForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} removeExhibitionsFromUser={this.removeExhibitionsFromUser} />}
         />
         <Route
           exact
@@ -114,11 +126,11 @@ class App extends React.Component {
           path={`${paths.EXPLORE}/:id`}
           render={routerProps => <ArtworkShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
-        <Route
+        {/* <Route
           exact
           path={paths.SEARCH}
           component={routerProps => <Search {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
-        />
+        /> */}
         <Route
           exact
           path={paths.SIGNIN}
