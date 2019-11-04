@@ -3,6 +3,7 @@ import API from '../adapters/API'
 import ArtworkCard from "./ArtworkCard"
 import { Link } from 'react-router-dom'
 import LikeUnlikeExhibition from './LikeUnlikeExhibition'
+import LoadingComponent from './LoadingComponent'
 
 class ExhibitionShow extends React.Component {
 
@@ -35,7 +36,8 @@ class ExhibitionShow extends React.Component {
     }
 
     render() {
-        if (this.state.validating) return <div className="loader">Curatorial</div>;
+        if (this.state.validating) return <LoadingComponent />;
+        //if (this.state.validating) return <div className="loader">Curatorial</div>;
         return(
         <div>
             { this.props.user.id === this.state.exhibition.user.id 
