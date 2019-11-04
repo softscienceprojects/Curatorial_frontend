@@ -21,6 +21,7 @@ class UserDashboard extends React.Component {
     }
 
 
+
     render(){
         if (this.props.user === null) return null; // loading, not auth'd
         // this.props.history.push("/signin");
@@ -31,20 +32,23 @@ class UserDashboard extends React.Component {
                 <br />
                 {JSON.stringify(this.props.match.params.id) === JSON.stringify(this.props.user.id) ? userDashboardOptions(this.props.user) : null }
 
-                <UserEditForm user={this.props.user} />
+                {/* User Edit Form, comment back in if ready to finish: */}
+                {/* <UserEditForm user={this.props.user} /> */}
 
                <h4> {this.props.user.first_name}</h4>
                 {/* <p>followers/following</p> */}
 
                 <p>{this.props.user.biography}</p>
 
-                <h4>liked shows</h4>
-                {this.props.user.exhibition_likes.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> )}
-
+                {/* Exhibition likes currently doesn't have link to exhibition from user */}
+                {/* <h4>liked shows</h4>
+                {this.props.user.exhibition_likes.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> )} */}
 
                 <h4>curated shows</h4>
                 {this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> )}
-                <h4>feed</h4>
+                
+                {/* If followers/following
+                <h4>feed</h4> */}
 
                 
             </div>
