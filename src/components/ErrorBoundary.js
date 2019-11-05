@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 class ErrorBoundary extends React.Component {
     constructor(props) {
       super(props);
@@ -11,6 +12,7 @@ class ErrorBoundary extends React.Component {
       this.setState({ hasError: true });
       // You can also log the error to an error reporting service
       console.error(error, info);
+      //this.props.history.push("/signin")
     }
   
     render() {

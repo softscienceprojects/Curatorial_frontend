@@ -20,6 +20,7 @@ import LoadingComponent from "./components/LoadingComponent"
 
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import UserErrorShowPage from "./pages/UserErrorShowPage"
 import Users from "./components/Users";
 import UserDashboard from "./components/UserDashboard";
 import UserEditForm from "./components/UserEditForm"
@@ -108,10 +109,11 @@ class App extends React.Component {
     if (this.state.validating) return <LoadingComponent />;
 
     return (
+      //<ErrorBoundary>
       <div className="App">
    
            <NavBar user={this.state.user} signin={this.signin} logout={this.logout} />
-           {!!this.state.hasError ? "There's an error" : null}
+           {/* {!!this.state.hasError ? "There's an error" : null} */}
         
       <Switch>
       <Route
@@ -181,6 +183,11 @@ class App extends React.Component {
         />
         <Route
           exact
+          path={`${paths.USERS}/error`}
+          render={routerProps => <UserErrorShowPage {...routerProps} signin={this.signin} logout={this.logout} />}
+        />
+        <Route
+          exact
           path={paths.LOGOUT}
           component={()=> this.logout()}
         />
@@ -189,6 +196,7 @@ class App extends React.Component {
       {/* <Footer /> */}
      
       </div>
+     // </ErrorBoundary>
     );
   }
 }
