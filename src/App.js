@@ -81,11 +81,11 @@ class App extends React.Component {
 
   userAddExhibitionLike = response => {
     this.setState({
-    user: {
-      ...this.state.user,
-      exhibition_likes: [...this.state.user.exhibition_likes, response],
-  }
-  })
+      user: {
+        ...this.state.user,
+        exhibition_likes: [...this.state.user.exhibition_likes, response],
+      }
+    })
   }
 
   userRemoveExhibitionLike = response => {
@@ -97,7 +97,11 @@ class App extends React.Component {
     })
   }
 
-
+  userEditAccountParams = response => {
+    this.setState({
+      user: response
+    })
+  }
 
   render() {
     // if (this.state.validating) return <div className="loader">Curatorial</div>;
@@ -173,7 +177,7 @@ class App extends React.Component {
         <Route
           exact
           path={`${paths.USERS}/:id/edit`}
-          render={routerProps => <UserEditForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          render={routerProps => <UserEditForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} userEditAccountParams={this.userEditAccountParams} />}
         />
         <Route
           exact
