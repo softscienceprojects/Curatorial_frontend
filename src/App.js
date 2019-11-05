@@ -32,7 +32,6 @@ class App extends React.Component {
   state = {
     user: null,
     validating: true, 
-    hasError: false
   };
 
   signin = user => {
@@ -63,12 +62,17 @@ class App extends React.Component {
   }       
 
   userCreatedNewExhibition = (response) => {
-    this.setState({
-      user: {
-        ...this.state.user,
-        exhibitions: [...this.state.user.exhibitions, response],
+    if (!response.errors) {
+        this.setState({
+        user: {
+          ...this.state.user,
+          exhibitions: [...this.state.user.exhibitions, response],
+        }  
+      })
+      this.props.history.push(`${this.props.history.go(-1)}`)
+    } else {
+      this.props.history.push("/newexhibition", {...response})
     }
-    })
   }
 
   removeExhibitionsFromUser = response => {
