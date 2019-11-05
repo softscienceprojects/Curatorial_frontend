@@ -26,7 +26,11 @@ class ExhibitionNewForm extends React.Component {
     }
 
     goToUpdatedExhibition = response => {
-        this.props.history.push(`/exhibitions/${response.id}`, {})
+        if (!response.errors) {
+            this.props.history.push(`/exhibitions/${response.id}`, {})
+        } else {
+            this.props.history.push(`/exhibitions/${response.id}/edit`, {...response})
+        }
     }
 
     updateOnClient = resp => {

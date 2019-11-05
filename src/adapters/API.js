@@ -190,7 +190,7 @@ const editExhibition = (exhibitionDetails, id) => {
     method: "PATCH",
     headers: jsonHeaders(),
     body: JSON.stringify({ exhibition: exhibitionDetails })
-  }).then(handleServerResponse);
+  }).then(handleSmallServerReponse);
 };
 
 
