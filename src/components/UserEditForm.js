@@ -29,9 +29,9 @@ class UserEditForm extends React.Component {
             <div>
                 <h4>Edit your account</h4>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="first_name" value={this.state.first_name} placeholder="first name" onChange={this.handleChange} />
-                    <input type="text" name="last_name" value={this.state.last_name} placeholder="last name" onChange={this.handleChange} />
-                    <input type="text" name="biography" value={this.state.biography} placeholder="biography" onChange={this.handleChange} />
+                    <p><input type="text" name="first_name" value={this.state.first_name} placeholder="first name" onChange={this.handleChange} /></p>
+                    <p><input type="text" name="last_name" value={this.state.last_name} placeholder="last name" onChange={this.handleChange} /></p>
+                    <p><input type="text" name="biography" value={this.state.biography} placeholder="biography" onChange={this.handleChange} /></p>
 {/*                     
                     <input type="email" name="email" value={this.state.email} placeholder="email" onChange={this.handleChange} />
                     <input type="password" name="password" value={this.state.password} placeholder="password" onChange={this.handleChange} />
