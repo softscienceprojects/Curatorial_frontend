@@ -14,7 +14,7 @@ class Exhibitions extends React.Component {
 
     render() {
         return(
-            <div>Exhibitions</div>
+            <div>Exhibitions not in use</div>
         )
     }
 }
