@@ -33,7 +33,7 @@ class UserDashboard extends React.Component {
                 <p>{this.props.user.biography}</p>
 
                 <h4>liked shows</h4>
-                {this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> )}
+                {this.props.user.exhibition_likes.length !== 0 ? this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "You don't currently like any exhibitions"}
 
                 <h4>curated shows</h4>
                 {this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> )}
