@@ -10,7 +10,7 @@ import API from "./adapters/API";
 
 import Home from "./components/Home";
 import Exhibitions from "./components/Exhibitions";
-import ExhibitionShow from "./components/ExhibitionShow";
+import ExhibitionShow from "./pages/ExhibitionShow";
 import ExhibitionNewForm from "./components/ExhibitionNewForm"
 
 import Artworks from "./components/Artworks";
@@ -75,7 +75,8 @@ class App extends React.Component {
     this.setState({
       user: {
         ...this.state.user,
-        exhibitions: this.state.user.exhibitions.filter(exhibition => exhibition.id !== response.id)
+        exhibitions: this.state.user.exhibitions.filter(exhibition => exhibition.id !== response.id),
+        exhibition_likes: this.state.user.exhibition_likes.filter(exhibition => exhibition.exhibition_id !== response.id)
       }
     })
 }
