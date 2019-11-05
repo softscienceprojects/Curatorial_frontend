@@ -28,6 +28,24 @@ img.responsive {
   /* max-width: 50rem; */
 }
 
+
+
+/* input[type="email"] {
+  border-bottom: 1px solid black;
+} */
+
+input[type="password"], input[type="email"], input[type="text"] {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+input[type="submit"] {
+  background-color: #ccc;
+  border-style: solid;
+}
+
 .loader {
   width: 100vw;
   height: 100vh;
