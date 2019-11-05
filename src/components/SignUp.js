@@ -22,20 +22,31 @@ class SignUp extends React.Component {
         .then(user=> this.props.signin(user))
     }
 
+    frontEndValidation = () => {
+        if (this.state.email === '' || this.state.password === '' || this.state.password_confirmation === '' || this.state.password !== this.state.password_confirmation) return false
+        else return true
+    }
+
 
     render() {
+        const isEnabled = this.frontEndValidation() //this.state.email !== ''
         return(
-           <div><h4>Sign UP</h4>
+           <div><h1>Sign Up</h1>
            <form onSubmit={this.submitForm}>
-            <label>Email: <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} /></label>
-            <label>Password: <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} /></label>
-            <label>Password confirmation: <input type="password" placeholder="confirm your password" name="password_confirmation" value={this.state.password_confirmation} onChange={this.handleChange} /></label>
-            <input type="submit" value="join now" />
+            <p><label>Email: <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} /></label></p>
+            <p><label>Password: <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} /></label></p>
+            <p><label>Password confirmation: <input type="password" placeholder="confirm your password" name="password_confirmation" value={this.state.password_confirmation} onChange={this.handleChange} /></label></p>
+            <input type="submit" value="join now" disabled={!isEnabled} />
            </form>
 
-           <h4>Already have an account?</h4>
-            <Link to={location=> ({...location, pathname: "/signin"})} >Sign in instead</Link>
+            <br />
             {!!this.state.hasError ? "There's an error" : null}
+            {this.state.email === "" ? "Please enter your email" : null}
+            {this.state.password !== this.state.password_confirmation ? "Passwords must match" : null}
+
+            <br /><br />
+            <h4>Already have an account?</h4>
+            <Link to={location=> ({...location, pathname: "/signin"})} >Sign in instead</Link>
            </div> 
         )
     }
