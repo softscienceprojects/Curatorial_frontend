@@ -55,6 +55,10 @@ button.removeArtwork {
   background-color:beige;
 }
 
+button.likeExhibition {
+  background-color:beige;
+}
+
 button.danger {
   background-color: crimson;
 }
