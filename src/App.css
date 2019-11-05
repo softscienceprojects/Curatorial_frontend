@@ -51,6 +51,14 @@ select {
   border: 1px solid black;
 }
 
+button.removeArtwork {
+  background-color:beige;
+}
+
+button.danger {
+  background-color: crimson;
+}
+
 .loader {
   width: 100vw;
   height: 100vh;
