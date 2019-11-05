@@ -32,7 +32,6 @@ const fetchConfig = (method = "GET", body) => {
 };
 
 const handleError = () => {
-  debugger;
   console.error("you've reached the handle error message");
 };
 
@@ -40,27 +39,28 @@ const handleServerResponse = res => {
   if (res.ok) {
     return res.text().then(text => {
       try {
-        return JSON.parse(text);
+        return JSON.parse(text)
       } catch (error) {
-        return { staticPageContent: text };
+        return { staticPageContent: text }
       }
-    });
+    })
   } else if (res.status === 503) {
-    return { code: 503 };
-  } else if (res.status === 406) {
-    return { code: 406, error: "Not acceptable" };
+    return { code: 503 }
   } else if (res.status === 500) {
-    return { code: 500, error: "Something went wrong" };
+    return { code: 500, error: 'Something went wrong' }
   } else {
     return res.text().then(text => {
       try {
-        return JSON.parse(text);
+        return JSON.parse(text)
       } catch (error) {
-        return res;
+        return res
       }
-    });
+    })
   }
-};
+}
+
+
+
 
 // USER GOODNESS ////////////////////////////
 const getUsers = () => fetch(USERS_URL).then(handleServerResponse);
@@ -168,8 +168,22 @@ const newExhibition = exhibitionDetails => {
     method: "POST",
     headers: jsonHeaders(),
     body: JSON.stringify({ exhibition: exhibitionDetails })
-  }).then(handleServerResponse);
+  }).then(handleSmallServerReponse);
 };
+
+const handleSmallServerReponse = res => {
+  if (!!res.ok) {
+      return res.text().then(text => {
+        try {
+          return JSON.parse(text)
+        } catch (error) {
+          return { staticPageContent: text }
+        }
+      })
+  } else {
+    return res.json() //.then(r=> r.errors)
+  }
+}
 
 const editExhibition = (exhibitionDetails, id) => {
   return fetch(`${EXHIBITIONS_URL}/${id}`, {
@@ -201,9 +215,6 @@ const unlikeExhibition = id => {
   }).then(handleServerResponse);
 }
 
-// WRITE POST EXHIBITION
-// OTHER ACTIONS TO TAKE?
-//LIKE EXHIBITION,
 
 // EXPORT ////////////////////
 export default {
@@ -226,5 +237,6 @@ export default {
   removeArtFromExhibition,
   search,
   getArtwork,
-  getArtworks
+  getArtworks,
+  handleSmallServerReponse
 };
