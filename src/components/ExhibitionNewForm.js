@@ -30,9 +30,8 @@ class ExhibitionNewForm extends React.Component {
     }
 
     updateOnClient = resp => {
-        //this pushes back to artwork but doesn't get the newly created exhibition
         this.props.userCreatedNewExhibition(resp)
-        this.props.history.push(`${this.props.history.go(-1)}`)
+        //this.props.history.push(`${this.props.history.go(-1)}`)
     }
 
     handleSubmit = event => {
@@ -75,6 +74,7 @@ class ExhibitionNewForm extends React.Component {
     render(){
         return(
             <div>
+            {this.props.location.state !== undefined ? this.props.location.state.errors.map(error => <p>{error}</p>) : null}
                 <form onSubmit={this.handleSubmit}>
                     <p><label>Title: <input type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} /></label></p>
                     <p><label>Summary: <input type="text" name="summary" value={this.state.summary} placeholder="summary" onChange={this.handleChange} /></label></p>
