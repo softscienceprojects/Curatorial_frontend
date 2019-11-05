@@ -61,8 +61,8 @@ class LikeUnlikeExhibition extends React.Component {
         return(
         <>
         {!!this.state.liked 
-        ? <button onClick={() => this.postUnlike(this.state.liked_id)}>Unlike this exhibition</button> 
-        : <button onClick={()=> this.postLike({exhibition_id: this.state.exhibition_id, user_id: this.state.user_id})}>Like this exhibition</button> }
+        ? <button onClick={() => this.postUnlike(this.state.liked_id)}>★ Unlike this exhibition</button> 
+        : <button onClick={()=> this.postLike({exhibition_id: this.state.exhibition_id, user_id: this.state.user_id})}>☆ Like this exhibition</button> }
         </>
     )
     }
