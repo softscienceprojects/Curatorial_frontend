@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 class SignIn extends React.Component {
     state={
         email: '',
-        password: ''
+        password: '',
+        error: false
     }
 
     handleChange= (event) => {
@@ -20,11 +21,10 @@ class SignIn extends React.Component {
         .then(user=> this.props.signin(user))
     }
 
-  
-
     render() {
         return(
             <div><h1>SignIn Form</h1>
+            {!!this.state.error ? "Those credentials didn't work, please try again" : null}
             <form onSubmit={this.handleSubmit}>
                 <p><label>Email: <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} /></label></p>
                 <p><label>Password: <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} /></label></p>
