@@ -14,7 +14,7 @@ class ExhibitionEditForm extends React.Component {
     render(){
         return(
             <div>
-                Exhibition Edit form
+                Exhibition Edit form is not in use
             </div>
         )
     }
