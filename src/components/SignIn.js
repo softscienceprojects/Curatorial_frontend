@@ -21,14 +21,20 @@ class SignIn extends React.Component {
         .then(user=> this.props.signin(user))
     }
 
+    frontEndValidation = () => {
+        if (this.state.email === '' || this.state.password === '') return false
+        else return true
+    }
+
     render() {
+        const isEnabled = this.frontEndValidation()
         return(
             <div><h1>SignIn Form</h1>
             {!!this.state.error ? "Those credentials didn't work, please try again" : null}
             <form onSubmit={this.handleSubmit}>
                 <p><label>Email: <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} /></label></p>
                 <p><label>Password: <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} /></label></p>
-                <input type="submit" value="Sign In" />
+                <input type="submit" value="Sign In" disabled={!isEnabled} />
             </form>
             <h4>No account?</h4>
             <Link to={location=> ({...location, pathname: "/signup"})} >Sign up now</Link>
