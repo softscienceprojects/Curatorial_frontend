@@ -27,7 +27,7 @@ class UserEditForm extends React.Component {
     // frontEndValidation = () => {
     //     if (this.state.email  && this.state.email === '' || this.state.password === '' || this.state.password_confirmation === '' || this.state.password !== this.state.password_confirmation) return false
     //     else return true
-    // }
+    // }  
 
     render(){
         // const isEnabled = this.frontEndValidation() 
@@ -45,7 +45,8 @@ class UserEditForm extends React.Component {
 
                     <input type="submit" value="submit" />
                 </form>
-
+                <br /><br /><br />
+                <button onClick={()=>this.props.history.goBack()}>Cancel</button>
                 
             </div>
         )
