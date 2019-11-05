@@ -8,6 +8,15 @@ class Search extends React.Component {
         //results: []
     }
 
+    componentDidMount() {
+        if (this.props.location.search) {
+            let term = this.props.location.search.split("=")[1].replace(/%20/gi, " ")
+           this.setState({
+           searchTerm: term
+            }) 
+        }
+    }
+
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value 
@@ -16,12 +25,12 @@ class Search extends React.Component {
 
     noResults = (error) => {
         console.error(error)
-        this.setState({results: []})
+        this.setState({searchTerm: "", results: []})
     }
 
     handleSubmit = event => {
         event.preventDefault();
-        
+        this.props.history.push(`/search?description=${this.state.searchTerm}`, {})
         API.search(this.state.searchTerm.toLowerCase())
         .then( results => this.setState({
             searchTerm: "", 
