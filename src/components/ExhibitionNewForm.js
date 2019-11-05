@@ -83,7 +83,7 @@ class ExhibitionNewForm extends React.Component {
                     <input type="submit" value="submit" />
                 </form>
 
-               {this.props.match.path.match(/(edit)/) ? <button onClick={()=>this.deleteToConfirm()}>Delete Exhibition</button> : null}
+               {this.props.match.path.match(/(edit)/) ? <button className="danger" onClick={()=>this.deleteToConfirm()}>Delete Exhibition</button> : null}
             </div>
         )
     }
