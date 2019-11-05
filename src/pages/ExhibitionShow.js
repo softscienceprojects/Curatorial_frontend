@@ -1,9 +1,9 @@
 import React from 'react'
 import API from '../adapters/API'
-import ArtworkCard from "./ArtworkCard"
+import ArtworkCard from "../components/ArtworkCard"
 import { Link } from 'react-router-dom'
-import LikeUnlikeExhibition from './LikeUnlikeExhibition'
-import LoadingComponent from './LoadingComponent'
+import LikeUnlikeExhibition from '../components/LikeUnlikeExhibition'
+import LoadingComponent from '../components/LoadingComponent'
 
 class ExhibitionShow extends React.Component {
 
@@ -54,7 +54,7 @@ class ExhibitionShow extends React.Component {
             
             <h4>{this.state.exhibition.exhibition_likes.length} {this.state.exhibition.exhibition_likes.length === 0 || this.state.exhibition.exhibition_likes.length > 1 ? "Curators like this exhibition" : "Curator likes this exhibition"}</h4>
 
-            {this.props.user ? <LikeUnlikeExhibition user={this.props.user} 
+            {this.props.user && this.props.user.id !== this.state.exhibition.user.id ? <LikeUnlikeExhibition user={this.props.user} 
             exhibition_id={this.state.exhibition.id} exhibition={this.state.exhibition} 
             addALike={this.props.userAddExhibitionLike} 
             // addALike={this.addALike} 
