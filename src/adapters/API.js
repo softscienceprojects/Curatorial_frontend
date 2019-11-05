@@ -48,9 +48,16 @@ const handleServerResponse = res => {
     return { code: 503 }
   } else if (res.status === 500) {
     return { code: 500, error: 'Something went wrong' }
-  } else {
+  } 
+  // tried to log in but credentials not found
+  //else if url: "http://localhost:3000/validate", redirected: false, status: 404, ok: false, …}
+ // tried to sign up but user already in db
+  // else if res = Response {type: "cors", url: "http://localhost:3000/users", redirected: false, status: 406, ok: false, …} 
+
+  else {
     return res.text().then(text => {
       try {
+        //console.log(JSON.parse(text))
         return JSON.parse(text)
       } catch (error) {
         return res
@@ -58,9 +65,6 @@ const handleServerResponse = res => {
     })
   }
 }
-
-
-
 
 // USER GOODNESS ////////////////////////////
 const getUsers = () => fetch(USERS_URL).then(handleServerResponse);
@@ -86,7 +90,9 @@ const deleteUser = id => {
 
 // & VALIDATION /////////////////////////////
 const signin = userDetails => {
-  return fetch(SIGNIN_URL, fetchConfig("POST", { user: userDetails }))
+  console.log(userDetails)
+  if (userDetails !== undefined) {
+    return fetch(SIGNIN_URL, fetchConfig("POST", { user: userDetails }))
     .then(handleServerResponse)
     .then(userDetails => {
       if (userDetails.token) {
@@ -95,6 +101,9 @@ const signin = userDetails => {
       return userDetails.user;
     })
     .catch(handleError);
+  } else {
+    this.props.history.push("/signin", {...userDetails})
+  }
 };
 
 const signup = userDetails => {
