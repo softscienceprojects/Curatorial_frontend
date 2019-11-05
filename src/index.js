@@ -17,7 +17,6 @@ ReactDOM.render(
      <ErrorBoundary>
         <Route path="/" component={routerProps=> <App {...routerProps} />} />
         <Route
-          exact
           path={paths.SEARCH}
           component={routerProps => <Search {...routerProps} />}
         />
