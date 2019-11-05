@@ -46,6 +46,11 @@ input[type="submit"] {
   border-style: solid;
 }
 
+select {
+  border-style: solid;
+  border: 1px solid black;
+}
+
 .loader {
   width: 100vw;
   height: 100vh;
