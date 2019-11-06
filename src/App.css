@@ -10,12 +10,25 @@
 }
 
 .search {
+  color: #fff;
   height: 100vh;
   width: 100vw;
   background-color: #B55E49;
 }
 
+.search input[type="text"] {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.search ::placeholder {
+  font-family: 'Roboto Mono', monospace;
+  color: #999;
+}
+
 .signin {
+  color: #fff;
   height: 100vh;
   width: 100vw;
   background-color: #271AC0;
