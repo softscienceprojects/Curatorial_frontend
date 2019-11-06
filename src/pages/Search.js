@@ -31,11 +31,28 @@ class Search extends React.Component {
         this.setState({searchTerm: "", results: []})
     }
 
+
     handleSubmit = event => {
         event.preventDefault();
-        this.props.searchForArt(this.state.searchTerm)
-        this.props.history.push(`/results/description=${this.state.searchTerm}`)
+        this.searchForArt(this.state.searchTerm)
+        
     }
+
+    searchForArt = searchTerm => {
+        API.search(searchTerm.toLowerCase())
+        .then( results => this.props.history.push(`/results/description=${this.state.searchTerm}`, {...results})
+        ).catch(error=> this.setState({
+          results: error}))
+    }
+
+    // searchForArt = searchTerm => {
+    //     API.search(searchTerm.toLowerCase())
+    //     .then( results => this.setState({
+    //               results: results["content"]["artworks"]
+    //               })
+    //     ).catch(error=> this.setState({
+    //       results: error}))
+    // }
 
     render() {
         return(

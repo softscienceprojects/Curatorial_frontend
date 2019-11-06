@@ -109,14 +109,7 @@ class App extends React.Component {
     })
   }
 
-  searchForArt = searchTerm => {
-    API.search(searchTerm.toLowerCase())
-    .then( results => this.setState({
-              results: results["content"]["artworks"]
-              })
-    ).catch(error=> this.setState({
-      results: error}))
-}
+
 
   render() {
     if (this.state.loading) return <LoadingComponent />;
