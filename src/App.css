@@ -52,6 +52,12 @@ span.tag {
   border: 1px solid blue;
 }
 
+span.tag-selected {
+  border: 1px solid blue;
+  background: blue;
+  color: white;
+}
+
 img.responsive {
   min-width: 95%;
   max-width: 95%;
