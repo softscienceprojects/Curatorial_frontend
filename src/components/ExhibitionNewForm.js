@@ -75,10 +75,18 @@ class ExhibitionNewForm extends React.Component {
         } 
     }
 
+    frontEndValidation = () => {
+        if (this.state.summary.length > 200 ) return false
+        else return true
+    }
+
     render(){
+       // const isEnabled = this.frontEndValidation()
         return(
             <div>
             {this.props.location.state !== undefined ? this.props.location.state.errors.map(error => <p>{error}</p>) : null}
+            {/* {!!this.state.flashMessage ? "There's an error" : null} */}
+                
                 <form onSubmit={this.handleSubmit}>
                     <p><label>Title: <input type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} /></label></p>
                     <p><label>Summary: <input type="text" name="summary" value={this.state.summary} placeholder="summary" onChange={this.handleChange} /></label></p>
