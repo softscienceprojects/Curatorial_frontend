@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import LikeUnlikeExhibition from '../components/ExhibitionLikeUnlikeButton'
 import LoadingComponent from '../components/LoadingComponent'
 
+import RemoveArtworkButton from "../components/RemoveArtworkButton"
+
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
 
@@ -34,7 +36,7 @@ class ExhibitionShow extends React.Component {
         //if (this.state.validating) return <div className="loader">Curatorial</div>;
         return(
         <div>
-            <NavBar />
+            <NavBar user={this.props.user} />
             { this.props.user && this.props.user.id === this.state.exhibition.user.id 
                 ? <Link to={{pathname: `/exhibitions/${this.state.exhibition.id}/edit`}} >Edit this exhibition</Link> 
                 : null }
@@ -42,13 +44,15 @@ class ExhibitionShow extends React.Component {
             <h4>{this.state.exhibition.summary}</h4>
 
             {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => 
-            <><ArtworkCard key={artwork.title} artwork={artwork} />
+            <>
+            <ArtworkCard key={artwork.title} artwork={artwork} />
             <RemoveArtworkButton user={this.props.user} 
             key={artwork.id} 
             artwork={artwork}
             exhibition={this.state.exhibition}
             removeArtworkFromExhibition={this.removeArtworkFromExhibition}
-            /></> ) : "Currently no artworks"}
+            />
+            </> ) : "Currently no artworks"}
             
             
             <h2>{this.state.exhibition.title}</h2>
@@ -73,15 +77,5 @@ class ExhibitionShow extends React.Component {
 
 export default ExhibitionShow
 
-const RemoveArtworkButton = (props) => {
-    let artwork_exhibition_id = props.artwork.artwork_exhibitions.find(art => art.exhibition_id === props.exhibition.id)
-    if (props.user && props.user.id === props.exhibition.user.id) {
-       return(
-        <button className="danger" onClick={()=>props.removeArtworkFromExhibition(artwork_exhibition_id.id)}>Remove Artwork</button>
-     ) 
-    } else {
-        return null
-    }
-    // props.user.id === props.exhibition.user.id
-}
+
 
