@@ -13,7 +13,7 @@ class SearchResults extends React.Component {
             <div>
                 <NavBar />
                 {!this.props.location ? <LoadingComponent /> : null }
-                {this.props.location && this.props.location.state.errors ? <NoResults /> : null }
+                {this.props.location && this.props.location.state.errors ? <NoResults searchTerm={this.props.match.params.id} /> : null }
                 {this.props.location && this.props.location.state.content ? this.props.location.state.content.artworks.map(artwork=> <ArtworkCard key={artwork.id} artwork={artwork}/> ) : null }
                 <Footer />
             </div>
