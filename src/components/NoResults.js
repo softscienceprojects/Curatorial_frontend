@@ -4,7 +4,7 @@ const NoResults = props => {
     return(
         <div>
         <h1 id="logo">You're an original</h1>
-        <h4>Nothing matches that search</h4>
+        <h4>Nothing matches {props.searchTerm}</h4>
         </div>
     )
 }
