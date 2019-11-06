@@ -36,7 +36,7 @@ class ArtworkShow extends React.Component {
                 <p>{this.state.artwork.contents.map(content=> <span className="tag" key={content.description}><Link to={location=> ({...location, pathname: `/search?description=${content.description}`})}>{content.description}</Link></span> )}</p>
                 <br />
                 {/* Image will go here */}
-                {/* <img src={this.state.artwork.image_url} alt={this.state.artwork.title} className="responsive" /> */}
+                <img src={this.state.artwork.image_url} alt={this.state.artwork.title} className="responsive" />
                 <h2>{this.state.artwork.title}</h2>
                 <h4>by {this.state.artwork.artist}</h4>
                 <p>{this.state.artwork.medium}</p>
