@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 const NavBar = ({ user }) => {
   return (
     <nav>
+      <h1 id="logo">Curatorial</h1>
       <NavLink to="/">Home</NavLink>&nbsp;
       <NavLink to="/explore">Explore</NavLink>&nbsp;
       <NavLink to="/search">Search</NavLink>&nbsp;
