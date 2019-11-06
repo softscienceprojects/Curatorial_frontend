@@ -13,12 +13,12 @@ class Search extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.location.search) {
-        let term = this.props.location.search.split("=")[1].replace(/%20/gi, " ")
-           this.setState({
-           searchTerm: term
-            }) 
-        }
+        // if (this.props.location.search) {
+        // let term = this.props.location.search.split("=")[1].replace(/%20/gi, " ")
+        //    this.setState({
+        //    searchTerm: term
+        //     }) 
+        // }
     }
 
     handleChange = event => {
@@ -27,23 +27,10 @@ class Search extends React.Component {
         })
     }
 
-    // noResults = (error) => {
-    //     console.error(error)
-    //     this.setState({searchTerm: "", results: []})
-    // }
-
-
     handleSubmit = event => {
         event.preventDefault();
         searchForArt(this.state.searchTerm, this.props)
     }
-
-    // searchForArt = searchTerm => {
-    //     API.search(searchTerm.toLowerCase())
-    //     .then( results => this.props.history.push(`/results/description=${this.state.searchTerm}`, {...results})
-    //     ).catch(error=> error)
-    // }
-
 
 
     render() {

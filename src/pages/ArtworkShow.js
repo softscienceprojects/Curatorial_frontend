@@ -4,6 +4,7 @@ import AddToShowDropdown from '../components/AddToShowDropdown'
 import ExhibitionCard from '../components/ExhibitionCard'
 import { Link } from 'react-router-dom'
 import LoadingComponent from '../components/LoadingComponent'
+import searchforArt from "../config/searchForArt"
 
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
@@ -30,14 +31,20 @@ class ArtworkShow extends React.Component {
     }
 
 
+
+
+
     render() {
         if (this.state.artwork === null) return <LoadingComponent />;
         // if (this.state.artwork === null) return <div className="loader">Curatorial</div>;
         if (this.state.artwork)
         return(
             <div>
-                <NavBar />
-                <p>{this.state.artwork.contents.map(content=> <span className="tag" key={content.description}><Link to={location=> ({...location, pathname: `/search?description=${content.description}`})}>{content.description}</Link></span> )}</p>
+                <NavBar user={this.props.user}/>
+                {/* <p>{this.state.artwork.contents.map(content=> <span className="tag" key={content.description}><Link to={location=> ({...location, pathname: `/search?description=${content.description}`})}>{content.description}</Link></span> )}</p> */}
+                
+                <p>{this.state.artwork.contents.map(content=> <span className="tag" key={content.description}><button onClick={()=> searchforArt(content.description, this.props)}>{content.description}</button></span> )}</p>
+
                 <br />
                 {/* Image will go here */}
                 {/* <img src={this.state.artwork.image_url} alt={this.state.artwork.title} className="responsive" /> */}
