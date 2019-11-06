@@ -16,10 +16,6 @@ ReactDOM.render(
     <Router history={curatorialHistory} >
      <ErrorBoundary>
         <Route path="/" component={routerProps=> <App {...routerProps} />} />
-        <Route
-          path={paths.SEARCH}
-          component={routerProps => <Search {...routerProps} />}
-        />
     </ErrorBoundary>
     </Router>, 
 document.getElementById('root'));

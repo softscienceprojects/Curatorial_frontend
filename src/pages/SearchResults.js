@@ -1,14 +1,31 @@
 import React from 'react'
 import ArtworkCard from "../components/ArtworkCard"
 
+import NavBar from "../components/NavBar"
+import Footer from "../components/Footer"
+
+import NoResults from "../components/NoResults"
+
 class SearchResults extends React.Component {
-    
+    state = {
+        results: []
+    }
+
+    componentDidMount() {
+        // this.setState({
+        //     results
+        // })
+    }
+
     render() {
-        if (!this.props.results) return <div><h1>Search for anything</h1></div>
-        if (this.props.results.length === 0) return <div><h1>You're an original</h1> <h4>Nothing matches that search</h4></div>;
+        if (!this.props.results) return <div>You have to search</div>
         return(
             <div>
-                {this.props.results.map(artwork=> <ArtworkCard key={artwork.id} artwork={artwork}/> )}
+            <NavBar />
+            
+        {this.props.results.length === 0 ? <NoResults /> : this.props.results.map(artwork=> <ArtworkCard key={artwork.id} artwork={artwork}/> )}
+            
+            <Footer />
             </div>
         )
     }

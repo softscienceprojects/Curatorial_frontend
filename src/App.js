@@ -15,7 +15,8 @@ import ExhibitionNewForm from "./components/ExhibitionNewForm"
 
 import Artworks from "./wrappers/Artworks";
 import ArtworkShow from "./pages/ArtworkShow"
-//import Search from "./components/Search";
+import Search from "./pages/Search";
+import SearchResults from "./pages/SearchResults"
 import LoadingComponent from "./components/LoadingComponent"
 
 import SignIn from "./pages/SignIn";
@@ -29,7 +30,8 @@ import UserEditForm from "./components/UserEditForm"
 class App extends React.Component {
   state = {
     user: null,
-    loading: false, 
+    loading: false,
+    results: []
   };
 
   signin = user => {
@@ -107,6 +109,15 @@ class App extends React.Component {
     })
   }
 
+  searchForArt = searchTerm => {
+    API.search(searchTerm.toLowerCase())
+    .then( results => this.setState({
+              results: results["content"]["artworks"]
+              })
+    ).catch(error=> this.setState({
+      results: error}))
+}
+
   render() {
     if (this.state.loading) return <LoadingComponent />;
     return (
@@ -148,6 +159,15 @@ class App extends React.Component {
           exact
           path={`${paths.EXPLORE}/:id`}
           render={routerProps => <ArtworkShow {...routerProps} user={this.state.user} />}
+        />
+        <Route
+          path={paths.SEARCH}
+          component={routerProps => <Search {...routerProps} searchForArt={this.searchForArt} />}
+        />
+          <Route
+          
+          path={`/results/description=:id`}
+          component={routerProps => <SearchResults {...routerProps} user={this.state.user} results={this.state.results} />}
         />
         <Route
           exact
