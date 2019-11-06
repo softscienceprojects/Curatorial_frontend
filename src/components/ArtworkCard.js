@@ -9,7 +9,9 @@ const ArtworkCard = (props) => {
         <div>
         {/* <img src={props.artwork.image_url} alt={props.artwork.title}  className="responsive" /> */}
         <Link to={{pathname: `/explore/${props.artwork.id}`}} key={props.artwork.id}>{props.artwork.title}</Link>
-        {props.artwork.contents.map(content=> <p>{content.description}</p>)}
+        
+        {/* <span className="tag" key={content.description}><button onClick={()=> searchforArt(content.description, this.props)}>{content.description}</button></span> */}
+        {props.artwork.contents.map(content=> <span className="tag">&nbsp;{content.description}&nbsp;</span>)}
         <p>By {props.artwork.artist}</p>
         <p>{props.artwork.medium}</p>
         </div>
