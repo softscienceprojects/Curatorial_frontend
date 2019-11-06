@@ -43,7 +43,7 @@ class Search extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="search">
                 <CloseWindowButton history={this.props.history} />
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="searchTerm" placeholder="search for anything" value={this.state.searchTerm} onChange={this.handleChange} />
@@ -51,7 +51,6 @@ class Search extends React.Component {
                 </form>
 
             <SearchResults results={this.state.results} />
-                
             </div>
         )
     }

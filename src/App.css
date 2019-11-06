@@ -9,6 +9,24 @@
   flex-wrap: wrap;
 }
 
+.search {
+  height: 100vh;
+  width: 100vw;
+  background-color: #B55E49;
+}
+
+.signin {
+  height: 100vh;
+  width: 100vw;
+  background-color: #271AC0;
+}
+
+.signup {
+  height: 100vh;
+  width: 100vw;
+  background-color: #FCBA03;
+}
+
 nav {
   position: sticky;
 }

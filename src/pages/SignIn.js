@@ -30,10 +30,10 @@ class SignIn extends React.Component {
     render() {
         const isEnabled = this.frontEndValidation()
         return(
-            <div>
+            <div className="signin">
             <CloseWindowButton history={this.props.history} />
 
-            <h1>SignIn Form</h1>
+            <h1 id="logo">Sign in</h1>
             {!!this.state.error ? "Those credentials didn't work, please try again" : null}
             <form onSubmit={this.handleSubmit}>
                 <p><label>Email: <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} /></label></p>
