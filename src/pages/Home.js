@@ -8,11 +8,10 @@ import Footer from "../components/Footer"
 
 //user={this.state.user} signin={this.signin} logout={this.logout} 
 const Home = (props) => {
-
   
         return(
             <>
-            <NavBar user={this.props.user} />
+            <NavBar user={props.user} />
             <HomePanel1 />
             <HomePanel2 />
             <HomePanel3 />
