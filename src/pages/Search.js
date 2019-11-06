@@ -1,8 +1,9 @@
 import React from 'react'
-import API from '../adapters/API'
-import SearchResults from './SearchResults'
+//import API from '../adapters/API'
+//import SearchResults from './SearchResults'
 import CloseWindowButton from  '../components/NavButtonCloseWindow'
-import { Route, Redirect } from 'react-router-dom'
+import  searchForArt from "../config/searchForArt"
+
 
 class Search extends React.Component {
     state={
@@ -26,33 +27,24 @@ class Search extends React.Component {
         })
     }
 
-    noResults = (error) => {
-        console.error(error)
-        this.setState({searchTerm: "", results: []})
-    }
+    // noResults = (error) => {
+    //     console.error(error)
+    //     this.setState({searchTerm: "", results: []})
+    // }
 
 
     handleSubmit = event => {
         event.preventDefault();
-        this.searchForArt(this.state.searchTerm)
-        
-    }
-
-    searchForArt = searchTerm => {
-        API.search(searchTerm.toLowerCase())
-        .then( results => this.props.history.push(`/results/description=${this.state.searchTerm}`, {...results})
-        ).catch(error=> this.setState({
-          results: error}))
+        searchForArt(this.state.searchTerm, this.props)
     }
 
     // searchForArt = searchTerm => {
     //     API.search(searchTerm.toLowerCase())
-    //     .then( results => this.setState({
-    //               results: results["content"]["artworks"]
-    //               })
-    //     ).catch(error=> this.setState({
-    //       results: error}))
+    //     .then( results => this.props.history.push(`/results/description=${this.state.searchTerm}`, {...results})
+    //     ).catch(error=> error)
     // }
+
+
 
     render() {
         return(

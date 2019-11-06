@@ -8,7 +8,6 @@ import NoResults from "../components/NoResults"
 
 class SearchResults extends React.Component {
     
-
     render() {
         return(
             <div>
