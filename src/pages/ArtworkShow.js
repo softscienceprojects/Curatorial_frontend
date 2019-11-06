@@ -1,9 +1,12 @@
 import React from 'react'
 import API from '../adapters/API'
-import AddToShowDropdown from './AddToShowDropdown'
-import ExhibitionCard from './ExhibitionCard'
+import AddToShowDropdown from '../components/AddToShowDropdown'
+import ExhibitionCard from '../components/ExhibitionCard'
 import { Link } from 'react-router-dom'
-import LoadingComponent from './LoadingComponent'
+import LoadingComponent from '../components/LoadingComponent'
+
+import NavBar from "../components/NavBar"
+import Footer from "../components/Footer"
 
 class ArtworkShow extends React.Component {
     state ={
@@ -33,6 +36,7 @@ class ArtworkShow extends React.Component {
         if (this.state.artwork)
         return(
             <div>
+                <NavBar />
                 <p>{this.state.artwork.contents.map(content=> <span className="tag" key={content.description}><Link to={location=> ({...location, pathname: `/search?description=${content.description}`})}>{content.description}</Link></span> )}</p>
                 <br />
                 {/* Image will go here */}
@@ -48,7 +52,7 @@ class ArtworkShow extends React.Component {
                 
                 {this.props.user ? <AddToShowDropdown user={this.props.user} key={this.state.artwork.title} artwork={this.state.artwork} addToExhibitionMap={this.addToExhibitionMap} /> : <Link to={location=> ({...location, pathname: "/signin"})}>Sign in to save</Link>}
 
-
+                <Footer />
             </div>
 
         )

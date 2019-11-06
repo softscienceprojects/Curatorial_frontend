@@ -7,8 +7,8 @@ import { Router, Route } from 'react-router-dom'
 import { createBrowserHistory } from "history"
 import ErrorBoundary from "./components/ErrorBoundary";
 import paths from "./config/paths";
-import Search from "./components/Search";
-
+import Search from "./pages/Search";
+import Home from "./pages/Home"
 
 const curatorialHistory = createBrowserHistory();
 

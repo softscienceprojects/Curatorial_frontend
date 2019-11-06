@@ -1,5 +1,5 @@
 import React from 'react'
-import ArtworkCard from "./ArtworkCard"
+import ArtworkCard from "../components/ArtworkCard"
 
 class SearchResults extends React.Component {
     

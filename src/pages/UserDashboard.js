@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import ExhibitionCard from './ExhibitionCard';
+import ExhibitionCard from '../components/ExhibitionCard';
 
 
 class UserDashboard extends React.Component {

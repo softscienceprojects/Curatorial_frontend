@@ -1,7 +1,9 @@
 import React from 'react'
 import API from '../adapters/API'
-import ArtworkCard from './ArtworkCard'
+import ArtworkCard from '../components/ArtworkCard'
 //import { Link } from 'react-router-dom'
+import NavBar from "../components/NavBar"
+import Footer from "../components/Footer"
 
 class Artworks extends React.Component {
     state={
@@ -14,9 +16,12 @@ class Artworks extends React.Component {
 
     render() {
         return(
-            <div>Artworks : Explore Page
+            <>
+            <NavBar />
+            Artworks : Explore Page
                 {this.state.artworks.map(artwork=> <ArtworkCard artwork={artwork} key={artwork.id} />)}
-            </div>
+            <Footer />
+            </>
         )
     }
 }

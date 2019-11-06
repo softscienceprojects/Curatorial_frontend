@@ -8,30 +8,28 @@ import paths from "./config/paths";
 import NavBar from "./components/NavBar";
 import API from "./adapters/API";
 
-import Home from "./components/Home";
-import Exhibitions from "./components/Exhibitions";
+import Home from "./pages/Home";
+import Exhibitions from "./wrappers/Exhibitions";
 import ExhibitionShow from "./pages/ExhibitionShow";
 import ExhibitionNewForm from "./components/ExhibitionNewForm"
 
-import Artworks from "./components/Artworks";
-import ArtworkShow from "./components/ArtworkShow"
+import Artworks from "./wrappers/Artworks";
+import ArtworkShow from "./pages/ArtworkShow"
 //import Search from "./components/Search";
 import LoadingComponent from "./components/LoadingComponent"
 
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
-import UserErrorShowPage from "./pages/UserErrorShowPage"
-import Users from "./components/Users";
-import UserDashboard from "./components/UserDashboard";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Users from "./wrappers/Users";
+import UserDashboard from "./pages/UserDashboard";
 import UserEditForm from "./components/UserEditForm"
 
-//import Footer from "./components/Footer"
 //import ErrorBoundary from "./components/ErrorBoundary";
 
 class App extends React.Component {
   state = {
     user: null,
-    validating: true, 
+    loading: false, 
   };
 
   signin = user => {
@@ -50,15 +48,15 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    API.validateUser().then(user => {
-      this.setState({ validating: false });
-      if (user.errors) {
-        //console.error(user.errors);
-        //this.props.history.push("/signin");
-      } else {
-        this.setState({ user });
-      }
-    });
+    // API.validateUser().then(user => {
+    //   this.setState({ loading: false });
+    //   if (user.errors) {
+    //     //console.error(user.errors);
+    //     //this.props.history.push("/signin");
+    //   } else {
+    //     this.setState({ user });
+    //   }
+    // });
   }       
 
   userCreatedNewExhibition = (response) => {
@@ -110,15 +108,10 @@ class App extends React.Component {
   }
 
   render() {
-    // if (this.state.validating) return <div className="loader">Curatorial</div>;
-    if (this.state.validating) return <LoadingComponent />;
-
+    if (this.state.loading) return <LoadingComponent />;
     return (
       //<ErrorBoundary>
       <div className="App">
-   
-           <NavBar user={this.state.user} signin={this.signin} logout={this.logout} />
-           {/* {!!this.state.hasError ? "There's an error" : null} */}
         
       <Switch>
       <Route
@@ -129,12 +122,12 @@ class App extends React.Component {
         <Route
           exact
           path={paths.EXHIBITIONS}
-          component={routerProps => <Exhibitions {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          component={routerProps => <Exhibitions {...routerProps} user={this.state.user} />}
         />
         <Route
           exact
           path={`${paths.EXHIBITIONS}/:id`}
-          component={routerProps => <ExhibitionShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} userAddExhibitionLike={this.userAddExhibitionLike} userRemoveExhibitionLike={this.userRemoveExhibitionLike} removeArtworkFromExhibition={this.removeArtworkFromExhibition} />}
+          component={routerProps => <ExhibitionShow {...routerProps} user={this.state.user} userAddExhibitionLike={this.userAddExhibitionLike} userRemoveExhibitionLike={this.userRemoveExhibitionLike} removeArtworkFromExhibition={this.removeArtworkFromExhibition} />}
         />
         <Route
           exact
@@ -149,18 +142,13 @@ class App extends React.Component {
         <Route
           exact
           path={paths.EXPLORE}
-          component={routerProps => <Artworks {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          component={routerProps => <Artworks {...routerProps} user={this.state.user}  />}
         />
           <Route
           exact
           path={`${paths.EXPLORE}/:id`}
-          render={routerProps => <ArtworkShow {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          render={routerProps => <ArtworkShow {...routerProps} user={this.state.user} />}
         />
-        {/* <Route
-          exact
-          path={paths.SEARCH}
-          component={routerProps => <Search {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
-        /> */}
         <Route
           exact
           path={paths.SIGNIN}
@@ -174,23 +162,19 @@ class App extends React.Component {
         <Route
           exact
           path={paths.USERS}
-          component={routerProps => <Users {...routerProps} user={this.state.user} logout={this.logout} />}
+          component={routerProps => <Users {...routerProps} user={this.state.user} />}
         />
        <Route
           exact
           path={`${paths.USERS}/:id`}
-          render={routerProps => <UserDashboard {...routerProps} user={this.state.user} logout={this.logout} />}
+          render={routerProps => <UserDashboard {...routerProps} user={this.state.user} />}
         />
         <Route
           exact
           path={`${paths.USERS}/:id/edit`}
-          render={routerProps => <UserEditForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} userEditAccountParams={this.userEditAccountParams} />}
+          render={routerProps => <UserEditForm {...routerProps} user={this.state.user} userEditAccountParams={this.userEditAccountParams} />}
         />
-        <Route
-          exact
-          path={`${paths.USERS}/error`}
-          render={routerProps => <UserErrorShowPage {...routerProps} signin={this.signin} logout={this.logout} />}
-        />
+
         <Route
           exact
           path={paths.LOGOUT}
@@ -198,7 +182,7 @@ class App extends React.Component {
         />
       </Switch>
 
-      {/* <Footer /> */}
+      
      
       </div>
      // </ErrorBoundary>
