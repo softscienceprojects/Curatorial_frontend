@@ -17,7 +17,7 @@ class Artworks extends React.Component {
     render() {
         return(
             <>
-            <NavBar />
+            <NavBar user={this.props.user} />
             Artworks : Explore Page
                 {this.state.artworks.map(artwork=> <ArtworkCard artwork={artwork} key={artwork.id} />)}
             <Footer />

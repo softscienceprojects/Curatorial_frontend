@@ -12,7 +12,7 @@ const Home = (props) => {
   
         return(
             <>
-            <NavBar />
+            <NavBar user={this.props.user} />
             <HomePanel1 />
             <HomePanel2 />
             <HomePanel3 />
