@@ -20,9 +20,9 @@ class Exhibitions extends React.Component {
     render() {
         let publicExibitions = this.filterPublicExhibitions()
         return(
-            <>
+            <article>
             {publicExibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} />)}
-            </>
+            </article>
         )
     }
 }

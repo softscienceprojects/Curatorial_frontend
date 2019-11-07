@@ -33,7 +33,7 @@ class ExhibitionShow extends React.Component {
         if (this.state.validating) return <LoadingComponent />;
         //if (this.state.validating) return <div className="loader">Curatorial</div>;
         return(
-        <div>
+        <article>
             { this.props.user && this.props.user.id === this.state.exhibition.user.id 
                 ? <Link to={{pathname: `/exhibitions/${this.state.exhibition.id}/edit`}} >Edit this exhibition</Link> 
                 : null }
@@ -41,7 +41,7 @@ class ExhibitionShow extends React.Component {
             <h4>{this.state.exhibition.summary}</h4>
 
             {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => 
-            <>
+            <div className="exhibition">
             <ArtworkCard key={artwork.title} artwork={artwork} />
             <RemoveArtworkButton user={this.props.user} 
             key={artwork.id} 
@@ -49,7 +49,7 @@ class ExhibitionShow extends React.Component {
             exhibition={this.state.exhibition}
             removeArtworkFromExhibition={this.removeArtworkFromExhibition}
             />
-            </> ) : "Currently no artworks"}
+            </div> ) : "Currently no artworks"}
             
             
             <h2>{this.state.exhibition.title}</h2>
@@ -66,7 +66,7 @@ class ExhibitionShow extends React.Component {
             removeALike={this.props.userRemoveExhibitionLike} 
             // removeALike={this.removeALike} 
             /> : null}
-        </div>
+        </article>
         )
     }
 }
