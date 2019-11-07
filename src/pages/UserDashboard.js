@@ -24,7 +24,7 @@ class UserDashboard extends React.Component {
         // this.props.history.push("/signin");
         // if this.props.match.params.id === this.props.user.id (this is you)
         return(
-            <div>
+            <article>
                 <h4>Welcome, {this.props.user.first_name}</h4>
                 <br />
                 {parseInt(this.props.match.params.id) === this.props.user.id ? <UserDashboardOptions user={this.props.user} /> : null }              
@@ -38,7 +38,7 @@ class UserDashboard extends React.Component {
                 {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "You haven't curated any exhibitions"}
                 
                 {/* <h4>feed</h4>  */}
-            </div>
+            </article>
         )
     }
 }

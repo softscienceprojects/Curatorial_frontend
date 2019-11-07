@@ -32,7 +32,7 @@ class UserEditForm extends React.Component {
     render(){
         // const isEnabled = this.frontEndValidation() 
         return(
-            <div>
+            <article>
                 <h4>Edit your account</h4>
                 <form onSubmit={this.handleSubmit}>
                     <p><label>First name  <input type="text" name="first_name" value={this.state.first_name} placeholder="first name" onChange={this.handleChange} /></label></p>
@@ -48,7 +48,7 @@ class UserEditForm extends React.Component {
                 <br /><br /><br />
                 <button onClick={()=>this.props.history.goBack()}>Cancel</button>
                 
-            </div>
+            </article>
         )
     }
 
