@@ -25,6 +25,8 @@ import Users from "./wrappers/Users";
 import UserDashboard from "./pages/UserDashboard";
 import UserEditForm from "./components/UserEditForm"
 
+import NavFooterWrapper from "./wrappers/NavFooterWrapper"
+
 //import ErrorBoundary from "./components/ErrorBoundary";
 
 class App extends React.Component {
