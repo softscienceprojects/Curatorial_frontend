@@ -121,7 +121,8 @@ class App extends React.Component {
           path={paths.SIGNUP}
           component={routerProps => <SignUp {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
-        <NavFooterWrapper history={this.props.history} 
+        <NavFooterWrapper {...this.props}
+                          history={this.props.history} 
                           user={this.state.user} 
                           userEditAccountParams={this.userEditAccountParams} 
                           userRemoveExhibitionLike={this.userRemoveExhibitionLike} 
