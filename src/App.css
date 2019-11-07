@@ -77,6 +77,10 @@ article {
   display: flex;
 }
 
+.signin a {
+  color: #fff;
+}
+
 .signup {
   height: 100vh;
   width: 100vw;
@@ -84,15 +88,31 @@ article {
   display: flex;
 }
 
+.signup a {
+  color: #000
+}
 
 nav {
   background-color: inherit;
   position: sticky;
   width: 100vw;
+  display: inline-flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+nav .nav-link {
+  background-color: #ccc;
+  text-decoration: none;
+  color: #000;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 0.7rem;
 }
 
 h1#logo {
   font-family: "Quadrat", serif;
+  font-size: 3rem;
 }
 
 span.tag {
@@ -176,7 +196,8 @@ button.danger {
 }
 
 footer {
-  /* position: absolute; */
+  position: absolute;
+  overflow: hidden;
   width: 100vw;
   bottom: 0;
   color: #fff;
