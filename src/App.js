@@ -121,7 +121,14 @@ class App extends React.Component {
           path={paths.SIGNUP}
           component={routerProps => <SignUp {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
-        <NavFooterWrapper user={this.state.user} userEditAccountParams={this.userEditAccountParams}>
+        <NavFooterWrapper history={this.props.history} 
+                          user={this.state.user} 
+                          userEditAccountParams={this.userEditAccountParams} 
+                          userRemoveExhibitionLike={this.userRemoveExhibitionLike} 
+                          userAddExhibitionLike={this.userAddExhibitionLike} 
+                          removeExhibitionsFromUser={this.removeExhibitionsFromUser} 
+                          userCreatedNewExhibition={this.userCreatedNewExhibition} 
+                          logout={this.logout}>
       
         </NavFooterWrapper>
       </div>
@@ -130,15 +137,5 @@ class App extends React.Component {
   }
 }
 
-
-// path={route.path}
-//             component={routerProps =>
-//               route.component ? (
-//                 <route.component
-//                   {...routerProps}
-//                   signin={this.signin}
-//                   logout={this.logout}
-//                   user={this.state.user}
-//                 />
 
 export default App;

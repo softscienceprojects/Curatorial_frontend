@@ -6,7 +6,7 @@ const closeWindow = (props) => {
 
 const CloseWindowButton = (props) => {
     return(
-        <button className="removeArtwork" onClick={() => closeWindow(props)}>Close window</button>
+        <button id="closeWindowButton" onClick={() => closeWindow(props)}>X</button>
     )
 }
 

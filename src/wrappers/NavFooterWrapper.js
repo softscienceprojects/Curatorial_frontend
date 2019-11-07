@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch } from "react-router-dom";
 
+import API from "../adapters/API";
 import paths from "../config/paths";
 
 import NavBar from "../components/NavBar"
@@ -21,9 +22,10 @@ import UserEditForm from "../components/UserEditForm"
 
 class NavFooterWrapper extends React.Component  {
 
+
   render() {
      return <div>
-      <NavBar user={this.props.user}/>
+      <NavBar user={this.props.user} history={this.props.history} />
       
       {this.props.children}
     
@@ -41,17 +43,17 @@ class NavFooterWrapper extends React.Component  {
         <Route
           exact
           path={`${paths.EXHIBITIONS}/:id`}
-          component={routerProps => <ExhibitionShow {...routerProps} user={this.props.user} userAddExhibitionLike={this.userAddExhibitionLike} userRemoveExhibitionLike={this.userRemoveExhibitionLike} removeArtworkFromExhibition={this.removeArtworkFromExhibition} />}
+          component={routerProps => <ExhibitionShow {...routerProps} user={this.props.user} userAddExhibitionLike={this.props.userAddExhibitionLike} userRemoveExhibitionLike={this.props.userRemoveExhibitionLike} removeArtworkFromExhibition={this.removeArtworkFromExhibition} />}
         />
         <Route
           exact
           path="/newexhibition"
-          render={routerProps => <ExhibitionNewForm {...routerProps} userCreatedNewExhibition={this.userCreatedNewExhibition} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          render={routerProps => <ExhibitionNewForm {...routerProps} userCreatedNewExhibition={this.props.userCreatedNewExhibition} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
         <Route
           exact
           path={`${paths.EXHIBITIONS}/:id/edit`}
-          render={routerProps => <ExhibitionNewForm {...routerProps} user={this.props.user} signin={this.signin} logout={this.logout} removeExhibitionsFromUser={this.removeExhibitionsFromUser} />}
+          render={routerProps => <ExhibitionNewForm {...routerProps} user={this.props.user} signin={this.signin} logout={this.logout} removeExhibitionsFromUser={this.props.removeExhibitionsFromUser} />}
         />
         <Route
           exact
@@ -85,7 +87,7 @@ class NavFooterWrapper extends React.Component  {
         <Route
           exact
           path={paths.LOGOUT}
-          component={()=> this.logout()}
+          component={()=> this.props.logout()}
         />
       </Switch>
 
