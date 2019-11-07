@@ -20,10 +20,10 @@ class Artworks extends React.Component {
         if (this.state.loading) return <LoadingComponent />
         return(
             <>
-            <NavBar user={this.props.user} />
+            {/* <NavBar user={this.props.user} /> */}
             
                 {this.state.artworks.map(artwork=> <ArtworkCard artwork={artwork} key={artwork.id} />)}
-            <Footer />
+            {/* <Footer /> */}
             </>
         )
     }

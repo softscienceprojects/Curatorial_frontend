@@ -22,9 +22,9 @@ class Exhibitions extends React.Component {
         let publicExibitions = this.filterPublicExhibitions()
         return(
             <>
-            <NavBar user={this.props.user} />
+            {/* <NavBar user={this.props.user} /> */}
             {publicExibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} />)}
-            <Footer />
+            {/* <Footer /> */}
             </>
         )
     }

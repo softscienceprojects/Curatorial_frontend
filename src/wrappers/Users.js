@@ -12,11 +12,10 @@ export default class Users extends React.Component {
         return(
             <Router>
             <>
-            <NavBar user={this.props.user}  />
+            {/* <NavBar user={this.props.user}  /> */}
                 <nav>
-                {/* <Link to="users/edit">edit your account</Link> */}
                 </nav>
-            <Footer />
+            {/* <Footer /> */}
             </>
 
             <Switch>
