@@ -65,7 +65,9 @@ img.responsive {
   /* max-width: 50rem; */
 }
 
-
+.home-panels {
+  width: 100vw;
+}
 
 /* input[type="email"] {
   border-bottom: 1px solid black;
