@@ -4,6 +4,8 @@
   src: local("MyFont"), url(./fonts/3A6A23_0_0.woff) format("woff");
 }
 
+
+
 .App {
   display: inline-flex;
   flex-wrap: wrap;
@@ -42,6 +44,7 @@
 
 nav {
   position: sticky;
+  width: 100vw;
 }
 
 h1#logo {
@@ -67,6 +70,14 @@ img.responsive {
 
 .home-panels {
   width: 100vw;
+}
+
+.home-panel-3 {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/images/TaubaAuerbach_ContemporaryArtDaily.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* input[type="email"] {
@@ -110,6 +121,7 @@ button.danger {
 
 footer {
   /* position: absolute; */
+  width: 100vw;
   bottom: 0;
   color: #fff;
   background-color: #271AC0;
