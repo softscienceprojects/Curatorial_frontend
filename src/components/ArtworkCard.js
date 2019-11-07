@@ -11,11 +11,11 @@ const ArtworkCard = (props) => {
         <Link to={{pathname: `/explore/${props.artwork.id}`}} key={props.artwork.id}>{props.artwork.title}</Link>
         
         {/* <span className="tag" key={content.description}><button onClick={()=> searchforArt(content.description, this.props)}>{content.description}</button></span> */}
-        {/* {props.artwork.contents.map(content=> {content.description === props.match.params.id ? <span className="tag">&nbsp;{content.description}&nbsp;</span> :   }  )} */}
-        {props.artwork.contents.map(content=> 
+            {/* {props.artwork.contents.map(content=> 
             content.description !== props.match.params.id 
             ? <span className="tag">&nbsp;{content.description}&nbsp;</span>
-            : <span className="tag-selected">&nbsp;{content.description}&nbsp;</span> )}
+            : <span className="tag-selected">&nbsp;{content.description}&nbsp;</span> )} */}
+
         <p>By {props.artwork.artist}</p>
         <p>{props.artwork.medium}</p>
         </div>
