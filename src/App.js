@@ -3,27 +3,17 @@ import React from "react";
 //<img src={logo} className="App-logo" alt="logo" />
 import "./App.css";
 import "./fonts/3A6A23_0_0.ttf";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import paths from "./config/paths";
-import NavBar from "./components/NavBar";
 import API from "./adapters/API";
 
-import Home from "./pages/Home";
-import Exhibitions from "./wrappers/Exhibitions";
-import ExhibitionShow from "./pages/ExhibitionShow";
-import ExhibitionNewForm from "./components/ExhibitionNewForm"
-
-import Artworks from "./wrappers/Artworks";
-import ArtworkShow from "./pages/ArtworkShow"
-import Search from "./pages/Search";
-import SearchResults from "./pages/SearchResults"
 import LoadingComponent from "./components/LoadingComponent"
+
+import Search from "./pages/Search";
 
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Users from "./wrappers/Users";
-import UserDashboard from "./pages/UserDashboard";
-import UserEditForm from "./components/UserEditForm"
+
 
 import NavFooterWrapper from "./wrappers/NavFooterWrapper"
 
@@ -112,58 +102,15 @@ class App extends React.Component {
   }
 
 
-
   render() {
     if (this.state.loading) return <LoadingComponent />;
     return (
-      //<ErrorBoundary>
+      
       <div className="App">
-        
-      <Switch>
-      <Route
-          exact
-          path={paths.ROOT}
-          component={routerProps => <Home {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
-        />
-        <Route
-          exact
-          path={paths.EXHIBITIONS}
-          component={routerProps => <Exhibitions {...routerProps} user={this.state.user} />}
-        />
-        <Route
-          exact
-          path={`${paths.EXHIBITIONS}/:id`}
-          component={routerProps => <ExhibitionShow {...routerProps} user={this.state.user} userAddExhibitionLike={this.userAddExhibitionLike} userRemoveExhibitionLike={this.userRemoveExhibitionLike} removeArtworkFromExhibition={this.removeArtworkFromExhibition} />}
-        />
-        <Route
-          exact
-          path="/newexhibition"
-          render={routerProps => <ExhibitionNewForm {...routerProps} userCreatedNewExhibition={this.userCreatedNewExhibition} user={this.state.user} signin={this.signin} logout={this.logout} />}
-        />
-        <Route
-          exact
-          path={`${paths.EXHIBITIONS}/:id/edit`}
-          render={routerProps => <ExhibitionNewForm {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} removeExhibitionsFromUser={this.removeExhibitionsFromUser} />}
-        />
-        <Route
-          exact
-          path={paths.EXPLORE}
-          component={routerProps => <Artworks {...routerProps} user={this.state.user}  />}
-        />
-          <Route
-          exact
-          path={`${paths.EXPLORE}/:id`}
-          render={routerProps => <ArtworkShow {...routerProps} user={this.state.user} />}
-        />
         <Route
           path={paths.SEARCH}
-          component={routerProps => <Search {...routerProps} searchForArt={this.searchForArt} />}
-        />
-          <Route
-          
-          path={`/results/description=:id`}
-          component={routerProps => <SearchResults {...routerProps} user={this.state.user} results={this.state.results} />}
-        />
+          component={routerProps => <Search {...routerProps}  />}
+        /> 
         <Route
           exact
           path={paths.SIGNIN}
@@ -174,33 +121,11 @@ class App extends React.Component {
           path={paths.SIGNUP}
           component={routerProps => <SignUp {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
         />
-        <Route
-          exact
-          path={paths.USERS}
-          component={routerProps => <Users {...routerProps} user={this.state.user} />}
-        />
-       <Route
-          exact
-          path={`${paths.USERS}/:id`}
-          render={routerProps => <UserDashboard {...routerProps} user={this.state.user} />}
-        />
-        <Route
-          exact
-          path={`${paths.USERS}/:id/edit`}
-          render={routerProps => <UserEditForm {...routerProps} user={this.state.user} userEditAccountParams={this.userEditAccountParams} />}
-        />
-
-        <Route
-          exact
-          path={paths.LOGOUT}
-          component={()=> this.logout()}
-        />
-      </Switch>
-
+        <NavFooterWrapper user={this.state.user} userEditAccountParams={this.userEditAccountParams}>
       
-     
+        </NavFooterWrapper>
       </div>
-     // </ErrorBoundary>
+    
     );
   }
 }

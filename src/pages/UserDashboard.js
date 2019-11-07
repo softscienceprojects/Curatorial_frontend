@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom'
 
 import ExhibitionCard from '../components/ExhibitionCard';
 
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
-
 class UserDashboard extends React.Component {
     state = {
         user: null

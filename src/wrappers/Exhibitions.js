@@ -1,8 +1,7 @@
 import React from 'react'
 import API from '../adapters/API'
 import ExhibitionCard from '../components/ExhibitionCard'
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
+
 
 class Exhibitions extends React.Component {
     state = {
@@ -22,9 +21,7 @@ class Exhibitions extends React.Component {
         let publicExibitions = this.filterPublicExhibitions()
         return(
             <>
-            {/* <NavBar user={this.props.user} /> */}
             {publicExibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} />)}
-            {/* <Footer /> */}
             </>
         )
     }

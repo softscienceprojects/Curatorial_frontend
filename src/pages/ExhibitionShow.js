@@ -7,8 +7,6 @@ import LoadingComponent from '../components/LoadingComponent'
 
 import RemoveArtworkButton from "../components/RemoveArtworkButton"
 
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
 
 class ExhibitionShow extends React.Component {
 
@@ -36,7 +34,6 @@ class ExhibitionShow extends React.Component {
         //if (this.state.validating) return <div className="loader">Curatorial</div>;
         return(
         <div>
-            <NavBar user={this.props.user} />
             { this.props.user && this.props.user.id === this.state.exhibition.user.id 
                 ? <Link to={{pathname: `/exhibitions/${this.state.exhibition.id}/edit`}} >Edit this exhibition</Link> 
                 : null }
@@ -69,7 +66,6 @@ class ExhibitionShow extends React.Component {
             removeALike={this.props.userRemoveExhibitionLike} 
             // removeALike={this.removeALike} 
             /> : null}
-        <Footer />
         </div>
         )
     }
