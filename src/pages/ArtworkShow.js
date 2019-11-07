@@ -40,7 +40,6 @@ class ArtworkShow extends React.Component {
         if (this.state.artwork)
         return(
             <div>
-                <NavBar user={this.props.user}/>
                 {/* <p>{this.state.artwork.contents.map(content=> <span className="tag" key={content.description}><Link to={location=> ({...location, pathname: `/search?description=${content.description}`})}>{content.description}</Link></span> )}</p> */}
                 
                 <p>{this.state.artwork.contents.map(content=> <span className="tag" key={content.description}><button onClick={()=> searchforArt(content.description, this.props)}>{content.description}</button></span> )}</p>
@@ -59,7 +58,6 @@ class ArtworkShow extends React.Component {
                 
                 {this.props.user ? <AddToShowDropdown user={this.props.user} key={this.state.artwork.title} artwork={this.state.artwork} addToExhibitionMap={this.addToExhibitionMap} /> : <Link to={location=> ({...location, pathname: "/signin"})}>Sign in to save</Link>}
 
-                <Footer />
             </div>
 
         )
