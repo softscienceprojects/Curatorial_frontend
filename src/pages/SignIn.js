@@ -33,6 +33,7 @@ class SignIn extends React.Component {
             <div className="signin">
             <CloseWindowButton history={this.props.history} />
 
+            <div className="centerForm">
             <h1 id="logo">Sign in</h1>
             {!!this.state.error ? "Those credentials didn't work, please try again" : null}
             <form onSubmit={this.handleSubmit}>
@@ -42,6 +43,7 @@ class SignIn extends React.Component {
             </form>
             <h4>No account?</h4>
             <Link to={location=> ({...location, pathname: "/signup"})} >Sign up now</Link>
+            </div>
             </div>
         )
     }

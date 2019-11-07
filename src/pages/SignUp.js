@@ -43,6 +43,7 @@ class SignUp extends React.Component {
       <div className="signup">
         <CloseWindowButton history={this.props.history} />
 
+        <div className="centerForm">
         <h1 id="logo">Sign Up</h1>
 
         {!!this.state.hasError ? "There's an error" : null}
@@ -100,6 +101,7 @@ class SignUp extends React.Component {
         <Link to={location => ({ ...location, pathname: "/signin" })}>
           Sign in instead
         </Link>
+        </div>
       </div>
     );
   }

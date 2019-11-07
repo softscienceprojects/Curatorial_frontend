@@ -37,20 +37,15 @@ class Search extends React.Component {
         return(
             <div className="search">
                 <CloseWindowButton history={this.props.history} />
+
+                <div className="centerForm">
                 <h1 id="logo">Search for anything</h1> 
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="searchTerm" placeholder="search for anything" value={this.state.searchTerm} onChange={this.handleChange} />
                     <input type="submit" value="search" />
                 </form>
-
-            {/* <SearchResults results={this.state.results} /> */}
-            {/* <Route 
-            <Redirect
-            to={{
-              pathname: `/search?description=${this.state.searchTerm}`
-              state: { from: location }
-            }}
-          /> /> */}
+            </div>
+   
 
             </div>
         )
