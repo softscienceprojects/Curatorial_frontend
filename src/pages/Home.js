@@ -11,11 +11,11 @@ const Home = (props) => {
   
         return(
             <>
-            <NavBar user={props.user} />
+            {/* <NavBar user={props.user} /> */}
             <HomePanel1 />
             <HomePanel2 />
             <HomePanel3 />
-            <Footer />
+            {/* <Footer /> */}
             </>
         )
         
