@@ -227,6 +227,20 @@ const unlikeExhibition = id => {
 }
 
 
+const followUser = (relationship_data) => {
+  return fetch(`${API_ENDPOINT}/relationships`, {
+    method: "POST",
+    headers: jsonHeaders(),
+    body: JSON.stringify({relationship: relationship_data})
+  }).then(handleServerResponse);
+}
+
+const unFollowUser = (relationship_id) => {
+  return fetch(`${API_ENDPOINT}/relationships/${relationship_id}`, {
+    method: "DELETE",
+  }).then(handleServerResponse);
+}
+
 // EXPORT ////////////////////
 export default {
   signin,
@@ -244,6 +258,8 @@ export default {
   deleteExhibition,
   likeExhibition,
   unlikeExhibition,
+  followUser,
+  unFollowUser,
   addArtToExhibition,
   removeArtFromExhibition,
   search,
