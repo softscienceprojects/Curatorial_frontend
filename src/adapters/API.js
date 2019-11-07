@@ -146,6 +146,8 @@ const logout = () => {
 
 // ARTWORKS ////////////////////
 const getArtworks = () => fetch(ARTWORKS_URL).then(handleServerResponse);
+const getArtworksCapped = () => fetch(`${API_ENDPOINT}/explore`).then(handleServerResponse);
+
 const getArtwork = id =>
   fetch(`${ARTWORKS_URL}/${id}`).then(handleServerResponse)
 //MAKE SEARCH REQUEST (GET SEARCH RESULTS)
@@ -247,5 +249,6 @@ export default {
   search,
   getArtwork,
   getArtworks,
+  getArtworksCapped,
   handleSmallServerReponse
 };
