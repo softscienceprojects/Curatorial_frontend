@@ -16,6 +16,16 @@
   margin: auto;
 }
 
+article {
+  margin: auto;
+  min-width: 20rem;
+  max-width: 60rem;
+}
+
+.exhibition {
+  /* this is for the artworks viewport on exhibition show page */
+}
+
 #closeWindowButton {
   position: absolute;
   border: none;
@@ -30,6 +40,22 @@
   width: 100vw;
   background-color: #B55E49;
   display: flex;
+}
+
+@media (max-width: 50rem) {
+
+}
+
+.artwork-card {
+  width: 40rem;
+}
+
+.artwork-show-content-tag {
+  background-color: inherit;
+  border: 1px solid #ccc;
+  margin: 2px;
+  padding: 5px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .search input[type="text"], .signin input[type="text"] {

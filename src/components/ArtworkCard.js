@@ -6,7 +6,7 @@ const ArtworkCard = (props) => {
 
     return(
     
-        <div>
+        <div className="artwork-card">
         {/* <img src={props.artwork.image_url} alt={props.artwork.title}  className="responsive" /> */}
         <Link to={{pathname: `/explore/${props.artwork.id}`}} key={props.artwork.id}>{props.artwork.title}</Link>
         
