@@ -6,6 +6,21 @@ import ExhibitionNewForm from '../components/ExhibitionNewForm'
 
 
 export default class Users extends React.Component {
+    componentDidMount() {
+        console.log(`mount: ${this.props.user}`)
+        console.log(`mount: ${this.props.match.params.id}`)
+    }
+
+    componentDidUpdate() {
+        console.log(`update: ${this.props.user}`)
+        console.log(`update: ${this.props.match.params.id}`)
+    }
+
+    componentWillUnmount() {
+        console.log(`unmount: ${this.props.user}`)
+        console.log(`unmount: ${this.props.match.params.id}`)
+    }
+
 
     render() {
         return(

@@ -19,6 +19,7 @@ import SearchResults from "../pages/SearchResults"
 import Users from "./Users";
 import UserDashboard from "../pages/UserDashboard";
 import UserEditForm from "../components/UserEditForm"
+import UserPublic from "../pages/UserPublic"
 
 class NavFooterWrapper extends React.Component  {
 
@@ -85,6 +86,11 @@ class NavFooterWrapper extends React.Component  {
           exact
           path={`${paths.USERS}/:id`}
           render={routerProps => <UserDashboard {...routerProps} user={this.props.user} />}
+        />
+        <Route
+          exact
+          path={`${paths.USERS}/public/:id`}
+          render={routerProps => <UserPublic {...routerProps} user={this.props.user} />}
         />
         <Route
           exact
