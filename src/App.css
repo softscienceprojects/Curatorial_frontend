@@ -115,13 +115,20 @@ h1#logo {
   font-size: 3rem;
 }
 
+.artwork-card a {
+  font-weight: 900;
+  text-decoration: none;
+  color: #000;
+}
+
 span.tag {
-  border: 1px solid blue;
+  border: 1px solid #ccc;
+  color: #ccc;
 }
 
 span.tag-selected {
-  border: 1px solid blue;
-  background: blue;
+  border: 1px solid #ccc;
+  background: #ccc;
   color: white;
 }
 
