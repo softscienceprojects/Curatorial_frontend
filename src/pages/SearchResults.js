@@ -8,11 +8,11 @@ class SearchResults extends React.Component {
     
     render() {
         return(
-            <div>
+            <article>
                 {!this.props.location ? <LoadingComponent /> : null }
                 {this.props.location && this.props.location.state.errors ? <NoResults searchTerm={this.props.match.params.id} /> : null }
                 {this.props.location && this.props.location.state.content ? this.props.location.state.content.artworks.map(artwork=> <ArtworkCard {...this.props} key={artwork.id} artwork={artwork}/> ) : null }
-            </div>
+            </article>
         )
     }
 

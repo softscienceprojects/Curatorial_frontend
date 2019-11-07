@@ -26,11 +26,11 @@ class Artworks extends React.Component {
     render() {
         if (this.state.loading) return <LoadingComponent />
         return(
-            <>
+            <article>
             {/* <InfiniteScroll dataLength={this.state.artworks.length} next={this.loader} refreshFunction={this.loader} hasMore={true} pullDownToRefresh loader={<h1 id="logo">Getting art</h1>}> */}
                 {this.state.artworks.map(artwork=> <ArtworkCard artwork={artwork} key={artwork.id} />)}
             {/* </InfiniteScroll> */}
-            </>
+            </article>
         )
     }
 }
