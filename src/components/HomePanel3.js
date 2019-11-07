@@ -2,8 +2,7 @@ import React from "react";
 
 const HomePanel3 = props => {
   return (
-    <div className="home-panel-3">
-        (bottom panel - full image background)
+    <div className="home-panels home-panel-3">
         <h4>Powered by the Havard Art Museums and Google Vision API</h4>
     </div>
     )
