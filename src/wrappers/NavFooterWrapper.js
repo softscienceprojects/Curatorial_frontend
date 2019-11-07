@@ -24,8 +24,15 @@ class NavFooterWrapper extends React.Component  {
 
 
   render() {
+
+    
      return <div>
-      <NavBar user={this.props.user} history={this.props.history} />
+       {this.props.location.pathname === "/search" ||
+        this.props.location.pathname === "/signin" ||
+        this.props.location.pathname === "/signup" ?
+        null
+        : <NavBar user={this.props.user} history={this.props.history} {...this.props} />
+      }
       
       {this.props.children}
     
@@ -90,8 +97,13 @@ class NavFooterWrapper extends React.Component  {
           component={()=> this.props.logout()}
         />
       </Switch>
-
-    <Footer />
+      
+      {this.props.location.pathname === "/search" ||
+        this.props.location.pathname === "/signin" ||
+        this.props.location.pathname === "/signup" ?
+        null
+       : <Footer />}
+    
   </div>;
   }
  
