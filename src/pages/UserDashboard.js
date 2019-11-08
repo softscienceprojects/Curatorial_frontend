@@ -90,10 +90,11 @@ const UserArtWorldFeed = props => {
 
 const UserArtWorldCard = props => {
     let lastExhibition = props.user.exhibitions[props.user.exhibitions.length-1]
-    if (lastExhibition === -1) return null
+    if (lastExhibition === undefined) return null
     return(
         <>
-        <h6>{props.user.first_name} just curated {lastExhibition.title}</h6>
+        <h6><Link to={{pathname: `/users/public/${props.user.id}`}} >{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h6>
+        <p>{lastExhibition.summary}</p>
         </>
     )
 }
