@@ -22,9 +22,9 @@ article {
   max-width: 60rem;
 }
 
-.exhibition {
-  /* this is for the artworks viewport on exhibition show page */
-}
+/* .exhibition {
+   this is for the artworks viewport on exhibition show page 
+} */
 
 #closeWindowButton {
   position: absolute;
