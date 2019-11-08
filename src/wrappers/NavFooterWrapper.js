@@ -56,7 +56,7 @@ class NavFooterWrapper extends React.Component  {
         <Route
           exact
           path="/newexhibition"
-          render={routerProps => <ExhibitionNewForm {...routerProps} userCreatedNewExhibition={this.props.userCreatedNewExhibition} user={this.state.user} signin={this.signin} logout={this.logout} />}
+          render={routerProps => <ExhibitionNewForm {...routerProps} userCreatedNewExhibition={this.props.userCreatedNewExhibition} user={this.props.user} signin={this.signin} logout={this.logout} />}
         />
         <Route
           exact
