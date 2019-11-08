@@ -58,7 +58,10 @@ class UserDashboard extends React.Component {
                 {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "No curated exhibitions"}
                 </aside>
 
-                {/* <h4>feed</h4>  */}
+                <h4>my art world</h4>
+                <hr />
+                {this.props.user.followed_users.length > 0 ? <UserArtWorldFeed followed_users={this.props.user.followed_users} /> : "Follow users to see what's new"}
+
             </article>
         )
     }
@@ -76,12 +79,22 @@ const UserDashboardOptions = (props) => {
     )
 }
 
-const userCuratedShows = (props) => {
-    return(
-        <aside>
-            <h4>"Name" Curated Shows</h4>
+const UserArtWorldFeed = props => {
 
-        </aside>
+    return(
+        <>
+        {props.followed_users.map(user => <UserArtWorldCard user={user} />)}
+        </>
+    )
+}
+
+const UserArtWorldCard = props => {
+    let lastExhibition = props.user.exhibitions[props.user.exhibitions.length-1]
+    if (lastExhibition === -1) return null
+    return(
+        <>
+        <h6>{props.user.first_name} just curated {lastExhibition.title}</h6>
+        </>
     )
 }
 
