@@ -6,6 +6,7 @@ import "./fonts/3A6A23_0_0.ttf";
 import { Route } from "react-router-dom";
 import paths from "./config/paths";
 import API from "./adapters/API";
+//import UserFunctions from "./adapters/UserFunctions"
 
 import LoadingComponent from "./components/LoadingComponent"
 
@@ -100,6 +101,8 @@ class App extends React.Component {
       user: response
     })
   }
+
+  
 
 
   render() {

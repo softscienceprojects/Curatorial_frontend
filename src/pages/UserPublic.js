@@ -1,6 +1,7 @@
 import React from 'react'
 import API from '../adapters/API'
 import LoadingComponent from '../components/LoadingComponent';
+import UserFollowUnfollowButton from '../components/UserFollowUnfollowButton'
 
 import ExhibitionCard from '../components/ExhibitionCard';
 
@@ -22,7 +23,7 @@ class UserPublic extends React.Component {
                 <p><strong>{this.state.user.followed_users.length}</strong> Following</p>
                 <p><strong>{this.state.user.follower_users.length}</strong> Followers</p>
 
-                Option to follow this user
+                <UserFollowUnfollowButton userToFollow={this.state.user} userSignedIn={this.props.user}/>
 
                 <p>{this.state.user.biography}</p>
 

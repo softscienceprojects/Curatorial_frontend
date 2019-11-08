@@ -74,8 +74,6 @@ const handleServerResponse = res => {
 const getUsers = () => fetch(USERS_URL).then(handleServerResponse);
 const getUser = id => fetch(`${USERS_URL}/${id}`).then(handleServerResponse);
 
-//FOLLOW OTHER USER,
-//UNFOLLOW OTHER USER
 
 const updateUser = (userDetails, id) => {
   return fetch(`${USERS_URL}/${id}`, {
