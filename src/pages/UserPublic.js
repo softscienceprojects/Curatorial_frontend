@@ -19,14 +19,20 @@ class UserPublic extends React.Component {
         return(
             <article>
                 <h4>{this.state.user.first_name}</h4>
+                <p><strong>{this.state.user.followed_users.length}</strong> Following</p>
+                <p><strong>{this.state.user.follower_users.length}</strong> Followers</p>
+
+                Option to follow this user
 
                 <p>{this.state.user.biography}</p>
 
-                <h4>liked shows</h4>
+                <h4>{this.state.user.first_name}'s liked shows</h4>
+                <hr />
                 {this.state.user.exhibition_likes.length !== 0 ? this.state.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "No liked exhibitions"}
 
 
-                <aside><h4>curated shows</h4>
+                <aside><h4>{this.state.user.first_name}'s curated shows</h4>
+                <hr />
                 {this.state.user.exhibitions.length !== 0 ? this.state.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "No curated exhibitions"}
 
                 </aside>

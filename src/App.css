@@ -22,6 +22,10 @@ article {
   max-width: 60rem;
 }
 
+hr {
+  border: 3px solid black;
+}
+
 /* .exhibition {
    this is for the artworks viewport on exhibition show page 
 } */

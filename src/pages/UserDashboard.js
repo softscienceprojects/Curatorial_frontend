@@ -39,15 +39,21 @@ class UserDashboard extends React.Component {
                 <h4>Welcome {this.props.user.first_name}</h4>
                 <br />
                 <UserDashboardOptions user={this.props.user} />
+
                 {/* <p>followers/following</p> */}
+                <p><strong>{this.props.user.followed_users.length}</strong> Following</p>
+                <p><strong>{this.props.user.follower_users.length}</strong> Followers</p>
+
                 <p>{this.props.user.biography}</p>
 
-                <h4>liked shows</h4>
+                <h4>my liked shows</h4>
+                <hr />
                 {/* {this.props.user.exhibition_likes.length !== 0 ? this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "You don't currently like any exhibitions"} */}
                 {this.props.user.exhibition_likes.length !== 0 ? this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "No liked exhibitions"}
 
                 <aside>
-                <h4>curated shows</h4>
+                <h4>my curated shows</h4>
+                <hr />
                 {/* {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "You haven't curated any exhibitions"} */}
                 {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "No curated exhibitions"}
                 </aside>
