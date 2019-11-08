@@ -44,7 +44,7 @@ class App extends React.Component {
   componentDidMount() {
     API.validateUser().then(user => {
       this.setState({ loading: false });
-      if (user.errors) {
+      if (user.error) {
         //console.error(user.errors);
         //this.props.history.push("/signin");
       } else {

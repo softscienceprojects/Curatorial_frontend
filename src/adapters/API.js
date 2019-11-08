@@ -48,7 +48,11 @@ const handleServerResponse = res => {
     return { code: 503 }
   } else if (res.status === 500) {
     return { code: 500, error: 'Something went wrong' }
-  } 
+  } else if (res.status === 406) {
+    return { code: 406, error: 'Not acceptable' }
+  } else if (res.status === 404) {
+    return {code: 404, error: 'Not found' }
+  }
   // tried to log in but credentials not found
   //else if url: "http://localhost:3000/validate", redirected: false, status: 404, ok: false, …}
  // tried to sign up but user already in db

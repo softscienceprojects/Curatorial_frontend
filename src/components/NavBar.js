@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 
 const NavBar = ({ user }) => {
+  //console.log(user === null)
   return (
     <nav>
       <h1 id="logo">Curatorial</h1>

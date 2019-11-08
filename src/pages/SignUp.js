@@ -17,13 +17,25 @@ class SignUp extends React.Component {
     });
   };
 
+  handleError = (res) => {
+    if (res !== undefined) {
+      this.props.signin(res)
+    } else {
+      this.setState({
+        hasError: true
+      })
+    }
+  }
+
   submitForm = event => {
     event.preventDefault();
     API.signup({
       email: this.state.email,
       password: this.state.password,
       password_confirmation: this.state.password_confirmation
-    }).then(user => this.props.signin(user));
+    }).then(res=> this.handleError(res))
+    
+    //.then(user => this.props.signin(user));
   };
 
   frontEndValidation = () => {
@@ -46,7 +58,7 @@ class SignUp extends React.Component {
         <div className="centerForm">
         <h1 id="logo">Sign Up</h1>
 
-        {!!this.state.hasError ? "There's an error" : null}
+        {!!this.state.hasError ? "That email address is already in use." : null}
         {this.state.email === "" ? "Please enter your email" : null}
         {this.state.password !== this.state.password_confirmation
           ? "Passwords must match"

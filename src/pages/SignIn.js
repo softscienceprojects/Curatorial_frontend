@@ -7,7 +7,7 @@ class SignIn extends React.Component {
     state={
         email: '',
         password: '',
-        error: false
+        hasError: false
     }
 
     handleChange= (event) => {
@@ -16,11 +16,22 @@ class SignIn extends React.Component {
         })
     }
 
+
     handleSubmit = event => {
         event.preventDefault();
         API.signin({email: this.state.email, password: this.state.password})
-        .then(user=> this.props.signin(user))
+        .then(user=> this.handleError(user))
     }
+
+    handleError = (res) => {
+        if (res !== undefined) {
+          this.props.signin(res)
+        } else {
+          this.setState({
+            hasError: true
+          })
+        }
+      }
 
     frontEndValidation = () => {
         if (this.state.email === '' || this.state.password === '') return false
@@ -35,7 +46,7 @@ class SignIn extends React.Component {
 
             <div className="centerForm">
             <h1 id="logo">Sign in</h1>
-            {!!this.state.error ? "Those credentials didn't work, please try again" : null}
+            <p>{this.state.hasError ? "Those credentials didn't work, please try again" : null}</p>
             <form onSubmit={this.handleSubmit}>
                 <p><label>Email: <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} /></label></p>
                 <p><label>Password: <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} /></label></p>
