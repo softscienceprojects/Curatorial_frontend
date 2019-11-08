@@ -104,11 +104,11 @@ class NavFooterWrapper extends React.Component  {
         />
       </Switch>
       
-      {this.props.location.pathname === "/search" ||
+      {/* {this.props.location.pathname === "/search" ||
         this.props.location.pathname === "/signin" ||
         this.props.location.pathname === "/signup" ?
         null
-       : <Footer />}
+       : <Footer />} */}
     
   </div>;
   }
