@@ -4,7 +4,8 @@ const LoadingComponent = (props) => {
 
     return(
         <article>
-            Just getting that ready for you... 
+            Just getting that ready for you... <br /><br />
+            <img src="https://media.giphy.com/media/131tNuGktpXGhy/source.gif" alt="loading gif" />
         </article>
     )
 }
