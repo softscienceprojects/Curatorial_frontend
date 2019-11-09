@@ -48,15 +48,17 @@ class UserDashboard extends React.Component {
 
                 <h4>my liked shows</h4>
                 <hr />
+                <div className="exhibition-container">
                 {/* {this.props.user.exhibition_likes.length !== 0 ? this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "You don't currently like any exhibitions"} */}
                 {this.props.user.exhibition_likes.length !== 0 ? this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "No liked exhibitions"}
-
+                </div>
                 <aside>
                 <h4>my curated shows</h4>
                 <hr />
+                <div className="exhibition-container">
                 {/* {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "You haven't curated any exhibitions"} */}
                 {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "No curated exhibitions"}
-                </aside>
+                </div></aside>
 
                 <h4>my art world</h4>
                 <hr />
@@ -73,9 +75,9 @@ export default UserDashboard
 
 const UserDashboardOptions = (props) => {
     return(
-        <nav>
+        <>
             <Link to={{pathname: `/users/${props.user.id}/edit`}}>Edit your profile</Link>
-        </nav>
+        </>
     )
 }
 
