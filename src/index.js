@@ -15,7 +15,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 const curatorialHistory = createBrowserHistory();
 
 ReactDOM.render(
-    <Router history={curatorialHistory} >
+    <Router onUpdate={()=> window.scrollTo(0, 0)} history={curatorialHistory} >
      <ErrorBoundary>
        {/* <Route
           path={paths.SEARCH}
