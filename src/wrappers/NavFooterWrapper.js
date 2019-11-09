@@ -27,7 +27,7 @@ class NavFooterWrapper extends React.Component  {
   render() {
 
     
-     return <div>
+     return (<div>
        {this.props.location.pathname === "/search" ||
         this.props.location.pathname === "/signin" ||
         this.props.location.pathname === "/signup" ?
@@ -110,7 +110,7 @@ class NavFooterWrapper extends React.Component  {
         null
        : <Footer />} */}
     
-  </div>;
+     </div>);
   }
  
 };
