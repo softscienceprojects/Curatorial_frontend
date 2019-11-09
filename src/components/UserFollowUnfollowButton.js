@@ -13,7 +13,6 @@ class UserFollowUnfollowButton extends React.Component {
     let found = userSignedIn.active_relationships.find(
       user => user.followed_id === userToFollow.id
     );
-    console.log(found)
     if (!!found) {
       this.setState({
         user_following_id: userSignedIn.id,
@@ -29,8 +28,7 @@ class UserFollowUnfollowButton extends React.Component {
   };
 
   handleAction = response => {
-    console.log(response)
-    this.props.userAddFollow(response); //////////
+    this.props.userAddFollow(response); 
     this.setState({
       relationship_id: response.id,
       followed: true
@@ -43,7 +41,7 @@ class UserFollowUnfollowButton extends React.Component {
 
   postUnfollow = relationship_id => {
     API.unFollowUser(relationship_id)
-      .then(res => this.props.userRemoveFollow(res)) ///////////
+      .then(res => this.props.userRemoveFollow(res))
       .then(() =>
         this.setState({
           relationship_id: "",
