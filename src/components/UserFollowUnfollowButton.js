@@ -33,6 +33,7 @@ class UserFollowUnfollowButton extends React.Component {
       relationship_id: response.id,
       followed: true
     });
+    this.props.userFollowed(this.props.userSignedIn);
   };
 
   postFollow = (relationship_data) => {
@@ -47,7 +48,8 @@ class UserFollowUnfollowButton extends React.Component {
           relationship_id: "",
           followed: false
         })
-      );
+      )
+      .then(()=>this.props.userUnfollowed(this.props.userSignedIn));
   };
 
   componentDidMount() {

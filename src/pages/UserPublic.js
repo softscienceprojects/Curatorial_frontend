@@ -15,6 +15,25 @@ class UserPublic extends React.Component {
         API.getUser(this.props.match.params.id).then(user => this.setState({ user: user }) )
     }
 
+    userFollowed = (loggedInUser) => {
+        this.setState({
+            user: {
+                ...this.state.user,
+                follower_users: [...this.state.user.follower_users, loggedInUser]
+            }
+        })
+    }
+
+    userUnfollowed = (loggedInUser) => {
+        this.setState({
+            user: {
+                ...this.state.user,
+                follower_users: this.state.user.follower_users.filter(user => user.id !== loggedInUser.id)
+            }
+        })
+    }
+
+
     render(){
         if (this.state.user === null) return <LoadingComponent />
         return(
@@ -23,7 +42,13 @@ class UserPublic extends React.Component {
                 <p><strong>{this.state.user.followed_users.length}</strong> Following</p>
                 <p><strong>{this.state.user.follower_users.length}</strong> Followers</p>
 
-                <UserFollowUnfollowButton userToFollow={this.state.user} userSignedIn={this.props.user} userAddFollow={this.props.userAddFollow} userRemoveFollow={this.props.userRemoveFollow}/>
+                <UserFollowUnfollowButton 
+                    userToFollow={this.state.user}
+                    userFollowed={this.userFollowed} 
+                    userUnfollowed={this.userUnfollowed}
+                    userSignedIn={this.props.user} 
+                    userAddFollow={this.props.userAddFollow} 
+                    userRemoveFollow={this.props.userRemoveFollow}/>
 
                 <p>{this.state.user.biography}</p>
 
