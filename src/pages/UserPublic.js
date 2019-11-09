@@ -8,11 +8,20 @@ import ExhibitionCard from '../components/ExhibitionCard';
 
 class UserPublic extends React.Component {
     state = {
-        user: null
+        user: null,
+        sameUser: false
     }
 
     componentDidMount() {
         API.getUser(this.props.match.params.id).then(user => this.setState({ user: user }) )
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.user !== this.props.user && this.props.user && this.props.user.id === this.state.user.id) {
+            this.setState({
+                sameUser: true
+            })
+        }
     }
 
     userFollowed = (loggedInUser) => {
@@ -42,13 +51,13 @@ class UserPublic extends React.Component {
                 <p><strong>{this.state.user.followed_users.length}</strong> Following</p>
                 <p><strong>{this.state.user.follower_users.length}</strong> Followers</p>
 
-                <UserFollowUnfollowButton 
+                {!this.state.sameUser ? <UserFollowUnfollowButton 
                     userToFollow={this.state.user}
                     userFollowed={this.userFollowed} 
                     userUnfollowed={this.userUnfollowed}
                     userSignedIn={this.props.user} 
                     userAddFollow={this.props.userAddFollow} 
-                    userRemoveFollow={this.props.userRemoveFollow}/>
+                    userRemoveFollow={this.props.userRemoveFollow}/> : null}
 
                 <p>{this.state.user.biography}</p>
 
