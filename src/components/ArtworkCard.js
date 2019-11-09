@@ -7,6 +7,7 @@ const ArtworkCard = (props) => {
     return(
     
         <div className="artwork-card">
+            <hr />
         {/* Image below:  */}
         {/* <Link to={{pathname: `/explore/${props.artwork.id}`}} key={props.artwork.id}><img src={props.artwork.image_url} alt={props.artwork.title}  className="responsive" /></Link> */}
         
@@ -14,11 +15,11 @@ const ArtworkCard = (props) => {
             {props.searchTerm ? 
             props.artwork.contents.map(content=> 
             content.description !== props.searchTerm
-            ? <span className="tag">&nbsp;{content.description}&nbsp;</span>
-            : <span className="tag-selected">&nbsp;{content.description}&nbsp;</span> 
+            ? <label className="tag">&nbsp;{content.description}&nbsp;</label>  
+            : <label className="tag-selected">&nbsp;{content.description}&nbsp;</label>   
             ) :
             props.artwork.contents.map(content=>  
-            <span className="tag">&nbsp;{content.description}&nbsp;</span>
+            <label className="tag">&nbsp;{content.description}&nbsp;</label>  
             )}  
         <h4><Link to={{pathname: `/explore/${props.artwork.id}`}} key={props.artwork.id}>{props.artwork.title}</Link></h4>
         <p>By {props.artwork.artist}</p>
