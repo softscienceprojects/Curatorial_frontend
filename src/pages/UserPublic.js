@@ -23,7 +23,7 @@ class UserPublic extends React.Component {
                 <p><strong>{this.state.user.followed_users.length}</strong> Following</p>
                 <p><strong>{this.state.user.follower_users.length}</strong> Followers</p>
 
-                <UserFollowUnfollowButton userToFollow={this.state.user} userSignedIn={this.props.user}/>
+                <UserFollowUnfollowButton userToFollow={this.state.user} userSignedIn={this.props.user} userAddFollow={this.props.userAddFollow} userRemoveFollow={this.props.userRemoveFollow}/>
 
                 <p>{this.state.user.biography}</p>
 

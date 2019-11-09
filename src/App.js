@@ -96,6 +96,24 @@ class App extends React.Component {
     })
   }
 
+  userAddFollow = response => {
+    this.setState({
+      user: {
+        ...this.state.user,
+        followed_users: [...this.state.user.followed_users, response],
+      }
+    })
+  }
+
+  userRemoveFollow = response => {
+    this.setState({
+      user: {
+        ...this.state.user,
+        followed_users: this.state.user.followed_users.filter(user => user.id !== response.id)
+      }
+    })
+  }
+
   userEditAccountParams = response => {
     this.setState({
       user: response
@@ -132,6 +150,8 @@ class App extends React.Component {
                           userAddExhibitionLike={this.userAddExhibitionLike} 
                           removeExhibitionsFromUser={this.removeExhibitionsFromUser} 
                           userCreatedNewExhibition={this.userCreatedNewExhibition} 
+                          userAddFollow={this.userAddFollow}
+                          userRemoveFollow={this.userRemoveFollow}
                           logout={this.logout}>
       
         </NavFooterWrapper>

@@ -90,7 +90,7 @@ class NavFooterWrapper extends React.Component  {
         <Route
           exact
           path={`${paths.USERS}/public/:id`}
-          render={routerProps => <UserPublic {...routerProps} user={this.props.user} />}
+          render={routerProps => <UserPublic {...routerProps} user={this.props.user} userAddFollow={this.props.userAddFollow} userRemoveFollow={this.props.userRemoveFollow}/>}
         />
         <Route
           exact

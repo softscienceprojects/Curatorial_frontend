@@ -10,67 +10,77 @@ class UserFollowUnfollowButton extends React.Component {
   };
 
   FindRelationship = (userSignedIn, userToFollow) => {
-    let found = userSignedIn.followed_users.find(
-      user => user.id === userToFollow.id
+    let found = userSignedIn.active_relationships.find(
+      user => user.followed_id === userToFollow.id
     );
-//     if (!!found) {
-//       this.setState({
-//         followed: true,
-//         liked_id: found.id
-//       });
-//     } else {
-//       this.setState({
-//         liked: false
-//       });
-//     }
+    console.log(found)
+    if (!!found) {
+      this.setState({
+        user_following_id: userSignedIn.id,
+        followed: true,
+        relationship_id: found.id
+      });
+    } else {
+      this.setState({
+        user_following_id: userSignedIn.id,
+        followed: false
+      });
+    }
   };
 
-//   multiFunction = response => {
-//     this.props.addALike(response);
-//     this.setState({
-//       liked_id: response.id,
-//       liked: true
-//     });
-//   };
+  handleAction = response => {
+    console.log(response)
+    this.props.userAddFollow(response); //////////
+    this.setState({
+      relationship_id: response.id,
+      followed: true
+    });
+  };
 
-//   postFollow = (exhibitionId, userId) => {
-//     API.followUser(exhibitionId, userId).then(r => this.multiFunction(r));
-//   };
+  postFollow = (relationship_data) => {
+    API.followUser(relationship_data).then(r => this.handleAction(r));
+  };
 
-//   postUnfollow = relationship_id => {
-//     API.unFollowUser(relationship_id)
-//       .then(res => this.props.removeALike(res))
-//       .then(() =>
-//         this.setState({
-//           liked_id: "",
-//           liked: false
-//         })
-//       );
-//   };
+  postUnfollow = relationship_id => {
+    API.unFollowUser(relationship_id)
+      .then(res => this.props.userRemoveFollow(res)) ///////////
+      .then(() =>
+        this.setState({
+          relationship_id: "",
+          followed: false
+        })
+      );
+  };
 
   componentDidMount() {
-      console.log(this.props)
-    // this.FindRelationship(
-    //   this.props.userSignedIn,
-    //   this.props.userToFollow
-    // );
-//     this.setState({
-//       exhibition_id: this.props.exhibition_id,
-//       user_id: this.props.user.id
-//     });
+    if (this.props.userSignedIn) {
+        this.FindRelationship(
+        this.props.userSignedIn,
+        this.props.userToFollow
+    );
+    }
+    this.setState({
+      user_to_follow_id: this.props.userToFollow.id
+    });
   }
 
-  componentDidUpdate() {
-      console.log(this.props)
+  componentDidUpdate(prevProps) {
+      if (prevProps.userSignedIn !== this.props.userSignedIn) {
+          this.FindRelationship(
+          this.props.userSignedIn,
+          this.props.userToFollow
+          ); 
+      }
+
   }
 
   render() {
     return (
       <>
-        {/* {!!this.state.followed ? (
+        {!!this.state.followed ? (
           <button
             className="likeExhibition"
-            onClick={() => this.postUnlike(this.state.liked_id)}
+            onClick={() => this.postUnfollow(this.state.relationship_id)}
           >
             ★ Unfollow this user
           </button>
@@ -78,15 +88,15 @@ class UserFollowUnfollowButton extends React.Component {
           <button
             className="likeExhibition"
             onClick={() =>
-              this.postLike({
-                exhibition_id: this.state.exhibition_id,
-                user_id: this.state.user_id
+              this.postFollow({
+                follower_id: this.state.user_following_id,
+                followed_id: this.state.user_to_follow_id
               })
             }
           >
             ☆ Follow this user
           </button>
-        )} */}
+        )}
       </>
     );
   }
