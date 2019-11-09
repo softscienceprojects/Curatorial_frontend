@@ -5,9 +5,8 @@
 }
 
 
-
 .App {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -18,6 +17,7 @@
 
 article {
   margin: auto;
+  padding-top: 8rem;
   min-width: 20rem;
   max-width: 60rem;
 }
@@ -26,12 +26,14 @@ hr {
   border: 3px solid black;
 }
 
-/* .exhibition {
-   this is for the artworks viewport on exhibition show page 
-} */
+.exhibition-container {
+  display: inline-flex;
+} 
 
 #closeWindowButton {
   position: absolute;
+  right: 0;
+  font-weight: 900;
   border: none;
   font-size: 2rem;
   background-color: inherit;
@@ -46,17 +48,21 @@ hr {
   display: flex;
 }
 
-@media (max-width: 50rem) {
-
-}
 
 .artwork-card {
-  width: 40rem;
+  max-width: 40rem;
+  margin: 10px;
+}
+
+select {
+  border: 1px solid #000;
 }
 
 .artwork-show-content-tag {
   background-color: inherit;
-  border: 1px solid #ccc;
+  border: 2px solid #B55E49;
+  font-weight: 900;
+  color: #B55E49;
   margin: 2px;
   padding: 5px;
   font-family: 'Roboto Mono', monospace;
@@ -66,11 +72,19 @@ hr {
   font-family: 'Roboto Mono', monospace;
   font-size: 1rem;
   color: #fff;
+  border-bottom: 2px solid white;
 }
 
 .search ::placeholder {
   font-family: 'Roboto Mono', monospace;
   color: #999;
+}
+
+.search input[type="submit"] {
+  background-color: inherit;
+  border: 2px solid white;
+  margin-left: 5px;
+  color: #fff;
 }
 
 .signin {
@@ -98,11 +112,13 @@ hr {
 
 nav {
   background-color: inherit;
-  position: sticky;
+  position: fixed;
   width: 100vw;
   display: inline-flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
+  z-index: 100;
 }
 
 nav .nav-link {
@@ -112,6 +128,24 @@ nav .nav-link {
   margin: 5px;
   padding: 10px 20px;
   font-size: 0.7rem;
+}
+
+nav .active {
+  background-color: inherit;
+  border: 2px solid #ccc;
+  color: #ccc;
+}
+
+h1#nav-logo {
+  font-family: "Quadrat", serif;
+  font-size: 1.5rem;
+  
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  mix-blend-mode: exclusion;
 }
 
 h1#logo {
@@ -125,15 +159,22 @@ h1#logo {
   color: #000;
 }
 
-span.tag {
+label.tag {
+  white-space: break-spaces;
   border: 1px solid #ccc;
   color: #ccc;
+  margin: 2px;
+  line-height: 1.5;
+  font-size: 0.8rem;
 }
 
-span.tag-selected {
+label.tag-selected {
   border: 1px solid #ccc;
   background: #ccc;
   color: white;
+  margin: 2px;
+  line-height: 1.5;
+  font-size: 0.8rem;
 }
 
 img.responsive {
@@ -145,7 +186,7 @@ img.responsive {
 
 .hero {
   font-family: "Quadrat", serif;
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: white;
   margin: auto;
 }
@@ -164,6 +205,8 @@ img.responsive {
 }
 
 .home-panel-3 {
+  color: white;
+  padding: 3rem;
   background-image: url("/images/TaubaAuerbach_ContemporaryArtDaily.jpg");
 }
 
@@ -200,6 +243,13 @@ button.danger {
   background-color: crimson;
 }
 
+button#cancelEdit {
+  font-weight: 500;
+  border: 2px solid black;
+  background-color: pink;
+  margin-left: 20px;
+}
+
 .loader {
   width: 100vw;
   height: 100vh;
@@ -207,10 +257,50 @@ button.danger {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   width: 100vw;
+  height: 3rem;
   bottom: 0;
   color: #fff;
   background-color: #271AC0;
+}
+
+.exhibition-card {
+  border: 3px solid #ccc;
+  max-width: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+/* MOBILE */
+
+@media (max-width: 50rem) {
+
+  nav .nav-link {
+    display:inline;
+    background-color: #ccc;
+    text-decoration: none;
+    color: #000;
+    margin: 0px;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+
+  nav h1 {
+    display: inline-flex;
+  }
+
+  nav h1:after {
+    content: "\a";
+    white-space: pre;
+  }
+
+  .artwork-card {
+    max-width: 30rem;
+  }
+
 }
