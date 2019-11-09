@@ -97,19 +97,24 @@ class App extends React.Component {
   }
 
   userAddFollow = response => {
+    console.log(response)
     this.setState({
       user: {
         ...this.state.user,
         active_relationships: [...this.state.user.active_relationships, response],
+        followed_users: [...this.state.user.followed_users, response.followed_user]
       }
     })
   }
 
   userRemoveFollow = response => {
+    console.log(response)
     this.setState({
       user: {
         ...this.state.user,
-        active_relationships: this.state.user.active_relationships.filter(relationship => relationship.id !== response.id)
+        active_relationships: this.state.user.active_relationships.filter(relationship => relationship.id !== response.id),
+        followed_users: this.state.user.followed_users.filter(user=>user.id !== response.followed_user.id)
+        
       }
     })
   }
