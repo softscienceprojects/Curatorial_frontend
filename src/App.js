@@ -100,7 +100,7 @@ class App extends React.Component {
     this.setState({
       user: {
         ...this.state.user,
-        followed_users: [...this.state.user.followed_users, response],
+        active_relationships: [...this.state.user.active_relationships, response],
       }
     })
   }
@@ -109,7 +109,7 @@ class App extends React.Component {
     this.setState({
       user: {
         ...this.state.user,
-        followed_users: this.state.user.followed_users.filter(user => user.id !== response.id)
+        active_relationships: this.state.user.active_relationships.filter(relationship => relationship.id !== response.id)
       }
     })
   }
