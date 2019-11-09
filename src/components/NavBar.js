@@ -1,13 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 
 const NavBar = ({ user }) => {
   //console.log(user === null)
   return (
     <nav>
-      <h1 id="logo">Curatorial</h1>
-      <NavLink className="nav-link" to="/">Home</NavLink>&nbsp;
+      <Link to="/"><h1 id="nav-logo">Curatorial</h1></Link>&nbsp;&nbsp;
       <NavLink className="nav-link"to="/explore">Explore</NavLink>&nbsp;
       <NavLink className="nav-link" to="/search">Search</NavLink>&nbsp;
       {user && <NavLink className="nav-link" to={`/users/${user.id}`}>Dashboard</NavLink>}&nbsp;
