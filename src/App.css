@@ -88,7 +88,7 @@ select {
 .search input[type="submit"] {
   background-color: inherit;
   border: 2px solid white;
-  margin-left: 5px;
+  margin: 5px;
   color: #fff;
 }
 
@@ -240,13 +240,14 @@ img.responsive {
 
 input[type="password"], input[type="email"], input[type="text"] {
   border: 0;
-  outline: 0;
+  outline: none;
   background: transparent;
   border-bottom: 1px solid black;
   min-width: 290px;
 }
 
 input[type="textarea"] {
+  outline: none;
   height: 200px;
   border: 1px solid #000;
   width: 600px;
