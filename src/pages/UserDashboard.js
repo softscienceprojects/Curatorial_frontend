@@ -36,7 +36,7 @@ class UserDashboard extends React.Component {
         // this.props.history.push("/signin");
         return(
             <article>
-                <h4>Welcome {this.props.user.first_name}</h4>
+                <h1 id="logo">Welcome {this.props.user.first_name}</h1>
                 <br />
                 <UserDashboardOptions user={this.props.user} />
 
@@ -62,7 +62,7 @@ class UserDashboard extends React.Component {
 
                 <h4>my art world</h4>
                 <hr />
-                {this.props.user.followed_users.length > 0 ? <UserArtWorldFeed followed_users={this.props.user.followed_users} /> : "Follow users to see what's new"}
+                {this.props.user.followed_users.length > 0 ? <UserArtWorldFeed followed_users={this.props.user.followed_users} /> : <p>Follow users to see what's new</p>}
 
             </article>
         )
@@ -95,8 +95,9 @@ const UserArtWorldCard = props => {
     if (lastExhibition === undefined) return null
     return(
         <>
-        <h6><Link to={{pathname: `/users/public/${props.user.id}`}} >{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h6>
+        <h4><Link to={{pathname: `/users/public/${props.user.id}`}} >{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h4>
         <p>{lastExhibition.summary}</p>
+        <hr />
         </>
     )
 }
