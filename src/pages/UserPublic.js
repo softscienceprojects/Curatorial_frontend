@@ -47,7 +47,7 @@ class UserPublic extends React.Component {
         if (this.state.user === null) return <LoadingComponent />
         return(
             <article>
-                <h4>{this.state.user.first_name}</h4>
+                <h1 id="logo">{this.state.user.first_name}</h1>
                 <p><strong>{this.state.user.followed_users.length}</strong> Following</p>
                 <p><strong>{this.state.user.follower_users.length}</strong> Followers</p>
 
