@@ -21,7 +21,7 @@ article {
   padding-top: 8rem;
   padding-bottom: 2rem;
   max-width: 900px;
-  min-width: 20rem; 
+  min-width: 95vw; 
 }
 
 #error-handle {
@@ -285,7 +285,10 @@ button.removeArtwork {
 }
 
 button.likeExhibition {
-  background-color:beige;
+  font-size: 1rem;
+  background-color:inherit;
+  border: 0;
+  font-family: inherit;
 }
 
 button.danger {
