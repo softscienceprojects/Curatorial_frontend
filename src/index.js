@@ -17,20 +17,6 @@ const curatorialHistory = createBrowserHistory();
 ReactDOM.render(
     <Router onUpdate={()=> window.scrollTo(0, 0)} history={curatorialHistory} >
      <ErrorBoundary>
-       {/* <Route
-          path={paths.SEARCH}
-          component={routerProps => <Search {...routerProps}  />}
-        /> 
-        <Route
-          exact
-          path={paths.SIGNIN}
-          component={routerProps => <SignIn {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
-        />
-        <Route
-          exact
-          path={paths.SIGNUP}
-          component={routerProps => <SignUp {...routerProps} user={this.state.user} signin={this.signin} logout={this.logout} />}
-        /> */}
         <Route path="/" component={routerProps=> <App {...routerProps} />} />
     </ErrorBoundary>
     </Router>, 
