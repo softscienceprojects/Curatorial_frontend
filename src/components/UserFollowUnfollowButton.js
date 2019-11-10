@@ -75,6 +75,7 @@ class UserFollowUnfollowButton extends React.Component {
   }
 
   render() {
+    if (this.state.user_following_id === this.state.user_to_follow_id) return null
     return (
       <>
         {!!this.state.followed ? (
