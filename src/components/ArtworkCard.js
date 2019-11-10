@@ -9,7 +9,7 @@ const ArtworkCard = (props) => {
         <div className="artwork-card">
             <hr />
         {/* Image below:  */}
-        {/* <Link to={{pathname: `/explore/${props.artwork.id}`}} key={props.artwork.id}><img src={props.artwork.image_url} alt={props.artwork.title}  className="responsive" /></Link> */}
+        <Link to={{pathname: `/explore/${props.artwork.id}`}} key={props.artwork.id}><img src={props.artwork.image_url} alt={props.artwork.title}  className="responsive" /></Link>
         
         <div className="art-tags">
         {/* <span className="tag" key={content.description}><button onClick={()=> searchforArt(content.description, this.props)}>{content.description}</button></span> */}
