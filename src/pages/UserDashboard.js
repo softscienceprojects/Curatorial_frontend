@@ -77,6 +77,8 @@ const UserDashboardOptions = (props) => {
     return(
         <>
             <Link to={{pathname: `/users/${props.user.id}/edit`}}>Edit your profile</Link>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <Link to={{pathname: `/users/public/${props.user.id}`}}>See your public profile</Link>
         </>
     )
 }
