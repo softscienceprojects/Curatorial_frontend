@@ -23,6 +23,10 @@ article {
   min-width: 20rem; 
 }
 
+#error-handle {
+  height: 30px;
+}
+
 article a {
   color: black;
 }

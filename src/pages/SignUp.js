@@ -57,13 +57,13 @@ class SignUp extends React.Component {
 
         <div className="centerForm">
         <h1 id="logo">Sign Up</h1>
-
+        <div id="error-handle">
         {!!this.state.hasError ? "That email address is already in use." : null}
         {this.state.email === "" ? "Please enter your email" : null}
         {this.state.password !== this.state.password_confirmation
           ? "Passwords must match"
           : null}
-          
+          </div>
         <form onSubmit={this.submitForm}>
           <p>
             <label>
