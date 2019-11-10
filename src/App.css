@@ -59,10 +59,6 @@ hr {
   margin: 10px;
 }
 
-.artwork-card img {
-  max-width: 800px;
-}
-
 select {
   border: 1px solid #000;
 }
@@ -130,7 +126,20 @@ nav {
   z-index: 100;
 }
 
-nav#home-logo {
+#home-logo {
+  margin: auto;
+  position: fixed;
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  mix-blend-mode: exclusion;
+}
+
+nav h1::after {
+  content: "\A"
   
 }
 
@@ -152,14 +161,8 @@ nav .active {
 h1#nav-logo {
   font-family: "Quadrat", serif;
   font-size: 1.5rem;
-  
 }
 
-nav a {
-  color: black;
-  text-decoration: none;
-  mix-blend-mode: exclusion;
-}
 
 h1#logo {
   font-family: "Quadrat", serif;
@@ -244,7 +247,7 @@ input[type="password"], input[type="email"], input[type="text"] {
 }
 
 input[type="textarea"] {
-  height: 400px;
+  height: 200px;
   border: 1px solid #000;
   width: 600px;
   min-width: 290px;
@@ -351,6 +354,10 @@ footer {
 
   .centerForm {
     width: 300px;
+  }
+
+  input {
+    max-width: 290px;
   }
 
   .artwork-card {
