@@ -83,7 +83,7 @@ class UserFollowUnfollowButton extends React.Component {
             className="likeExhibition"
             onClick={() => this.postUnfollow(this.state.relationship_id)}
           >
-            ★ Unfollow this user
+            ☹ Unfollow
           </button>
         ) : (
           <button
@@ -95,7 +95,7 @@ class UserFollowUnfollowButton extends React.Component {
               })
             }
           >
-            ☆ Follow this user
+            ☺ Follow
           </button>
         )}
       </>
