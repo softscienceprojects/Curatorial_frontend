@@ -33,9 +33,9 @@ class UserEditForm extends React.Component {
         // const isEnabled = this.frontEndValidation() 
         return(
             <article>
-                <h4>Edit your account                
-                <button id="cancelEdit" onClick={()=>this.props.history.goBack()}>Cancel</button></h4>
-
+                <button id="cancelEdit" onClick={()=>this.props.history.goBack()}>Cancel</button>
+                <hr />
+                <h4>Edit your account</h4>
                 <form onSubmit={this.handleSubmit}>
                     <p><label>First name  <br /><input type="text" name="first_name" value={this.state.first_name} placeholder="first name" onChange={this.handleChange} /></label></p>
                     <p><label>Last name  <br /><input type="text" name="last_name" value={this.state.last_name} placeholder="last name" onChange={this.handleChange} /></label></p>
