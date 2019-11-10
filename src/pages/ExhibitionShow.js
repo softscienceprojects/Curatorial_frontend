@@ -49,7 +49,7 @@ class ExhibitionShow extends React.Component {
             exhibition={this.state.exhibition}
             removeArtworkFromExhibition={this.removeArtworkFromExhibition}
             />
-            </div> ) : "Currently no artworks"}
+            </div> ) : <h1 id="logo">It's only the white cube</h1>}
             
             
             <h2>{this.state.exhibition.title}</h2>
