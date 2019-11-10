@@ -83,10 +83,10 @@ class ExhibitionNewForm extends React.Component {
     render(){
        // const isEnabled = this.frontEndValidation()
         return(
-            <div>
+            <article>
             {this.props.location.state !== undefined ? this.props.location.state.errors.map(error => <p>{error}</p>) : null}
             {/* {!!this.state.flashMessage ? "There's an error" : null} */}
-                
+                <div className="centerForm">
                 <form onSubmit={this.handleSubmit}>
                     <p><label>Title: <input type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} /></label></p>
                     <p><label>Summary: <input type="text" name="summary" value={this.state.summary} placeholder="summary" onChange={this.handleChange} /></label></p>
@@ -94,9 +94,9 @@ class ExhibitionNewForm extends React.Component {
                     <p><label>Make public?<input type="checkbox" name="summary" checked={this.state.public} onChange={this.makePublic} /></label></p>
                     <input type="submit" value="submit" />
                 </form>
-
+                </div>
                {this.props.match.path.match(/(edit)/) ? <button className="danger" onClick={()=>this.deleteToConfirm()}>Delete Exhibition</button> : null}
-            </div>
+            </article>
         )
     }
 
