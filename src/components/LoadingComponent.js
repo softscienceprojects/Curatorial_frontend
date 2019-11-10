@@ -5,8 +5,7 @@ const LoadingComponent = (props) => {
     return(
         <article>
             <div className="centerForm">
-            Just getting that ready for you... <br /><br />
-            <img src="https://media.giphy.com/media/131tNuGktpXGhy/source.gif" alt="loading gif" />
+            <h1 id="logo">Just getting that ready for you... <img src="https://media.giphy.com/media/131tNuGktpXGhy/source.gif" alt="loading gif" /></h1>
         </div>
         </article>
     )
