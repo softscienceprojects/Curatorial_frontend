@@ -88,9 +88,9 @@ class ExhibitionNewForm extends React.Component {
             {/* {!!this.state.flashMessage ? "There's an error" : null} */}
                 <div className="centerForm">
                 <form onSubmit={this.handleSubmit}>
-                    <p><label>Title: <input type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} /></label></p>
-                    <p><label>Summary: <input type="text" name="summary" value={this.state.summary} placeholder="summary" onChange={this.handleChange} /></label></p>
-                    <p><label>Description: <input type="textfield" name="description" value={this.state.description} placeholder="description" onChange={this.handleChange} /></label></p>
+                    <p><label>Title: <br /><input type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} /></label></p>
+                    <p><label>Summary: <br /><input type="text" name="summary" value={this.state.summary} placeholder="summary" onChange={this.handleChange} /></label></p>
+                    <p><label>Description: <br /><input type="textarea" name="description" value={this.state.description} placeholder="description" onChange={this.handleChange} /></label></p>
                     <p><label>Make public?<input type="checkbox" name="summary" checked={this.state.public} onChange={this.makePublic} /></label></p>
                     <input type="submit" value="submit" />
                 </form>
