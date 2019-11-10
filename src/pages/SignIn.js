@@ -50,8 +50,8 @@ class SignIn extends React.Component {
             <p>{this.state.hasError ? "Those credentials didn't work, please try again" : null}</p>
             </div>
             <form onSubmit={this.handleSubmit}>
-                <p><label>Email: <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} /></label></p>
-                <p><label>Password: <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} /></label></p>
+                <p><label>Email: <br /><input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.handleChange} /></label></p>
+                <p><label>Password: <br /><input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} /></label></p>
                 <input type="submit" value="Sign In" disabled={!isEnabled} />
             </form>
             <h4>No account?</h4>

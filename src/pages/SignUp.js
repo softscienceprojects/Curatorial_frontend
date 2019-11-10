@@ -67,7 +67,7 @@ class SignUp extends React.Component {
         <form onSubmit={this.submitForm}>
           <p>
             <label>
-              Email:{" "}
+              Email:<br />
               <input
                 type="email"
                 placeholder="email"
@@ -79,7 +79,7 @@ class SignUp extends React.Component {
           </p>
           <p>
             <label>
-              Password:{" "}
+              Password:<br />
               <input
                 type="password"
                 placeholder="password"
@@ -91,7 +91,7 @@ class SignUp extends React.Component {
           </p>
           <p>
             <label>
-              Password confirmation:{" "}
+              Password confirmation:<br />
               <input
                 type="password"
                 placeholder="confirm your password"
