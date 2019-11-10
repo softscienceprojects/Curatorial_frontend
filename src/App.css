@@ -23,6 +23,14 @@ article {
   min-width: 20rem; 
 }
 
+article a {
+  color: black;
+}
+
+article a:hover {
+  background-color: #94A595;
+}
+
 hr {
   border: 3px solid black;
 }
@@ -308,7 +316,7 @@ footer {
 
 .exhibition-card {
   border: 3px solid black;
-  background-color: #C8DF1E;
+  background-color: #94A595;
   color: white;
   max-width: 10rem;
   display: flex;
