@@ -39,7 +39,7 @@ class UserEditForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <p><label>First name  <br /><input type="text" name="first_name" value={this.state.first_name} placeholder="first name" onChange={this.handleChange} /></label></p>
                     <p><label>Last name  <br /><input type="text" name="last_name" value={this.state.last_name} placeholder="last name" onChange={this.handleChange} /></label></p>
-                    <p><label>Biography  <br /><input type="textarea" name="biography" value={this.state.biography} placeholder="biography" onChange={this.handleChange} /></label></p>
+                    <p><label>Biography  <br /><input type="textarea" rows="25" cols="50" name="biography" value={this.state.biography} placeholder="biography" onChange={this.handleChange} /></label></p>
                      <br /><br />
                      {/* <p><label>Email: <input type="email" name="email" value={this.state.email} placeholder="email" onChange={this.handleChange} /></label></p>
                      <p><label>New password: <input type="password" name="password" value={this.state.password} placeholder="password" onChange={this.handleChange} /></label></p>
