@@ -3,6 +3,7 @@ import React from 'react'
 //import SearchResults from './SearchResults'
 import CloseWindowButton from  '../components/NavButtonCloseWindow'
 import  searchForArt from "../config/searchForArt"
+//import LoadingComponent from '../components/LoadingComponent'
 
 
 class Search extends React.Component {
@@ -30,6 +31,7 @@ class Search extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         searchForArt(this.state.searchTerm, this.props)
+        //return <LoadingComponent />
     }
 
 
