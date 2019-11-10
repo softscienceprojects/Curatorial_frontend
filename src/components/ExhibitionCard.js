@@ -7,7 +7,7 @@ const ExhibitionCard = (props) => {
     return(
     
         <div className="exhibition-card">
-        <h5><Link to={{pathname: `/exhibitions/${props.exhibition.id}`}}>{props.exhibition.title}</Link></h5>
+        <h2 id="logo"><Link to={{pathname: `/exhibitions/${props.exhibition.id}`}}>{props.exhibition.title}</Link></h2>
         <h6>{props.exhibition.summary}</h6>
         </div>
     )
