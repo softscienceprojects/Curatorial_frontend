@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import API from '../adapters/API'
 
 import ExhibitionCard from '../components/ExhibitionCard';
-//import LoadingComponent from '../components/LoadingComponent';
+import LoadingComponent from '../components/LoadingComponent';
 
 class UserDashboard extends React.Component {
     state = {
