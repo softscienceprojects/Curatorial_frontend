@@ -18,22 +18,16 @@
 article {
   margin: auto;
   padding-top: 8rem;
-  /* max-width: 80rem;
-  min-width: 20rem; */
+  padding-bottom: 2rem;
+  max-width: 900px;
+  min-width: 20rem; 
 }
 
 hr {
   border: 3px solid black;
 }
 
-.exhibition {
-  min-height: 500px;
-}
 
-.exhibition-container {
-  display: flex;
-  flex-wrap: wrap;
-} 
 
 #closeWindowButton {
   position: absolute;
@@ -55,8 +49,8 @@ hr {
 
 
 .artwork-card {
-  /* max-width: 40rem; */
-  margin: 10px;
+  max-width: 800px;
+  margin: auto;
 }
 
 select {
@@ -138,7 +132,10 @@ nav a {
 }
 
 nav .nav-link {
+  display: block;
+  float: left;
   background-color: #ccc;
+  border: 2px solid #ccc;
   text-decoration: none;
   color: #000;
   margin: 5px;
@@ -161,6 +158,11 @@ h1#nav-logo {
 h1#logo {
   font-family: "Quadrat", serif;
   font-size: 3rem;
+}
+
+h2#logo {
+  font-family: "Quadrat", serif;
+  font-size: 1.5rem;
 }
 
 .artwork-card a {
@@ -194,7 +196,7 @@ label.tag-selected {
 
 img.responsive {
   min-width: 95%;
-  max-width: 95%;
+  max-width: 100%;
   /* for media queries... */
   /* max-width: 50rem; */
 }
@@ -223,7 +225,6 @@ img.responsive {
 }
 
 .home-panel-3 {
-  flex-basis: 80%;
   overflow-y: hidden;
   color: white;
   padding: 3rem;
@@ -251,8 +252,10 @@ input[type="textarea"] {
 }
 
 input[type="submit"] {
+  font-weight: 900;
+  padding: 5px;
   background-color: #ccc;
-  border-style: solid;
+  border: 0;
 }
 
 select {
@@ -269,14 +272,19 @@ button.likeExhibition {
 }
 
 button.danger {
+  color: white;
+  font-weight: 900;
+  border: 0px;
+  margin-right: auto;
+  padding: 5px;
   background-color: crimson;
 }
 
 button#cancelEdit {
-  font-weight: 500;
+  font-weight: 900;
   border: 2px solid black;
   background-color: pink;
-  margin-left: 20px;
+  padding: 5px;
 }
 
 .loader {
@@ -296,16 +304,19 @@ footer {
 }
 
 .exhibition-card {
-  border: 1px solid #ccc;
+  border: 1px solid black;
+  background-color: #C8DF1E;
+  color: white;
   max-width: 10rem;
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
   padding: 10px;
+  line-height: 1;
 }
 
 .exhibition-card a {
-  color: black;
+  color: white;
   font-weight: 900;
 }
 
@@ -325,7 +336,7 @@ footer {
   }
 
   .inner-nav {
-    display: none;
+    display: flex;
   }
 
   nav .nav-link {
