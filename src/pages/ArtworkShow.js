@@ -16,6 +16,7 @@ class ArtworkShow extends React.Component {
     
     componentDidMount() {
         API.getArtwork(this.props.match.params.id).then(response=> this.setState({artwork: response, validating: false}))
+        window.scrollTo(0, 0);
     }
 
     addToExhibitionMap = (response) => {
