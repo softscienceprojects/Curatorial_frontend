@@ -51,7 +51,7 @@ hr {
 
 
 .artwork-card {
-  max-width: 40rem;
+  /* max-width: 40rem; */
   margin: 10px;
 }
 
@@ -122,7 +122,9 @@ nav {
   z-index: 100;
 }
 
-
+nav#home-logo {
+  
+}
 
 nav .nav-link {
   background-color: #ccc;
@@ -160,6 +162,11 @@ h1#logo {
   font-weight: 900;
   text-decoration: none;
   color: #000;
+}
+
+.art-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
 }
 
 label.tag {
@@ -225,13 +232,13 @@ input[type="password"], input[type="email"], input[type="text"] {
   outline: 0;
   background: transparent;
   border-bottom: 1px solid black;
-  min-width: 200px;
+  min-width: 290px;
 }
 
 input[type="textarea"] {
   height: 400px;
   border: 1px solid #000;
-  min-width: 200px;
+  min-width: 290px;
 }
 
 input[type="submit"] {
