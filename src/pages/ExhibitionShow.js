@@ -47,7 +47,7 @@ class ExhibitionShow extends React.Component {
             />
             </div> ) : <h1 id="logo">It's only the white cube</h1>}
             
-            
+            <hr />
             <h1 id="logo">{this.state.exhibition.title}</h1>
             <h4>Curated by <Link to={{pathname: `/users/public/${this.state.exhibition.user.id}`}} >{this.state.exhibition.user.first_name}</Link></h4>
             <p>{this.state.exhibition.description}</p>
