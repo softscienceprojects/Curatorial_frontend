@@ -31,13 +31,9 @@ class ExhibitionShow extends React.Component {
 
     render() {
         if (this.state.validating) return <LoadingComponent />;
-        //if (this.state.validating) return <div className="loader">Curatorial</div>;
         return(
         <article>
-            { this.props.user && this.props.user.id === this.state.exhibition.user.id 
-                ? <Link to={{pathname: `/exhibitions/${this.state.exhibition.id}/edit`}} >Edit this exhibition</Link> 
-                : null }
-
+            
             <h4>{this.state.exhibition.summary}</h4>
 
             {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => 
@@ -52,11 +48,13 @@ class ExhibitionShow extends React.Component {
             </div> ) : <h1 id="logo">It's only the white cube</h1>}
             
             
-            <h2>{this.state.exhibition.title}</h2>
+            <h1 id="logo">{this.state.exhibition.title}</h1>
             <h4>Curated by <Link to={{pathname: `/users/public/${this.state.exhibition.user.id}`}} >{this.state.exhibition.user.first_name}</Link></h4>
             <p>{this.state.exhibition.description}</p>
 
-            
+            { this.props.user && this.props.user.id === this.state.exhibition.user.id 
+                ? <Link to={{pathname: `/exhibitions/${this.state.exhibition.id}/edit`}} >Edit this exhibition</Link> 
+                : null }
             <h4>{this.state.exhibition.exhibition_likes.length} {this.state.exhibition.exhibition_likes.length === 0 || this.state.exhibition.exhibition_likes.length > 1 ? "Curators like this exhibition" : "Curator likes this exhibition"}</h4>
 
             {this.props.user && this.props.user.id !== this.state.exhibition.user.id ? <LikeUnlikeExhibition user={this.props.user} 
