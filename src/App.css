@@ -237,6 +237,10 @@ img.responsive {
   background-image: url("/images/NamJunePaik_TVGarden1974-1977_Courtesy-Kunstsammlung_Nordrhein-Westfalen_Dusseldorf.jpg")
 }
 
+.home-panel-2 {
+  background-image: url("/images/Eliasson-Olafur_Seu-corpo-da-obra_MM20151-2560x1412.jpg");
+}
+
 .home-panel-3 {
   overflow-y: hidden;
   color: white;
