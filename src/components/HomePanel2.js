@@ -1,6 +1,6 @@
 import React from "react";
 //import { Player,ControlBar } from 'video-react'
-import ReactPlayer from 'react-player'
+//import ReactPlayer from 'react-player'
 
 const HomePanel2 = props => {
   return (
