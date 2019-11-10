@@ -18,8 +18,8 @@
 article {
   margin: auto;
   padding-top: 8rem;
-  min-width: 20rem;
-  max-width: 60rem;
+  /* max-width: 80rem;
+  min-width: 20rem; */
 }
 
 hr {
@@ -27,7 +27,8 @@ hr {
 }
 
 .exhibition-container {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
 } 
 
 #closeWindowButton {
@@ -121,6 +122,8 @@ nav {
   z-index: 100;
 }
 
+
+
 nav .nav-link {
   background-color: #ccc;
   text-decoration: none;
@@ -201,10 +204,13 @@ img.responsive {
 
 
 .home-panel-1 {
+  margin: auto;
   background-image: url("/images/NamJunePaik_TVGarden1974-1977_Courtesy-Kunstsammlung_Nordrhein-Westfalen_Dusseldorf.jpg")
 }
 
 .home-panel-3 {
+  flex-basis: 80%;
+  overflow-y: hidden;
   color: white;
   padding: 3rem;
   background-image: url("/images/TaubaAuerbach_ContemporaryArtDaily.jpg");
@@ -219,6 +225,13 @@ input[type="password"], input[type="email"], input[type="text"] {
   outline: 0;
   background: transparent;
   border-bottom: 1px solid black;
+  min-width: 200px;
+}
+
+input[type="textarea"] {
+  height: 400px;
+  border: 1px solid #000;
+  min-width: 200px;
 }
 
 input[type="submit"] {
@@ -277,30 +290,49 @@ footer {
 
 /* MOBILE */
 
-@media (max-width: 50rem) {
+@media (max-width: 320px) {
+  .App {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav {
+    width: 300px;
+    position: fixed;
+  }
 
   nav .nav-link {
-    display:inline;
-    background-color: #ccc;
-    text-decoration: none;
-    color: #000;
-    margin: 0px;
-    padding: 5px 10px;
-    font-size: 0.7rem;
-    line-height: 1;
+      background-color: #ccc;
+      text-decoration: none;
+      color: #000;
+      padding: 5px 10px;
+      font-size: 0.7rem;
+      line-height: 1;
+    }
+
+  article {
+    margin: auto;
+    width: 300px;
+    overflow-y: hidden;
   }
 
-  nav h1 {
-    display: inline-flex;
+  .home-panels {
+    padding: 20px;
+    overflow-x: hidden;
   }
 
-  nav h1:after {
-    content: "\a";
-    white-space: pre;
+  .home-panel-1, .home-panel-3 {
+    width: 300px;
+  }
+
+  .centerForm {
+    width: 300px;
   }
 
   .artwork-card {
-    max-width: 30rem;
+    max-width: 300px;
+    margin: 10px;
   }
 
 }
