@@ -20,7 +20,8 @@ article {
   margin: auto;
   padding-top: 8rem;
   padding-bottom: 2rem;
-  max-width: 900px;
+  width: 800px;
+  /* max-width: 900px; */
   min-width: 300px; 
 }
 
@@ -295,7 +296,7 @@ select {
 aside {
   display: inline-flex;
   flex-wrap: wrap;
-  min-width: 300px;
+  width: 600px;
 }
 
 button.removeArtwork {
@@ -417,16 +418,20 @@ footer a {
   } */
 
   nav .nav-link {
-      padding: 5px 10px;
-      font-size: 0.7rem;
+      padding: 5px 3px;
+      font-size: 0.6rem;
       line-height: 1;
       margin:  -1px auto;
     }
 
   article {
     margin: 5rem auto;
-    width: 600px;
+    width: 300px;
     padding: 10px;
+  }
+
+  aside {
+    width: 300px;
   }
 
 
