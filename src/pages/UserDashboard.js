@@ -99,7 +99,7 @@ const UserArtWorldCard = props => {
     if (lastExhibition === undefined) return null
     return(
         <>
-        <h4><Link to={{pathname: `/users/public/${props.user.id}`}} >{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h4>
+        <h4>✏ <Link to={{pathname: `/users/public/${props.user.id}`}} >{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h4>
         <p>{lastExhibition.summary}</p>
         <hr />
         </>
