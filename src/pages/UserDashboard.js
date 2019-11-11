@@ -41,9 +41,12 @@ class UserDashboard extends React.Component {
                 <UserDashboardOptions user={this.props.user} />
 
                 {/* <p>followers/following</p> */}
-                <p><strong>{this.props.user.followed_users.length}</strong> Following You &nbsp;
+                <p><strong>{this.props.user.followed_users.length}</strong> Following You
+                {this.props.user.followed_users.map(user=> <Following user={user} />)}
+                <br />
                 <strong>{this.props.user.follower_users.length}</strong> Followers</p>
-                
+                {this.props.user.follower_users.map(user=> <Following user={user} />)}
+
                 <hr />
                 <h4>my art world</h4>
                 {this.props.user.followed_users.length > 0 ? <UserArtWorldFeed followed_users={this.props.user.followed_users} /> : <p>Follow users to see what's new</p>}
@@ -78,11 +81,19 @@ const UserDashboardOptions = (props) => {
     return(
         <>
             <Link to={{pathname: `/users/${props.user.id}/edit`}}>Edit your profile</Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
+            &nbsp;|&nbsp;
             <Link to={{pathname: `/users/public/${props.user.id}`}}>See your public profile</Link>
+ 
         </>
     )
 }
+
+const Following = props => {
+    return(
+        <Link to={{pathname: `/users/public/${props.user.id}`}} className="relationship" >{props.user.first_name !== null ? props.user.first_name : props.user.email}</Link>
+    )
+}
+
 
 const UserArtWorldFeed = props => {
 
@@ -98,7 +109,7 @@ const UserArtWorldCard = props => {
     if (lastExhibition === undefined) return null
     return(
         <>
-        <h4>✏ <Link to={{pathname: `/users/public/${props.user.id}`}} >{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h4>
+        <h4>✏ <Link to={{pathname: `/users/public/${props.user.id}`}}>{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h4>
         <p>{lastExhibition.summary}</p>
         
         </>
