@@ -262,10 +262,12 @@ input[type="password"], input[type="email"], input[type="text"] {
 
 input[type="textarea"] {
   outline: none;
-  height: 200px;
-  border: 1px solid #000;
+  border: none;
+  line-height: 2;
+  border-bottom: 1px solid #000;
   width: 600px;
   min-width: 290px;
+  vertical-align: top;
 }
 
 input[type="submit"] {
