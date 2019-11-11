@@ -34,8 +34,13 @@ class Search extends React.Component {
         //return <LoadingComponent />
     }
 
+    frontEndValidation = () => {
+        if (this.state.searchTerm === '') return false
+        else return true
+    }
 
     render() {
+        const isEnabled = this.frontEndValidation()
         return(
             <div className="search">
                 <CloseWindowButton history={this.props.history} />
@@ -44,7 +49,7 @@ class Search extends React.Component {
                 <h1 id="logo">Search for anything</h1> 
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="searchTerm" placeholder="search for anything" value={this.state.searchTerm} onChange={this.handleChange} />
-                    <input type="submit" value="search" />
+                    <input type="submit" value="search" disabled={!isEnabled} />
                 </form>
             </div>
    
