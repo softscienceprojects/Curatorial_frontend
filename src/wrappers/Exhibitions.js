@@ -21,7 +21,9 @@ class Exhibitions extends React.Component {
         let publicExibitions = this.filterPublicExhibitions()
         return(
             <article>
+            <div className="exhibition-container">
             {publicExibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} />)}
+            </div>
             </article>
         )
     }
