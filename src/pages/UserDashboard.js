@@ -45,23 +45,25 @@ class UserDashboard extends React.Component {
                 <p><strong>{this.props.user.follower_users.length}</strong> Followers</p>
 
                 <p>{this.props.user.biography}</p>
-
-                <h4>my liked shows</h4>
+                
                 <hr />
+                <h4>my liked shows</h4>
+                
                 <div className="exhibition-container">
                 {/* {this.props.user.exhibition_likes.length !== 0 ? this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "You don't currently like any exhibitions"} */}
                 {this.props.user.exhibition_likes.length !== 0 ? this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "No liked exhibitions"}
                 </div>
                 <aside>
-                <h4>my curated shows</h4>
                 <hr />
+                <h4>my curated shows</h4>
                 <div className="exhibition-container">
                 {/* {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "You haven't curated any exhibitions"} */}
                 {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "No curated exhibitions"}
                 </div></aside>
-
-                <h4>my art world</h4>
+                
                 <hr />
+                <h4>my art world</h4>
+                
                 {this.props.user.followed_users.length > 0 ? <UserArtWorldFeed followed_users={this.props.user.followed_users} /> : <p>Follow users to see what's new</p>}
 
             </article>
