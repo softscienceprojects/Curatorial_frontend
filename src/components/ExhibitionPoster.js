@@ -18,7 +18,7 @@ const ExhibitionPoster = props => {
           {props.exhibition.title}
         </Link>
       </h2>
-      <h6>{props.exhibition.summary}</h6>
+      <h4>{props.exhibition.summary}</h4>
     </div>
   );
 };
