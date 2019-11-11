@@ -41,10 +41,8 @@ class UserDashboard extends React.Component {
                 <UserDashboardOptions user={this.props.user} />
 
                 {/* <p>followers/following</p> */}
-                <p><strong>{this.props.user.followed_users.length}</strong> Following</p>
-                <p><strong>{this.props.user.follower_users.length}</strong> Followers</p>
-
-                <p>{this.props.user.biography}</p>
+                <p><strong>{this.props.user.followed_users.length}</strong> Following You &nbsp;
+                <strong>{this.props.user.follower_users.length}</strong> Followers</p>
                 
                 <hr />
                 <h4>my liked shows</h4>
