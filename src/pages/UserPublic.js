@@ -62,12 +62,14 @@ class UserPublic extends React.Component {
                 <p>{this.state.user.biography}</p>
                 <hr />
                 <h4>{this.state.user.first_name}'s liked shows</h4>
+                <aside>
                 <div className="exhibition-container">
                 {this.state.user.exhibition_likes.length !== 0 ? this.state.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "No liked exhibitions"}
                 </div>
+                </aside>
                 <hr />
-                <aside>
                 <h4>{this.state.user.first_name}'s curated shows</h4>
+                <aside>
                 <div className="exhibition-container">
                 {this.state.user.exhibitions.length !== 0 ? this.state.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "No curated exhibitions"}
                     </div>

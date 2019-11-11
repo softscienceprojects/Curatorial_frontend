@@ -45,25 +45,26 @@ class UserDashboard extends React.Component {
                 <strong>{this.props.user.follower_users.length}</strong> Followers</p>
                 
                 <hr />
+                <h4>my art world</h4>
+                {this.props.user.followed_users.length > 0 ? <UserArtWorldFeed followed_users={this.props.user.followed_users} /> : <p>Follow users to see what's new</p>}
+
+                <hr />
                 <h4>my liked shows</h4>
-                
+                <aside>
                 <div className="exhibition-container">
                 {/* {this.props.user.exhibition_likes.length !== 0 ? this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "You don't currently like any exhibitions"} */}
                 {this.props.user.exhibition_likes.length !== 0 ? this.props.user.exhibition_likes.map(liked=> <ExhibitionCard exhibition={liked.exhibition} key={liked.exhibition.id} /> ) : "No liked exhibitions"}
                 </div>
-                <aside>
+                </aside>
                 <hr />
                 <h4>my curated shows</h4>
+                <aside>
                 <div className="exhibition-container">
                 {/* {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "You haven't curated any exhibitions"} */}
                 {this.props.user.exhibitions.length !== 0 ? this.props.user.exhibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} /> ) : "No curated exhibitions"}
                 </div></aside>
                 
                 <hr />
-                <h4>my art world</h4>
-                
-                {this.props.user.followed_users.length > 0 ? <UserArtWorldFeed followed_users={this.props.user.followed_users} /> : <p>Follow users to see what's new</p>}
-
             </article>
         )
     }
@@ -99,7 +100,7 @@ const UserArtWorldCard = props => {
         <>
         <h4>✏ <Link to={{pathname: `/users/public/${props.user.id}`}} >{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h4>
         <p>{lastExhibition.summary}</p>
-        <hr />
+        
         </>
     )
 }
