@@ -32,10 +32,6 @@ article a {
   color: black;
 }
 
-article a:hover {
-  background-color: #94A595;
-}
-
 hr {
   border: 3px solid black;
 }
@@ -284,6 +280,8 @@ select {
 
 .exhibition-container {
   display: inline-flex;
+  flex-wrap: wrap;
+  
 }
 
 button.removeArtwork {
@@ -343,7 +341,7 @@ footer a {
 
 .exhibition-card {
   border: 3px solid black;
-  /* background-color: black; */
+  background-color: black;
   color: white;
   max-width: 10rem;
   display: flex;
@@ -352,9 +350,28 @@ footer a {
   line-height: 1;
 }
 
-.exhibition-card:hover {
-  background-color: lavender;
+.exhibition-poster {
+  background-color: black;
+  border: 3px solid black;
+  min-width: 300px;
+  min-height: 400px;
+  padding: 20px;
+  line-height: 2;
+  text-align: center;
+  margin: 20px;
 }
+
+.exhibition-poster h2, h4 {
+  text-shadow: 
+  -1px -1px 0 #fff,
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff,
+		1px 1px 0 #fff;
+}
+
+/* .exhibition-card:hover {
+  background-color: lavender;
+} */
 
 .exhibition-card a {
   color: white;
@@ -393,6 +410,10 @@ footer a {
     margin: 5rem auto;
     width: 300px;
     padding: 10px;
+  }
+
+  aside {
+    float: right;
   }
 
   .home-panels {
