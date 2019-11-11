@@ -17,6 +17,10 @@ class Exhibitions extends React.Component {
         return this.state.exhibitions.filter(exhibition => !!exhibition.public )
     }
 
+    filterExhibitionsWithArt = (exhibitions) => {
+        return exhibitions.filter(exhibition => exhibition.artworks.length > 0)
+    }
+
     render() {
         let publicExibitions = this.filterPublicExhibitions()
         return(

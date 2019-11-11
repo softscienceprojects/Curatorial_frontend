@@ -343,7 +343,7 @@ footer a {
 
 .exhibition-card {
   border: 3px solid black;
-  background-color: black;
+  /* background-color: black; */
   color: white;
   max-width: 10rem;
   display: flex;
