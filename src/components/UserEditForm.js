@@ -3,7 +3,9 @@ import API from '../adapters/API'
 
 class UserEditForm extends React.Component {
     state ={
-
+        first_name: "",
+        last_name: "",
+        biography: ""
     }
 
     handleChange= (event) => {
@@ -11,6 +13,15 @@ class UserEditForm extends React.Component {
             [event.target.name]: event.target.value
         })
     }
+
+    componentDidMount() {
+        API.getUser(this.props.match.params.id)
+        .then(res=> this.setState({
+            first_name: res.first_name, 
+            last_name: res.last_name, 
+            biography: res.biography
+        })
+    )}
 
     handleSubmit = event => {
         event.preventDefault();
@@ -39,7 +50,7 @@ class UserEditForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <p><label>First name  <br /><input type="text" name="first_name" value={this.state.first_name} placeholder="first name" onChange={this.handleChange} /></label></p>
                     <p><label>Last name  <br /><input type="text" name="last_name" value={this.state.last_name} placeholder="last name" onChange={this.handleChange} /></label></p>
-                    <p><label>Biography  <br /><input type="textarea" rows="25" cols="50" name="biography" value={this.state.biography} placeholder="biography" onChange={this.handleChange} /></label></p>
+                    <p><label>Biography  <br /><textarea rows="10" cols="40" maxlength="200" name="biography" value={this.state.biography} placeholder="biography" onChange={this.handleChange} /></label></p>
                      <br /><br />
                      {/* <p><label>Email: <input type="email" name="email" value={this.state.email} placeholder="email" onChange={this.handleChange} /></label></p>
                      <p><label>New password: <input type="password" name="password" value={this.state.password} placeholder="password" onChange={this.handleChange} /></label></p>

@@ -93,7 +93,7 @@ class ExhibitionNewForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <p><label>Title: <br /><input type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} /></label></p>
                     <p><label>Summary: <br /><input type="text" name="summary" value={this.state.summary} placeholder="summary" onChange={this.handleChange} /></label></p>
-                    <p><label>Description: <br /><input type="textarea" name="description" value={this.state.description} placeholder="description" onChange={this.handleChange} /></label></p>
+                    <p><label>Description: <br /><textarea name="description" value={this.state.description} placeholder="description" onChange={this.handleChange} /></label></p>
                     <p><label>Make public?<input type="checkbox" name="summary" checked={this.state.public} onChange={this.makePublic} /></label></p>
                     <input type="submit" value="submit" />
                 </form>
