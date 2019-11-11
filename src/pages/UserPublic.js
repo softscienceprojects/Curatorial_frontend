@@ -2,6 +2,7 @@ import React from 'react'
 import API from '../adapters/API'
 import LoadingComponent from '../components/LoadingComponent';
 import UserFollowUnfollowButton from '../components/UserFollowUnfollowButton'
+import { Link } from 'react-router-dom'
 
 import ExhibitionCard from '../components/ExhibitionCard';
 
@@ -49,6 +50,7 @@ class UserPublic extends React.Component {
             <article>
                 <h1 id="logo">{this.state.user.first_name}</h1>
                 <p><strong>{this.state.user.followed_users.length}</strong> Following</p>
+
                 <p><strong>{this.state.user.follower_users.length}</strong> Followers</p>
 
                 {!this.state.sameUser ? <UserFollowUnfollowButton 
