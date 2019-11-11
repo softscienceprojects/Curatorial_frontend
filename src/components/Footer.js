@@ -4,7 +4,7 @@ const Footer = (props) => {
 
     return(
         <footer>
-            Curatorial 
+            <p>A project by <a href="https://softscienceprojects.github.io/">Erin Nicole Johnson</a></p>
         </footer>
     )
 }
