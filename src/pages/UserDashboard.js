@@ -41,10 +41,10 @@ class UserDashboard extends React.Component {
                 <UserDashboardOptions user={this.props.user} />
 
                 {/* <p>followers/following</p> */}
-                <p><strong>{this.props.user.followed_users.length}</strong> Following You
+                <p><strong>{this.props.user.followed_users.length}</strong> Following You</p>
                 {this.props.user.followed_users.map(user=> <Following user={user} />)}
                 <br />
-                <strong>{this.props.user.follower_users.length}</strong> Followers</p>
+                <p><strong>{this.props.user.follower_users.length}</strong> Followers</p>
                 {this.props.user.follower_users.map(user=> <Following user={user} />)}
 
                 <hr />
@@ -90,7 +90,7 @@ const UserDashboardOptions = (props) => {
 
 const Following = props => {
     return(
-        <Link to={{pathname: `/users/public/${props.user.id}`}} className="relationship" >{props.user.first_name !== null ? props.user.first_name : props.user.email}</Link>
+        <Link className="relationship" to={{pathname: `/users/public/${props.user.id}`}} >{props.user.first_name !== null ? props.user.first_name : props.user.email}</Link>
     )
 }
 
