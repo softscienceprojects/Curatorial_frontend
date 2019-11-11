@@ -12,6 +12,7 @@ const NavBar = ({ user }) => {
       </div>
       <div className="inner-nav">
       <NavLink className="nav-link"to="/explore">Explore</NavLink>&nbsp;
+      <NavLink className="nav-link" to="/exhibitions">Exhibitions</NavLink>&nbsp;
       <NavLink className="nav-link" to="/search">Search</NavLink>&nbsp;
       {user && <NavLink className="nav-link" to={`/users/${user.id}`}>Dashboard</NavLink>}&nbsp;
       {user && <NavLink className="nav-link" to="/logout">Logout</NavLink>}&nbsp;
