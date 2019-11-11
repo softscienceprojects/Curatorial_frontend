@@ -1,6 +1,6 @@
 import React from 'react'
 import API from '../adapters/API'
-import ExhibitionCard from '../components/ExhibitionCard'
+import ExhibitionPoster from '../components/ExhibitionPoster'
 
 
 class Exhibitions extends React.Component {
@@ -26,7 +26,7 @@ class Exhibitions extends React.Component {
         return(
             <article>
             <div className="exhibition-container">
-            {publicExibitions.map(exhibition=> <ExhibitionCard exhibition={exhibition} key={exhibition.id} />)}
+            {publicExibitions.map(exhibition=> <ExhibitionPoster exhibition={exhibition} key={exhibition.id} />)}
             </div>
             </article>
         )
