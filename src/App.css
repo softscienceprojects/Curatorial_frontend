@@ -282,6 +282,10 @@ select {
   border: 1px solid black;
 }
 
+.exhibition-container {
+  display: inline-flex;
+}
+
 button.removeArtwork {
   background-color:beige;
 }
@@ -346,6 +350,10 @@ footer a {
   flex-wrap: wrap;
   padding: 10px;
   line-height: 1;
+}
+
+.exhibition-card:hover {
+  background-color: lavender;
 }
 
 .exhibition-card a {
