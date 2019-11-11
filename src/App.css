@@ -34,6 +34,12 @@ article a {
   color: black;
 }
 
+a.relationship {
+  background-color: lightgreen;
+  margin: 5px;
+  padding: 6px;
+}
+
 hr {
   border: 3px solid black;
 }
@@ -384,10 +390,6 @@ footer a {
 		1px 1px 0 #fff;
 }
 
-/* .exhibition-card:hover {
-  background-color: lavender;
-} */
-
 .exhibition-card a {
   color: white;
   font-weight: 900;
@@ -420,11 +422,6 @@ footer a {
       line-height: 1;
       margin:  -1px auto;
     }
-
-  .relationship {
-    background-color: lightgreen;
-    margin: 5px;
-  }
 
   article {
     margin: 5rem auto;
