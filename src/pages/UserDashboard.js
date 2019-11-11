@@ -41,10 +41,10 @@ class UserDashboard extends React.Component {
                 <UserDashboardOptions user={this.props.user} />
 
                 {/* <p>followers/following</p> */}
-                <p><strong>{this.props.user.followed_users.length}</strong> Following You</p>
+                <p>You're following <strong>{this.props.user.followed_users.length}</strong></p>
                 {this.props.user.followed_users.map(user=> <Following user={user} />)}
                 <br />
-                <p><strong>{this.props.user.follower_users.length}</strong> Followers</p>
+                <p><strong>{this.props.user.follower_users.length}</strong> Following you</p>
                 {this.props.user.follower_users.map(user=> <Following user={user} />)}
 
                 <hr />
@@ -109,8 +109,7 @@ const UserArtWorldCard = props => {
     if (lastExhibition === undefined) return null
     return(
         <>
-        <h4>✏ <Link to={{pathname: `/users/public/${props.user.id}`}}>{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h4>
-        <p>{lastExhibition.summary}</p>
+        <h4>✏ <Link to={{pathname: `/users/public/${props.user.id}`}}>{props.user.first_name}</Link> just curated <Link to={{pathname: `/exhibitions/${lastExhibition.id}`}} >{lastExhibition.title}</Link></h4><em>{lastExhibition.summary}</em>
         
         </>
     )
