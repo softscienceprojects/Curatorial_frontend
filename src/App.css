@@ -4,6 +4,13 @@
   src: local("MyFont"), url(./fonts/3A6A23_0_0.woff) format("woff");
 }
 
+:root {
+  --golden: #FCBA03;
+  --green: #94A595;
+  --brick: #B55E49;
+  --navy: #271AC0;
+}
+
 
 .App {
   display: flex;
@@ -36,7 +43,7 @@ article a {
 }
 
 a.relationship {
-  background-color: lightgreen;
+  background-color: var(--golden);
   margin: 5px;
   padding: 6px;
 }
@@ -78,9 +85,9 @@ select {
 .artwork-show-content-tag {
   cursor: pointer;
   background-color: inherit;
-  border: 2px solid #B55E49;
+  border: 2px solid var(--brick);
   font-weight: 900;
-  color: #B55E49;
+  color: var(--brick);
   margin: 2px;
   padding: 5px;
   font-family: 'Roboto Mono', monospace;
@@ -291,8 +298,12 @@ input[type="submit"] {
 }
 
 select {
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1.3;
   border-style: solid;
-  border: 1px solid black;
+  border: 0;
+  padding: 5px;
+  height: 1.5rem;
 }
 
 .exhibition-container {
@@ -327,6 +338,13 @@ button.danger {
   margin-right: auto;
   padding: 5px;
   background-color: crimson;
+}
+
+.add-to-show {
+  background-color: var(--brick);
+  width: 250px;
+  display: flex;
+  border: 3px solid var(--brick);
 }
 
 button#cancelEdit {

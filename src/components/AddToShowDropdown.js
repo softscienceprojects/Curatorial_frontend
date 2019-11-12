@@ -50,6 +50,7 @@ class AddToShow extends React.Component {
         return(
             <>
             <h4>Add to a show</h4>
+            <div className="add-to-show">
             <form onSubmit={this.handleSubmit}>
                 <select value={this.state.value} onChange={this.handleChange}>
                 <option value="">Select an Exhibition:</option>
@@ -57,6 +58,7 @@ class AddToShow extends React.Component {
                 </select>
                 <input type="submit" value="Add to show" />
             </form>
+            </div>
                 <h4><Link to={location=> ({...location, pathname: "/newexhibition"})} addToExhibitionMap={this.props.addToExhibitionMap}>Or, create new exhibition </Link></h4>
             </>
         )
