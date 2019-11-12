@@ -1,8 +1,11 @@
 import React from "react";
 
 const RemoveArtworkButton = props => {
-  let artwork_exhibition_id = props.artwork.artwork_exhibitions.find(
-    art => art.exhibition_id === props.exhibition.id
+
+// SEARCH THROUGH EXHIBITION.ARTWORKS TO FIND this props.artwork
+
+  let artwork_exhibition_id = props.exhibition.artwork_exhibitions.find(
+    art => art.artwork_id === props.artwork.id
   );
   if (props.user && props.user.id === props.exhibition.user.id) {
     return (
