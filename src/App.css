@@ -194,7 +194,7 @@ h2#logo {
   flex-wrap: wrap;
 }
 
-label.tag {
+button.tag {
   white-space: break-spaces;
   border: 1px solid #ccc;
   color: #ccc;
@@ -203,7 +203,7 @@ label.tag {
   font-size: 0.8rem;
 }
 
-label.tag-selected {
+button.tag-selected {
   border: 1px solid #ccc;
   background: #ccc;
   color: white;
@@ -213,9 +213,8 @@ label.tag-selected {
 }
 
 img.responsive {
-  min-width: 95%;
-  max-width: 100%;
   max-height: 90vh;
+  margin: auto;
   /* for media queries... */
   /* max-width: 50rem; */
 }
