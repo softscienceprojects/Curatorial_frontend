@@ -423,6 +423,13 @@ footer a {
 		1px 1px 0 #fff;
 }
 
+.popular {
+  display: block;
+  bottom: 30;
+  position: relative;
+  background-color: var(--green);
+}
+
 .exhibition-card a {
   color: white;
   font-weight: 900;

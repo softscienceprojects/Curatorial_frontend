@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 
 const ExhibitionPoster = props => {
   let whiteCube = props.exhibition.artworks.length === 0;
-
   return (
 <>
 <Link to={{ pathname: `/exhibitions/${props.exhibition.id}` }}>
-          
-       
     <div
       className="exhibition-poster"
       style={{
@@ -18,11 +15,12 @@ const ExhibitionPoster = props => {
       }}
     >
       <h2 id="logo">
-        <Link to={{ pathname: `/exhibitions/${props.exhibition.id}` }}>
+        {/* <Link to={{ pathname: `/exhibitions/${props.exhibition.id}` }}> */}
           {props.exhibition.title}
-        </Link>
+        {/* </Link> */}
       </h2>
-      <h4>{props.exhibition.summary}</h4>
+      <h4>{props.exhibition.summary}</h4>     
+      <div className="popular">{props.exhibition.exhibition_likes.length >= 1 ? "☆ Popular" : null}</div>
     </div>
      </Link>
      </>
