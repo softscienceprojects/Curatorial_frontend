@@ -27,6 +27,7 @@ class Artworks extends React.Component {
         if (this.state.loading) return <LoadingComponent />
         return(
             <article>
+                <h1 id="logo">Artworks selected randomly</h1>
             <InfiniteScroll dataLength={this.state.artworks.length} next={this.loader} refreshFunction={this.loader} hasMore={true} pullDownToRefresh loader={<h1 id="logo">Getting art</h1>}>
                 {this.state.artworks.map(artwork=> <ArtworkCard artwork={artwork} key={`${artwork.id}-${artwork.title}`} />)}
             </InfiniteScroll>
