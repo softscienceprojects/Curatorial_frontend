@@ -6,7 +6,7 @@ const NavBar = ({ user }) => {
   //console.log(user === null)
   return (
     <>
-    <nav>
+    <nav className="desktop">
       <div className="inner-nav">
       <Link to="/"><h1 id="nav-logo">Curatorial</h1></Link>
       </div>
@@ -17,6 +17,20 @@ const NavBar = ({ user }) => {
       {user && <NavLink className="nav-link" to={`/users/${user.id}`}>Dashboard</NavLink>}&nbsp;
       {user && <NavLink className="nav-link" to="/logout">Logout</NavLink>}&nbsp;
       {!user && <NavLink className="nav-link" to="/signin">Sign in</NavLink>}&nbsp;
+      {!user && <NavLink className="nav-link" to="/signup">Sign up</NavLink>}
+      </div>
+    </nav>
+
+    <nav className="mobile">      
+      <button className="mobile-toggle-view">❒❑</button>
+      <div className="inner-nav">
+      <NavLink className="nav-link" to="/">Home</NavLink>
+      <NavLink className="nav-link" to="/explore">Explore</NavLink>
+      <NavLink className="nav-link" to="/exhibitions">Exhibitions</NavLink>
+      <NavLink className="nav-link" to="/search">Search</NavLink>
+      {user && <NavLink className="nav-link" to={`/users/${user.id}`}>Dashboard</NavLink>}
+      {user && <NavLink className="nav-link" to="/logout">Logout</NavLink>}
+      {!user && <NavLink className="nav-link" to="/signin">Sign in</NavLink>}
       {!user && <NavLink className="nav-link" to="/signup">Sign up</NavLink>}
       </div>
     </nav>

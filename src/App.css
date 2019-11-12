@@ -24,7 +24,7 @@
 }
 
 article {
-  margin: auto;
+  margin: 5rem auto;
   padding-top: 8rem;
   padding-bottom: 2rem;
   width: 800px;
@@ -68,7 +68,7 @@ hr {
   color: #fff;
   height: 100vh;
   width: 100vw;
-  background-color: #B55E49;
+  background-color: var(--brick);
   display: flex;
 }
 
@@ -116,7 +116,7 @@ select {
   color: #fff;
   height: 100vh;
   width: 100vw;
-  background-color: #271AC0;
+  background-color: var(--navy);
   display: flex;
 }
 
@@ -127,7 +127,7 @@ select {
 .signup {
   height: 100vh;
   width: 100vw;
-  background-color: #FCBA03;
+  background-color: var(--golden);
   display: flex;
 }
 
@@ -135,16 +135,22 @@ select {
   color: #000
 }
 
-nav {
-  position: fixed;
-  width: 100vw;
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
-  z-index: 100;
-  background-color: white;
-  opacity: 50%;
+@media (min-width: 401px) {
+  nav.desktop {
+    position: fixed;
+    width: 100vw;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: baseline;
+    z-index: 100;
+    background-color: white;
+    opacity: 70%;
+  }
+
+  nav.mobile {
+    display: none;
+  }
 }
 
 .inner-nav {
@@ -314,7 +320,7 @@ select {
 aside {
   display: inline-flex;
   flex-wrap: wrap;
-  width: 600px;
+  /* width: 600px; */
 }
 
 button.removeArtwork {
@@ -368,7 +374,7 @@ footer {
   height: 2rem;
   bottom: 0;
   color: #fff;
-  background-color: #271AC0;
+  background-color: var(--navy);
 }
 
 footer p {
@@ -394,7 +400,7 @@ footer a {
 }
 
 .exhibition-card:hover {
-  background-color: #271AC0;
+  background-color: var(--navy);
   color: white;
 }
 
@@ -426,30 +432,64 @@ footer a {
 
 /* MOBILE */
 
-@media (max-width: 320px) {
-  .App {
+
+@media (max-width: 400px) {
+  article {
+    margin: 5rem auto;
+    min-width: 300px;
+    padding: 10px;
+  }
+
+ nav.desktop {
+    display: none;
+  }
+
+  nav.mobile {
+    align-content: center;
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    z-index: 100;
+    background-color: white;
+    opacity: 85%;
+  }
+
+  .inner-nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  nav .nav-link {
+    margin: auto;
+    width: 100vw;
+    height: 3rem;
+    font-size: 2rem;
+    font-weight: 700;
+    align-content: center;
+  }
+
+  .mobile-toggle-view {
+    font-size: 3rem;
+    line-height: 2;
+    font-weight: 700;
+  }
+ 
+
+  /* .App {
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  nav {
-    position: fixed;
-    height: 0px;
-    width: 100vw;
-  }
-
-  /* .inner-nav {
-     display: flex; 
   } */
+/* 
+ 
+  
+  
 
-  nav .nav-link {
-      padding: 5px 3px;
-      font-size: 0.6rem;
-      line-height: 1;
-      margin:  -1px auto;
-    }
 
+/*
   article {
     margin: 5rem auto;
     width: 300px;
@@ -459,7 +499,6 @@ footer a {
   aside {
     width: 300px;
   }
-
 
   .home-panels {
     padding: 20px;
@@ -483,4 +522,5 @@ footer a {
     margin: 10px;
   }
 
-}
+  */
+} 
