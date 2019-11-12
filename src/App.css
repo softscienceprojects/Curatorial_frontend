@@ -76,6 +76,7 @@ select {
 }
 
 .artwork-show-content-tag {
+  cursor: pointer;
   background-color: inherit;
   border: 2px solid #B55E49;
   font-weight: 900;
@@ -195,6 +196,7 @@ h2#logo {
 }
 
 button.tag {
+  cursor: pointer;
   font-family: 'Roboto Mono', monospace;
   white-space: break-spaces;
   border: 1px solid #ccc;
@@ -205,6 +207,7 @@ button.tag {
 }
 
 button.tag-selected {
+  cursor: pointer;
   font-family: 'Roboto Mono', monospace;
   border: 1px solid #ccc;
   background: #ccc;
@@ -315,6 +318,7 @@ button.likeExhibition {
 }
 
 button.danger {
+  cursor: pointer;
   position: relative;
   right: 0;
   color: white;
