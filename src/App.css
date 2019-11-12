@@ -27,7 +27,7 @@ article {
   margin: 5rem auto;
   padding-top: 8rem;
   padding-bottom: 2rem;
-  width: 800px;
+  max-width: 800px;
   /* max-width: 900px; */
   min-width: 300px; 
 }
@@ -413,6 +413,7 @@ footer a {
   line-height: 2;
   text-align: center;
   margin: 20px;
+  position: relative;
 }
 
 .exhibition-poster h2, h4 {
@@ -425,9 +426,11 @@ footer a {
 
 .popular {
   display: block;
-  bottom: 30;
-  position: relative;
-  background-color: var(--green);
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-color: #fff;
+  padding: 0.5rem;
 }
 
 .exhibition-card a {

@@ -20,7 +20,7 @@ const ExhibitionPoster = props => {
         {/* </Link> */}
       </h2>
       <h4>{props.exhibition.summary}</h4>     
-      <div className="popular">{props.exhibition.exhibition_likes.length >= 1 ? "☆ Popular" : null}</div>
+      {props.exhibition.exhibition_likes.length >= 1 ? <div className="popular">☆ Popular</div> : null}
     </div>
      </Link>
      </>
