@@ -5,6 +5,10 @@ const ExhibitionPoster = props => {
   let whiteCube = props.exhibition.artworks.length === 0;
 
   return (
+<>
+<Link to={{ pathname: `/exhibitions/${props.exhibition.id}` }}>
+          
+       
     <div
       className="exhibition-poster"
       style={{
@@ -20,6 +24,8 @@ const ExhibitionPoster = props => {
       </h2>
       <h4>{props.exhibition.summary}</h4>
     </div>
+     </Link>
+     </>
   );
 };
 
