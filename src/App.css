@@ -407,7 +407,7 @@ footer a {
 .exhibition-poster {
   background-color: black;
   border: 3px solid black;
-  min-width: 300px;
+  width: 300px;
   min-height: 400px;
   padding: 20px;
   line-height: 2;
