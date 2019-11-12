@@ -49,19 +49,22 @@ class UserPublic extends React.Component {
         return(
             <article>
                 <h1 id="logo">{this.state.user.first_name}</h1>
-                <p><strong>{this.state.user.followed_users.length}</strong> Following</p>
+                <p>{this.state.user.biography}</p>
 
-                <p><strong>{this.state.user.follower_users.length}</strong> Followers</p>
 
-                {!this.state.sameUser ? <UserFollowUnfollowButton 
+                 {!this.state.sameUser ? <UserFollowUnfollowButton 
                     userToFollow={this.state.user}
                     userFollowed={this.userFollowed} 
                     userUnfollowed={this.userUnfollowed}
                     userSignedIn={this.props.user} 
                     userAddFollow={this.props.userAddFollow} 
                     userRemoveFollow={this.props.userRemoveFollow}/> : null}
+                    
+                <p>Following <strong>{this.state.user.followed_users.length}</strong> | 
+                <strong> {this.state.user.follower_users.length}</strong> {this.state.user.follower_users.length === 1 ? "Follower" : "Followers"}</p>
 
-                <p>{this.state.user.biography}</p>
+               
+
                 <hr />
                 <h4>{this.state.user.first_name}'s liked shows</h4>
                 <aside>
