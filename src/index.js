@@ -5,6 +5,8 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import ScrollToTop from 'react-router-scroll-top'
+
 import ErrorBoundary from "./components/ErrorBoundary";
 // import paths from "./config/paths";
 // import Search from "./pages/Search";
@@ -15,9 +17,12 @@ const curatorialHistory = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={curatorialHistory}>
+          <ScrollToTop>
     <ErrorBoundary>
       <Route path="/" component={routerProps => <App {...routerProps} />} />
-    </ErrorBoundary>
+    </ErrorBoundary>      
+    </ScrollToTop>
+
   </Router>,
   document.getElementById("root")
 );
