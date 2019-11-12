@@ -11,11 +11,11 @@ const ArtworkCard = props => {
         to={{ pathname: `/explore/${props.artwork.id}` }}
         key={props.artwork.id}
       >
-        <img
+        {/* <img
           src={props.artwork.image_url}
           alt={props.artwork.title}
           className="responsive"
-        />
+        /> */}
       </Link>
 
        <div className="art-tags">
