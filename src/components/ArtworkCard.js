@@ -19,18 +19,6 @@ const ArtworkCard = props => {
       </Link>
 
        <div className="art-tags">
-      {/*  {props.searchTerm
-          ? props.artwork.content_names.map(content =>
-              content !== props.searchTerm ? (
-                <label className="tag">&nbsp;{content}&nbsp;</label>
-              ) : (
-                <label className="tag-selected">&nbsp;{content}&nbsp;</label>
-              )
-            )
-          : props.artwork.content_names.map(content => (
-              <label className="tag">&nbsp;{content}&nbsp;</label>
-            ))} */}
-
 {props.searchTerm
           ? props.artwork.content_names.map(content =>
               content !== props.searchTerm ? (
