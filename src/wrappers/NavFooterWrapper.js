@@ -22,17 +22,25 @@ import UserEditForm from "../components/UserEditForm"
 import UserPublic from "../pages/UserPublic"
 
 class NavFooterWrapper extends React.Component  {
+  state = {
+    showNav: false
+  }
 
+  toggleNavBar = (event) => {
+    alert(event.target)
+    //.mobile-hide
+  }
+
+  
 
   render() {
-
     
      return (<>
        {this.props.location.pathname === "/search" ||
         this.props.location.pathname === "/signin" ||
         this.props.location.pathname === "/signup" ?
         null
-        : <NavBar user={this.props.user} history={this.props.history} {...this.props} />
+        : <NavBar user={this.props.user} history={this.props.history} showNav={this.state.showNav} toggleNavBar={this.toggleNavBar} {...this.props} />
       }
       
       {this.props.children}

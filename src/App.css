@@ -136,7 +136,7 @@ select {
 }
 
 @media (min-width: 401px) {
-  nav.desktop {
+  nav {
     position: fixed;
     width: 100vw;
     display: inline-flex;
@@ -148,9 +148,7 @@ select {
     opacity: 70%;
   }
 
-  nav.mobile {
-    display: none;
-  }
+ 
 }
 
 .inner-nav {
@@ -440,40 +438,44 @@ footer a {
     padding: 10px;
   }
 
- nav.desktop {
-    display: none;
-  }
-
-  nav.mobile {
-    align-content: center;
+  nav {
     display: block;
     position: fixed;
     width: 100vw;
     height: 100vh;
-    align-items: center;
     z-index: 100;
     background-color: white;
-    opacity: 85%;
+    /* opacity: 85%; */
   }
 
   .inner-nav {
-    display: flex;
+    color: black;
+    display: inline-flex;
     flex-wrap: wrap;
   }
 
+  h1#nav-logo {
+    color: black;
+    font-family: "Quadrat", serif;
+    font-size: 1.5rem;
+  }
+
   nav .nav-link {
-    margin: auto;
     width: 100vw;
-    height: 3rem;
-    font-size: 2rem;
+    height: 2.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     align-content: center;
   }
 
   .mobile-toggle-view {
     font-size: 3rem;
-    line-height: 2;
+    line-height: 1;
     font-weight: 700;
+  }
+
+  .mobile-hide {
+    display: none;
   }
  
 
