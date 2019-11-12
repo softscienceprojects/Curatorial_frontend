@@ -84,6 +84,8 @@ class ExhibitionNewForm extends React.Component {
        // const isEnabled = this.frontEndValidation()
         return(
             <article>
+            <div className="hover-forms">
+            <h1 id="logo">{this.props.match.path.match(/(edit)/) ? `Editing ${this.state.title}` : "Curate a new exhibition"}</h1>&nbsp;&nbsp;
             <button id="cancelEdit" onClick={()=>this.props.history.goBack()}>Cancel</button>
 
             <hr />
@@ -100,7 +102,7 @@ class ExhibitionNewForm extends React.Component {
                 </div>
                 <hr />
                 {this.props.match.path.match(/(edit)/) ? <button className="danger" onClick={()=>this.deleteToConfirm()}>Delete Exhibition</button> : null}
-           
+                </div>
             </article>
         )
     }

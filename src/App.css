@@ -32,7 +32,14 @@ article {
   min-width: 300px; 
 }
 
-
+@media (min-width: 600px) {
+  .hover-forms {
+    width: 600px;
+    padding: 15px;
+    padding: 2rem;
+    box-shadow: 10px 10px 10px #ccc;
+  }
+}
 
 #error-handle {
   height: 30px;
