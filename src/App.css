@@ -219,6 +219,11 @@ img.responsive {
   max-width: 100%;
 }
 
+.no-results {
+  width: 300px;
+  margin: auto;
+}
+
 .hero {
   font-family: "Quadrat", serif;
   font-size: 3.5rem;
