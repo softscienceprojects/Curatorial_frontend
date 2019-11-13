@@ -100,7 +100,7 @@ select {
   font-family: 'Roboto Mono', monospace;
 }
 
-.search input[type="text"], .signin input[type="text"] {
+.search input[type="text"], .signin input[type="text"], .signin input[type="password"], .signin input[type="email"] {
   font-family: 'Roboto Mono', monospace;
   font-size: 1rem;
   color: #fff;
@@ -498,50 +498,5 @@ footer a {
   }
  
 
-  /* .App {
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  } */
-/* 
- 
-  
-  
 
-
-/*
-  article {
-    margin: 5rem auto;
-    width: 300px;
-    padding: 10px;
-  }
-
-  aside {
-    width: 300px;
-  }
-
-  .home-panels {
-    padding: 20px;
-    overflow-x: hidden;
-  }
-
-  .home-panel-1, .home-panel-3 {
-    width: 300px;
-  }
-
-  .centerForm {
-    width: 300px;
-  }
-
-  input {
-    max-width: 290px;
-  }
-
-  .artwork-card {
-    max-width: 300px;
-    margin: 10px;
-  }
-
-  */
 } 
