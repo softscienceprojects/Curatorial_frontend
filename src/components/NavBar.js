@@ -6,7 +6,7 @@ const NavBar = ({ user }) => {
   //console.log(user === null)
   return (
     <>
-    <nav className="desktop">
+    <nav>
     {/* <button className="mobile-toggle-view" >❒❑</button> */}
 
       <div className="inner-nav">
