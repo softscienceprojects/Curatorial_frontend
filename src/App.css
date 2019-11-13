@@ -142,7 +142,7 @@ select {
   color: #000
 }
 
-/* @media (min-width: 401px) {
+@media (min-width: 401px) {
   nav {
     position: fixed;
     width: 100vw;
@@ -156,7 +156,7 @@ select {
   }
 
  
-} */
+}
 
 .inner-nav {
   margin: auto;
@@ -449,7 +449,7 @@ footer a {
 
 /* MOBILE */
 
-/* 
+
 @media (max-width: 400px) {
   article {
     margin: 5rem auto;
@@ -464,7 +464,7 @@ footer a {
     height: 100vh;
     z-index: 100;
     background-color: white;
-    /* opacity: 85%; 
+    /* opacity: 85%; */
   }
 
   .inner-nav {
@@ -495,7 +495,7 @@ footer a {
 
   .mobile-hide {
     display: none;
-  } */
+  }
  
 
   /* .App {
@@ -543,5 +543,5 @@ footer a {
     margin: 10px;
   }
 
-  
-} */
+  */
+} 
