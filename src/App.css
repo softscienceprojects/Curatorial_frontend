@@ -436,7 +436,7 @@ footer a {
   padding: 20px;
   line-height: 2;
   text-align: center;
-  margin: 20px;
+  margin: auto;
   position: relative;
 }
 
@@ -469,11 +469,14 @@ footer a {
 
 @media (max-width: 400px) {
   article {
-    margin: 5rem auto;
-    min-width: 300px;
+    margin: 1rem auto;
+    max-width: 350px;
     padding: 10px;
+    overflow: hidden;
   }
 
+  
+/* 
   nav {
     display: block;
     position: fixed;
@@ -481,7 +484,7 @@ footer a {
     height: 100vh;
     z-index: 100;
     background-color: white;
-    /* opacity: 85%; */
+    /* opacity: 85%; 
   }
 
   .inner-nav {
@@ -512,7 +515,7 @@ footer a {
 
   .mobile-hide {
     display: none;
-  }
+  } */
  
 
 
