@@ -312,10 +312,11 @@ input[type="textarea"] {
 }
 
 input[type="submit"] {
+  font-family: 'Roboto Mono', monospace;
+  border: 2px solid #ccc;
   font-weight: 900;
   padding: 5px;
   background-color: inherit;
-  border: 0;
 }
 
 select {
@@ -371,6 +372,7 @@ button.danger {
 }
 
 button#cancelEdit {
+  font-family: 'Roboto Mono', monospace;
   margin-left: 90%;
   font-weight: 900;
   border: 2px solid black;
