@@ -168,6 +168,11 @@ select {
  
 }
 
+span.callout {
+  background-color: var(--golden);
+  padding: 2px;
+}
+
 .inner-nav {
   margin: auto;
 }
