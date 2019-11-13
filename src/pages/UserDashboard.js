@@ -36,14 +36,14 @@ class UserDashboard extends React.Component {
         // this.props.history.push("/signin");
         return(
             <article>
+                {this.props.user.first_name === null || this.props.user.first_name === "" ? <span className="callout">⬇We don't know your name yet  </span> : null}<br />
+                <UserDashboardOptions user={this.props.user} /><br />
                 <h1 id="logo">Welcome {this.props.user.first_name}</h1>
                 <br />
-                <UserDashboardOptions user={this.props.user} />
-
                 {/* <p>followers/following</p> */}
                 <p>You're following <strong>{this.props.user.followed_users.length}</strong></p>
                 {this.props.user.followed_users.map(user=> <Following user={user} />)}
-                <br />
+            
                 <p><strong>{this.props.user.follower_users.length}</strong> Following you</p>
                 {this.props.user.follower_users.map(user=> <Following user={user} />)}
 

@@ -100,12 +100,23 @@ select {
   font-family: 'Roboto Mono', monospace;
 }
 
-.search input[type="text"], .signin input[type="text"] {
+.search input[type="text"], .signin input[type="text"], .signin input[type="password"], .signin input[type="email"], .signin input[type="submit"] {
   font-family: 'Roboto Mono', monospace;
   font-size: 1rem;
   color: #fff;
   border-bottom: 2px solid white;
 }
+
+.signin input[type="submit"] {
+  border: 2px solid white;
+}
+
+.signup input[type="submit"] {
+  font-family: 'Roboto Mono', monospace;
+  border: 2px solid black;
+  font-size: 1rem;
+}
+
 
 .search ::placeholder {
   font-family: 'Roboto Mono', monospace;
@@ -154,8 +165,12 @@ select {
     background-color: white;
     opacity: 70%;
   }
-
  
+}
+
+span.callout {
+  background-color: var(--golden);
+  padding: 2px;
 }
 
 .inner-nav {
@@ -302,10 +317,11 @@ input[type="textarea"] {
 }
 
 input[type="submit"] {
+  font-family: 'Roboto Mono', monospace;
+  border: 2px solid #ccc;
   font-weight: 900;
   padding: 5px;
-  background-color: #ccc;
-  border: 0;
+  background-color: inherit;
 }
 
 select {
@@ -318,8 +334,9 @@ select {
 }
 
 .exhibition-container {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
+  margin: auto;
 }
 
 aside {
@@ -361,6 +378,7 @@ button.danger {
 }
 
 button#cancelEdit {
+  font-family: 'Roboto Mono', monospace;
   margin-left: 90%;
   font-weight: 900;
   border: 2px solid black;
@@ -416,14 +434,13 @@ footer a {
   border: 3px solid black;
   width: 300px;
   min-height: 400px;
-  padding: 20px;
   line-height: 2;
   text-align: center;
-  margin: 20px;
+  margin: auto;
   position: relative;
 }
 
-.exhibition-poster h2, h4 {
+.exhibition-poster h2, .exhibition-poster h4 {
   text-shadow: 
   -1px -1px 0 #fff,
 		1px -1px 0 #fff,
@@ -450,98 +467,28 @@ footer a {
 /* MOBILE */
 
 
-@media (max-width: 400px) {
+@media (max-width: 415px) {
   article {
-    margin: 5rem auto;
-    min-width: 300px;
+    margin: 8rem auto auto;
+    max-width: 350px;
     padding: 10px;
+    overflow: hidden;
   }
 
   nav {
-    display: block;
+    display: flex;
     position: fixed;
     width: 100vw;
-    height: 100vh;
     z-index: 100;
     background-color: white;
-    /* opacity: 85%; */
-  }
-
-  .inner-nav {
-    color: black;
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-
-  h1#nav-logo {
-    color: black;
-    font-family: "Quadrat", serif;
-    font-size: 1.5rem;
+    opacity: 85%; 
   }
 
   nav .nav-link {
-    width: 100vw;
-    height: 2.2rem;
-    font-size: 1.5rem;
     font-weight: 700;
     align-content: center;
+    padding: 0px 10px;
   }
 
-  .mobile-toggle-view {
-    font-size: 3rem;
-    line-height: 1;
-    font-weight: 700;
-  }
 
-  .mobile-hide {
-    display: none;
-  }
- 
-
-  /* .App {
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  } */
-/* 
- 
-  
-  
-
-
-/*
-  article {
-    margin: 5rem auto;
-    width: 300px;
-    padding: 10px;
-  }
-
-  aside {
-    width: 300px;
-  }
-
-  .home-panels {
-    padding: 20px;
-    overflow-x: hidden;
-  }
-
-  .home-panel-1, .home-panel-3 {
-    width: 300px;
-  }
-
-  .centerForm {
-    width: 300px;
-  }
-
-  input {
-    max-width: 290px;
-  }
-
-  .artwork-card {
-    max-width: 300px;
-    margin: 10px;
-  }
-
-  */
 } 
