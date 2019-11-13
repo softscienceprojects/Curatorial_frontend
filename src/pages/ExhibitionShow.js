@@ -43,7 +43,7 @@ class ExhibitionShow extends React.Component {
             <hr />
             {this.state.exhibition.artworks.length > 0 ? this.state.exhibition.artworks.map(artwork => 
             <div className="exhibition">
-            <ArtworkCard key={artwork.title} artwork={artwork} />
+            <ArtworkCard key={artwork.title} artwork={artwork} {...this.props} />
             <RemoveArtworkButton user={this.props.user} 
             key={artwork.id} 
             artwork={artwork}

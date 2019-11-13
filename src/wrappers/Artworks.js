@@ -29,7 +29,7 @@ class Artworks extends React.Component {
             <article>
                 <h1 id="logo">A few random selections</h1>
             <InfiniteScroll dataLength={this.state.artworks.length} next={this.loader} refreshFunction={this.loader} hasMore={true} pullDownToRefresh loader={<h1 id="logo">Getting art</h1>}>
-                {this.state.artworks.map(artwork=> <ArtworkCard artwork={artwork} key={`${artwork.id}-${artwork.title}`} />)}
+                {this.state.artworks.map(artwork=> <ArtworkCard artwork={artwork} key={`${artwork.id}-${artwork.title}`} {...this.props} />)}
             </InfiniteScroll>
             </article>
         )
