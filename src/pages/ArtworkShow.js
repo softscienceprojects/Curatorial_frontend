@@ -50,11 +50,11 @@ class ArtworkShow extends React.Component {
 
           <br />
           {/* Image will go here */}
-          {/* <img
+          <img
             src={this.state.artwork.image_url}
             alt={this.state.artwork.title}
             className="responsive"
-          /> */}
+          />
           <h2>{this.state.artwork.title}</h2>
           <h4>by {this.state.artwork.artist}</h4>
           <p>{this.state.artwork.medium}</p>
