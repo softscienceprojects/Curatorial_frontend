@@ -340,7 +340,7 @@ select {
 }
 
 .exhibition-container {
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   margin: auto;
 }
@@ -438,7 +438,7 @@ footer a {
 .exhibition-poster {
   background-color: black;
   border: 3px solid black;
-  width: 300px;
+  width: 100%;
   min-height: 400px;
   line-height: 2;
   text-align: center;
