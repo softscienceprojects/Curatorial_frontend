@@ -1,5 +1,5 @@
-const API_ENDPOINT = "http://localhost:3000";
-//const API_ENDPOINT = "https://curatorial-railsbackend.herokuapp.com";
+//const API_ENDPOINT = "http://localhost:3000";
+const API_ENDPOINT = "https://curatorial-railsbackend.herokuapp.com";
 
 const SIGNIN_URL = `${API_ENDPOINT}/signin`;
 //const SIGNUP_URL = `${API_ENDPOINT}/users`
