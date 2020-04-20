@@ -1,6 +1,6 @@
 # Curatorial
 
-Curatorial is an artworks API. [The backend] (https://github.com/softscienceprojects/Curatorial_backend) was built with Ruby on Rails and seeded with artworks from the Harvard Art Museum's API at the `/artworks` endpoint. Each artwork was then submitted to the Google Vision API to be analysed for its content. The response from Google Vision has been stored at the `/contents` endpoint. 
+Curatorial is an artworks API. [The backend] (https://github.com/softscienceprojects/Curatorial_backend) was built with Ruby on Rails and seeded with artworks from the Artsy's API at the `/artworks` endpoint. Each artwork was then submitted to the Google Vision API to be analysed for its content. The response from Google Vision has been stored at the `/contents` endpoint. 
 
 ## Key User Stories
 Users can view search for and view artworks without creating an account. By signing up, users can save artworks to exhibitions that they create (by ticking it as 'public' it will appear on /exhibitions). Other users can 'like' the exhibition which will save onto their user dashboard (one or more likes gives it the 'popular' flag on the exhibitions index page). 
